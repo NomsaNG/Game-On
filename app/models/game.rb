@@ -1,15 +1,18 @@
 class Game < ApplicationRecord
-  enum visibility: { public: 0, community: 1, private: 2 }
-  enum sport: { tennis: 'Tennis', squash: 'Squash', padel: 'Padel' }
+  VALID_VISIBILITIES = ["Public", "Community", "Private"]
+  VALID_SPORTS = ["Tennis", "Squash", "Padel"]
 
-  validates :description, :visibility, :capacity, :sport, :start_time, :end_time, presence: true
-  validates :community_id, presence: true, if: -> { visibility == 'community' }
+  validates :description, :capacity, :start_time, :end_time, presence: true
+  validates :visibility, inclusion: { in: VALID_VISIBILITIES }
+  validates :sport, inclusion: { in: VALID_SPORTS }
+
+  validates :community_id, presence: true, if: -> { visibility == 'Community' }
 
   belongs_to :venue
   belongs_to :community, optional: true
 
   has_many :participants
-  has_many :users, through: :participations
+  has_many :users, through: :participants
 
   has_many :chatrooms
 end

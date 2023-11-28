@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  enum gender: { male: 'male', female: 'female', other: 'other' }
+  has_one_attached :photo
+
+  VALID_GENDERS = ["Male", "Female", "Other"]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,7 +9,8 @@ class User < ApplicationRecord
 
   validates :username, presence: true
   validates :first_name, :last_name, presence: true
-  validates :gender, inclusion: { in: ['male', 'female', 'other'] }
+  validates :gender, inclusion: { in: VALID_GENDERS }
+
   has_many :affiliations
   has_many :communities, through: :affiliations
   has_many :participants
