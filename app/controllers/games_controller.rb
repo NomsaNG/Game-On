@@ -8,8 +8,11 @@ class GamesController < ApplicationController
   def join
   end
 
+  def new
+    @game = Game.new
+  end
+
   def create
-    #THis is where we will write the create action
   end
 
   def edit

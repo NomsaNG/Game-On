@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
 
-  resources :games, only: [:index, :show, :edit, :update, :destroy] do
+  resources :games, only: [:index, :show, :new, :edit, :update, :destroy] do
     member do
       post :join, to: 'participations#create'
     end
