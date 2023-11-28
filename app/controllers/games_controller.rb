@@ -9,6 +9,7 @@ class GamesController < ApplicationController
   end
 
   def create
+    #THis is where we will write the create action
   end
 
   def edit
