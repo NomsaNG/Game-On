@@ -1,2 +1,77 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="page-container">
+    <div class="filter-buttons">
+      <button onclick="filterBy('nearMe')">Near Me</button>
+      <button onclick="filterBy('playersYouKnow')">Players You Know</button>
+      <button onclick="filterBy('rentals')">Rentals</button>
+      <button onclick="filterBy('tennis')">Tennis</button>
+      <button onclick="filterBy('squash')">Squash</button>
+      <button onclick="filterBy('paddle')">Paddle</button>
+    </div>
+    <div class="grid-container">
+      <div class="memory-card-game">
+        <img src="https://www.parrishkauai.com/wp-content/uploads/2013/08/Tennis-at-Hanalei-Bay-Resort-1.jpg" alt="tennis court" class="card-game-image">
+        <div class="card-game-text m-2">
+          <h1>Advanced - Court 1</h1>
+          <h1>Nov 29, 2023 at 6:30 PM</h1>
+          <h1>location name</h1>
+          <hr class="solid">
+          <h1> 2 spots left</h1>
+          <button class="button card-game-button">Join Game</button>
+
+        </div>
+
+      </div>
+      <div class="memory-card-game">
+        <img src="https://img.olympics.com/images/image/private/t_s_w860/t_s_16_9_g_auto/f_auto/primary/byhxvhqqkfpgnfzemsk8" alt="tennis court" class="card-game-image">
+        <div class="card-game-text m-2">
+          <h1>Easy - Court 4</h1>
+          <h1>Nov 29, 2023 at 2:30 PM</h1>
+          <h1>location name</h1>
+          <hr class="solid">
+          <h1> 5 spots left</h1>
+            <button class="button card-game-button">Join Game</button>
+        </div>
+
+      </div>
+      <div class="memory-card-game">
+        <img src="https://shackdemos.co.za/oldlifegreen/wp-content/uploads/2016/08/tennis.jpg" alt="tennis court" class="card-game-image">
+        <div class="card-game-text m-2">
+          <h1>Advanced - Court 1</h1>
+          <h1>Nov 29, 2023 at 7:00 PM</h1>
+          <h1>location name</h1>
+          <hr class="solid">
+          <h1> 0 spots left</h1>
+          <button class="button card-game-button">Game filled</button>
+        </div>
+      </div>
+      <div class="memory-card-game">
+        <img src="https://www.blairatholl.co.za/wp-content/uploads/2022/10/tennis-court-mobile.jpg" alt="tennis court" class="card-game-image">
+        <div class="card-game-text m-2">
+          <h1>Advanced - Court 1</h1>
+          <h1>Nov 29, 2023 at 10:30 AM</h1>
+          <h1>location name</h1>
+          <hr class="solid">
+          <h1> 7 spots left</h1>
+          <button class="button card-game-button">Join Game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function filterBy(category) {
+    // Implement filtering logic here
+
+    const cards = document.querySelectorAll('.memory-card-game');
+    cards.forEach(card => {
+      const categoryClass = card.getAttribute('data-category');
+
+      if (category === 'all' || category === categoryClass) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
