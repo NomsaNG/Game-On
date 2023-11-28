@@ -11,8 +11,8 @@ class Game < ApplicationRecord
   belongs_to :venue
   belongs_to :community, optional: true
 
-  has_many :participants
-  has_many :users, through: :participants
+  has_many :participations
+  has_many :users, through: :participations
 
   has_many :chatrooms
 end

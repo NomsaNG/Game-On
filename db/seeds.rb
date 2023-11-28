@@ -8,7 +8,7 @@ Community.destroy_all
 Game.destroy_all
 Membership.destroy_all
 Message.destroy_all
-Participant.destroy_all
+Participation.destroy_all
 User.destroy_all
 Venue.destroy_all
 
@@ -361,7 +361,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc.tomorrow.beginning_of_day + 12.hours,
   end_time: Time.now.utc.tomorrow.beginning_of_day + 14.hours
-).participants.create!([{ user: user1, is_creator: true }, { user: user2 }])
+).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 
 Game.create!(
@@ -373,7 +373,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc.tomorrow.beginning_of_day + 12.hours,
   end_time: Time.now.utc.tomorrow.beginning_of_day + 14.hours
-).participants.create!([{ user: user3, is_creator: true }, { user: user4 }])
+).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 
 Game.create!(
@@ -385,7 +385,7 @@ Game.create!(
   sport: "Squash",
   start_time: Time.now.utc.tomorrow.beginning_of_day + 12.hours,
   end_time: Time.now.utc.tomorrow.beginning_of_day + 14.hours
-).participants.create!([{ user: user5, is_creator: true }, { user: user6 }])
+).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 
 Game.create!(
@@ -397,7 +397,7 @@ Game.create!(
   sport: "Padel",
   start_time: Time.now.utc.tomorrow.beginning_of_day + 12.hours,
   end_time: Time.now.utc.tomorrow.beginning_of_day + 14.hours
-).participants.create!([{ user: user7, is_creator: true }, { user: user8 }])
+).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 
 Game.create!(
@@ -409,7 +409,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc + 12.hours,
   end_time: Time.now.utc + 14.hours
-).participants.create!([{ user: user1, is_creator: true }, { user: user2 }])
+).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 Game.create!(
   name: "Friendly Padel Tournament",
@@ -420,7 +420,7 @@ Game.create!(
   sport: "Padel",
   start_time: Time.now.utc + 14.hours,
   end_time: Time.now.utc + 16.hours
-).participants.create!([{ user: user3, is_creator: true }, { user: user4 }])
+).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 
 Game.create!(
@@ -432,7 +432,7 @@ Game.create!(
   sport: "Squash",
   start_time: Time.now.utc + 16.hours,
   end_time: Time.now.utc + 18.hours
-).participants.create!([{ user: user5, is_creator: true }, { user: user6 }])
+).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 
 Game.create!(
@@ -444,7 +444,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc + 18.hours,
   end_time: Time.now.utc + 20.hours
-).participants.create!([{ user: user7, is_creator: true }, { user: user8 }])
+).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 Game.create!(
   name: "Padel Extravaganza",
@@ -455,7 +455,7 @@ Game.create!(
   sport: "Padel",
   start_time: Time.now.utc + 20.hours,
   end_time: Time.now.utc + 22.hours
-).participants.create!([{ user: user1, is_creator: true }, { user: user2 }])
+).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 Game.create!(
   name: "Dynamic Squash Showdown",
@@ -466,7 +466,7 @@ Game.create!(
   sport: "Squash",
   start_time: Time.now.utc + 22.hours,
   end_time: Time.now.utc + 1.day
-).participants.create!([{ user: user3, is_creator: true }, { user: user4 }])
+).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 
 Game.create!(
@@ -478,7 +478,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc + 1.day,
   end_time: Time.now.utc + 1.day + 2.hours
-).participants.create!([{ user: user5, is_creator: true }, { user: user6 }])
+).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 
 Game.create!(
@@ -490,7 +490,7 @@ Game.create!(
   sport: "Padel",
   start_time: Time.now.utc + 1.day + 2.hours,
   end_time: Time.now.utc + 1.day + 4.hours
-).participants.create!([{ user: user7, is_creator: true }, { user: user8 }])
+).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 
 Game.create!(
@@ -502,7 +502,7 @@ Game.create!(
   sport: "Squash",
   start_time: Time.now.utc + 1.day + 4.hours,
   end_time: Time.now.utc + 1.day + 6.hours
-).participants.create!([{ user: user1, is_creator: true }, { user: user2 }])
+).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 
 Game.create!(
@@ -514,7 +514,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc + 1.day + 6.hours,
   end_time: Time.now.utc + 1.day + 8.hours
-).participants.create!([{ user: user3, is_creator: true }, { user: user4 }])
+).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 
 Game.create!(
@@ -526,7 +526,7 @@ Game.create!(
   sport: "Padel",
   start_time: Time.now.utc + 1.day + 8.hours,
   end_time: Time.now.utc + 1.day + 10.hours
-).participants.create!([{ user: user5, is_creator: true }, { user: user6 }])
+).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 
 Game.create!(
@@ -538,7 +538,7 @@ Game.create!(
   sport: "Squash",
   start_time: Time.now.utc + 1.day + 10.hours,
   end_time: Time.now.utc + 2.days
-).participants.create!([{ user: user7, is_creator: true }, { user: user8 }])
+).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 
 Game.create!(
@@ -550,7 +550,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc + 2.days + 12.hours,
   end_time: Time.now.utc + 2.days + 14.hours
-).participants.create!([{ user: user1, is_creator: true }, { user: user2 }])
+).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 
 Game.create!(
@@ -562,7 +562,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc + 2.days + 12.hours,
   end_time: Time.now.utc + 2.days + 14.hours
-).participants.create!([{ user: user3, is_creator: true }, { user: user4 }])
+).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 
 Game.create!(
@@ -574,7 +574,7 @@ Game.create!(
   sport: "Squash",
   start_time: Time.now.utc + 2.days + 12.hours,
   end_time: Time.now.utc + 2.days + 14.hours
-).participants.create!([{ user: user5, is_creator: true }, { user: user6 }])
+).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 
 Game.create!(
@@ -586,7 +586,7 @@ Game.create!(
   sport: "Padel",
   start_time: Time.now.utc + 2.days + 12.hours,
   end_time: Time.now.utc + 2.days + 14.hours
-).participants.create!([{ user: user7, is_creator: true }, { user: user8 }])
+).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 
 Game.create!(
@@ -598,7 +598,7 @@ Game.create!(
   sport: "Tennis",
   start_time: Time.now.utc + 2.days + 18.hours,
   end_time: Time.now.utc + 2.days + 20.hours
-).participants.create!([{ user: user7, is_creator: true }, { user: user8 }])
+).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 
 Game.create!(
@@ -610,7 +610,7 @@ Game.create!(
   sport: "Padel",
   start_time: Time.now.utc + 2.days + 20.hours,
   end_time: Time.now.utc + 2.days + 22.hours
-).participants.create!([{ user: user1, is_creator: true }, { user: user2 }])
+).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 
 Game.create!(
@@ -622,6 +622,6 @@ Game.create!(
   sport: "Squash",
   start_time: Time.now.utc + 2.days + 22.hours,
   end_time: Time.now.utc + 3.days
-).participants.create!([{ user: user3, is_creator: true }, { user: user4 }])
+).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 puts "Successfully generated #{Game.count} games"

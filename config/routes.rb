@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:index, :show, :edit, :update, :destroy] do
     member do
-      post :join, to: 'participants#create'
+      post :join, to: 'participations#create'
     end
   end
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :games, only: [:create, :update]
   end
 
-  delete 'participants/:id', to: 'participants#destroy'
+  delete 'participations/:id', to: 'participations#destroy'
 
   resources :communities, only: [:new, :create, :index, :show] do
     member do
