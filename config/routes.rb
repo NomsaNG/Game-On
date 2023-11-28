@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'venues/index'
   get 'membership/create'
   get 'communities/new'
   get 'communities/create'
