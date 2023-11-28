@@ -1,7 +1,8 @@
 class Community < ApplicationRecord
-  enum visibility: { public: 0, private: 1 }
+  VALID_VISIBILITIES = ["Public", "Private"]
 
-  validates :name, :visibility, :description, presence: true
+  validates :name, :description, :visibility, presence: true
+  validates :visibility, inclusion: { in: VALID_VISIBILITIES }
 
   has_many :memberships
   has_many :users, through: :memberships
