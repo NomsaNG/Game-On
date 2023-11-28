@@ -97,14 +97,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_101218) do
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
-  create_table "participants", force: :cascade do |t|
+  create_table "participations", force: :cascade do |t|
     t.bigint "game_id", null: false
     t.bigint "user_id", null: false
     t.boolean "is_creator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_participants_on_game_id"
-    t.index ["user_id"], name: "index_participants_on_user_id"
+    t.index ["game_id"], name: "index_participations_on_game_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -148,6 +148,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_101218) do
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "messages", "users", column: "sender_id"
-  add_foreign_key "participants", "games"
-  add_foreign_key "participants", "users"
+  add_foreign_key "participations", "games"
+  add_foreign_key "participations", "users"
 end
