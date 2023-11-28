@@ -8,8 +8,20 @@ class GamesController < ApplicationController
   def join
   end
 
+  def new
+    @game = Game.new
+    @venues = Venue.all
+  end
+
   def create
-    #THis is where we will write the create action
+    @game = Game.new(game_params)
+
+    if @game.save
+      @game.participations.create(user: current_user, is_creator: true)
+      render json: { success: true }
+    else
+      render json: { errors: @game.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -19,5 +31,11 @@ class GamesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def game_params
+    params.require(:game).permit(:name, :sport, :start_time, :venue_id, :visibility, :capacity, :description)
   end
 end

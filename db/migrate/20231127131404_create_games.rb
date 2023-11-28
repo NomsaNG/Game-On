@@ -9,7 +9,6 @@ class CreateGames < ActiveRecord::Migration[7.1]
       t.references :venue, null: false, foreign_key: true
       t.string :sport
       t.time :start_time
-      t.time :end_time
 
       t.timestamps
     end

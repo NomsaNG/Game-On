@@ -68,7 +68,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_101218) do
     t.bigint "venue_id", null: false
     t.string "sport"
     t.time "start_time"
-    t.time "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["community_id"], name: "index_games_on_community_id"

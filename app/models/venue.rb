@@ -7,4 +7,11 @@ class Venue < ApplicationRecord
   has_many :games
 
   validates :address, :description, presence: true
+
+  scope :available_venues, ->(selected_sport) {
+    return all unless selected_sport.present?
+
+    where("#{selected_sport.downcase} = ?", true)
+  }
+
 end

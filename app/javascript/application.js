@@ -3,3 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+
+import 'flatpickr/dist/flatpickr.css'
+import flatpickr from 'flatpickr'
+
+window.flatpickr = flatpickr

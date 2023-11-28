@@ -1,2 +1,18 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+<%= simple_form_for @game, url: games_path, method: :post, data: { controller: "game-form" } do |f| %>
+  <%= f.input :name, label: "Game Title", required: true %>
+
+  <%= f.input :sport, as: :select, collection: Game::VALID_SPORTS, prompt: "Select Sport", required: true %>
+
+  <%= f.input :start_time, as: :time, label: "Time", required: true %>
+
+  <%= f.input :capacity, label: "Capacity", required: true, input_html: { type: "number", min: 1 } %>
+  <%= f.input :description, label: "Description", required: true, input_html: { rows: 3 } %>
+
+  <div data-controller="venue-list" data-venues='<%= @venues.to_json %>'>
+    <%= f.input :venue_id, as: :select, collection: @venues, prompt: "Select Venue", required: true, input_html: { data: { target: "venue-list.venueSelect" } } %>
+  </div>
+
+  <%= f.input :visibility, as: :select, collection: Game::VALID_VISIBILITIES, prompt: "Select Visibility", required: true %>
+
+  <%= f.submit "Confirm", class: "btn btn-primary" %>
+<% end %>
