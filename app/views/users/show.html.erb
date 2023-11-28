@@ -1,1 +1,14 @@
-<h1>Test</h1>
+<% if user_signed_in? %>
+<div class="user-info-container">
+  <h1><%= @user.first_name %>'s Profile</h1>
+<%# To be in navbar %>
+  <div class="user-info-card">
+    <strong>Username:</strong>
+    <%= @user.username %> <br>
+    <strong>Bio:</strong>
+    <%= @user.bio %>
+  </div>
+</div>
+<% else %>
+  <p>You need to sign in to view this page.</p>
+<% end %>
