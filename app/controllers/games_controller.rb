@@ -5,11 +5,19 @@ class GamesController < ApplicationController
   def show
   end
 
-  def join
+  def new
+    @game = Game.new
+    @sports = Game::VALID_SPORTS
   end
 
   def create
-    #THis is where we will write the create action
+    @game = Game.new(game_params)
+
+    if @game.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -21,5 +29,9 @@ class GamesController < ApplicationController
   def destroy
   end
 
-  
+  private
+
+  def game_params
+    params.require(:game).permit(:name, :description, :visibility, :community_id, :capacity, :venue_id, :sport, :start_time)
+  end
 end

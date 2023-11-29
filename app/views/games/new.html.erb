@@ -1,2 +1,22 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+<div class="container text-white">
+  <%= simple_form_for(@game) do |f| %>
+    <%= f.input :sport, collection: @sports, selected: "Tennis" %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.association :venue %>
+    <%= f.input :visibility %>
+    <%= f.input :capacity, as: :integer %>
+
+    <%= f.input :start_time, as: :datetime, discard_minute: true,
+                start_year: Date.today.year, end_year: Date.today.year + 1,
+                order: [:day, :month, :year],
+                prompt: { day: 'Select Day', hour: 'Select Hour' },
+                minute_step: 60, include_blank: true,
+                input_html: { class: 'form-control' } %>
+
+    <%# Hidden input field to set minutes to 0 %>
+    <%= f.hidden_field :start_time, value: 0 %>
+
+    <%= f.submit %>
+  <% end %>
+</div>

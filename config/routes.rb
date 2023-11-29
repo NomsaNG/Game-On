@@ -11,15 +11,13 @@ Rails.application.routes.draw do
   # root "posts#index"
 
 
-  resources :games, only: [:index, :show, :edit, :update, :destroy] do
+  resources :games, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     member do
       post :join, to: 'participations#create'
     end
   end
 
-  resources :venues, only: [:index, :show] do
-    resources :games, only: [:create, :update]
-  end
+  resources :venues, only: [:index, :show]
 
   delete 'participations/:id', to: 'participations#destroy'
 

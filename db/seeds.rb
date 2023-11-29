@@ -346,11 +346,7 @@ venue13.save!
 
 puts "Succesfully generated #{Venue.count} venues"
 
-
 puts "Generating games..."
-
-
-
 
 Game.create!(
   name: "Epic Tennis Showdown",
@@ -648,4 +644,3 @@ Game.create!(
 puts "#{Game.last.end_time}"
 
 puts "Successfully generated #{Game.count} games"
-
