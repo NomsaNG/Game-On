@@ -1,18 +1,33 @@
 <% if user_signed_in? %>
-<div class="user-info-container">
-  <h1><%= @user.first_name %>'s Profile</h1>
-<%# To be in navbar %>
-  <div class="user-info-card">
-    <strong>Username:</strong>
-    <%= @user.username %> <br>
-    <strong>Bio:</strong>
-    <%= @user.bio %>
-  </div>
-  <h2>Participated Games</h2>
-  <% @games.each do |played| %>
-      <p><%= played%></p>
-    <% end %>
+<div class="user-name-div">
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  <button class="edit-profile-btn">Edit Profile</button>
+  <%# striftime the time to user friendly ux %>
+  <p>Joined <%= @user.created_at%></p>
 </div>
+<div class="user-info-container">
+  <div class="user-info-card">
+    <p><strong>Username:</strong></p>
+    <p><%= @user.username %></p>
+    <p><strong>Bio:</strong></p>
+    <p><%= @user.bio %></p>
+    <p><strong>Gender:</strong></p>
+    <p><%= @user.gender %></p>
+  </div>
+    <h1 class="games-h1">Your Games</h1>
+  <div class="user-game-container">
+    <% @user.games.each do |game| %>
+      <div class="user-games-card">
+        <p><%= game.name %></p>
+        <p><%= game.sport %></p>
+        <p><%= game.venue.name %></p>
+        <p><%= game.venue.address %></p>
+        <p><%= game.start_time.strftime('%b %d, %Y at %I:%M %p') %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <% else %>
   <p>You need to sign in to view this page.</p>
 <% end %>
