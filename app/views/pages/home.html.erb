@@ -2,7 +2,7 @@
   <div class="page-container">
     <div class="row justify-content-left">
       <div class="col-sm-8 my-3">
-        <%= form_with url: games_path, method: :get, class: "d-flex" do %>
+        <%= form_with url: root_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
@@ -13,6 +13,7 @@
       </div>
     </div>
     <div class="filter-buttons">
+      <button onclick="filterBy('all')">All</button>
       <button onclick="filterBy('nearMe')">Near Me</button>
       <button onclick="filterBy('playersYouKnow')">Players You Know</button>
       <button onclick="filterBy('tennis')">Tennis</button>
@@ -20,29 +21,31 @@
       <button onclick="filterBy('paddle')">Paddle</button>
     </div>
     <div class="grid-container">
-      <% today_games = Game.where('start_time >= ? AND start_time < ?', Time.zone.now.beginning_of_day, 1.day.from_now.beginning_of_day).limit(4) %>
-      <% tomorrow_games = Game.where('start_time >= ?', 1.day.from_now.beginning_of_day).limit(4) %>
-
-
-      <% [today_games, tomorrow_games].each do |games| %>
-        <% games.each do |game| %>
-          <div class="memory-card-game">
-            <img src="https://www.parrishkauai.com/wp-content/uploads/2013/08/Tennis-at-Hanalei-Bay-Resort-1.jpg" alt="<%= game.sport %> court" class="card-game-image">
-            <div class="card-game-text m-2">
-              <h1><%= game.sport %></h1>
-              <h1><%= game.start_time.strftime('%b %d, %Y at %I:%M %p') %></h1>
-              <h1><%= game.venue.name %></h1>
-              <hr class="solid">
-              <h1>spots left</h1>
-              <% if game.capacity > 0 %>
-                <%= link_to "Join Game", join_game_path(game), class: "button card-game-button" %>
-              <% else %>
-                <button class="button card-game-button" disabled>Game filled</button>
-              <% end %>
-            </div>
+        <%@games.each do |game| %>
+        <div class="memory-card-game" data-category="<%= game.sport.downcase %>">
+          <div class="image-container">
+            <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
           </div>
-        <% end %>
+          <div class="card-game-text m-2">
+            <h1><%= game.sport %></h1>
+            <h1><%= game.start_time.strftime('%b %d, %Y at %I:%M %p') %></h1>
+            <h1><%= game.venue.name %></h1>
+            <hr class="solid">
+            <h1><%= "#{game.capacity} spots left" %></h1>
+            <% if game.capacity > 0 %>
+              <%= link_to "Join Game", new_user_session_path, class: "button card-game-button" %>
+            <% else %>
+              <button class="button card-game-button" disabled>Game filled</button>
+            <% end %>
+            <!--<div class="avatars">-->
+              <%# @games.each do |game| %>
+                <%#= cl_image_tag(game.participations.user.photo.key, class: "avatar-image") %>
+              <%# end %>
+<!--            </div>-->
+          </div>
+        </div>
       <% end %>
+
 
       <!-- Add a link or button to load more games -->
       <div class="load-more-games">
@@ -52,3 +55,35 @@
     </div>
   </div>
 </div>
+
+<!--  for search bar-->
+  <script>
+    function filterBy(game) {
+    document.querySelector('form').submit();
+    }
+  </script>
+
+<script>
+  function filterBy(category) {
+    // Get all game elements
+    const games = document.querySelectorAll('.memory-card-game');
+
+    // Show all games if 'All' is selected
+    if (category === 'all') {
+      games.forEach(game => {
+        game.style.display = 'block';
+      });
+      return;
+    }
+
+    // Hide games that do not match the selected category
+    games.forEach(game => {
+      const gameCategory = game.getAttribute('data-category');
+      if (gameCategory === category) {
+        game.style.display = 'block';
+      } else {
+        game.style.display = 'none';
+      }
+    });
+  }
+</script>
