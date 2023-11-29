@@ -1,13 +1,21 @@
 .button{
   background-color: black;
   color: white;
-  border-radius: 18px;
-  width: 95%;
+  border-radius: 0.7em;
+  width: 100%;
+  text-decoration: none;
+  padding: 0.5em;
 }
 
 button{
   background-color: rgb(214, 212, 212);
   color: black;
-  border-radius: 5px;
+  border-radius: 0.2em;
   border: none;
+  margin: 0.3em;
+}
+
+.search-button{
+  background-color: black;
+  color: white;
 }

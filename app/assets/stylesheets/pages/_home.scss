@@ -1,9 +1,10 @@
 body::before {
   content: "";
-  background-image: url(https://i.pinimg.com/originals/c2/c0/c0/c2c0c05ea5db1052230fd76046fc3097.jpg);
+  background-image: url(https://i.pinimg.com/736x/ca/65/10/ca65101db14b1fddd0b5d512ee44769c.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.8; // Change this to the desired opacity
+  background-size: 100%;
+  // opacity: 0.8;
   top: 0;
   left: 0;
   bottom: 0;
@@ -32,7 +33,7 @@ body {
 
 .memory-card-game{
   height: 300px;
-  border-radius: 1em;
+  border-radius: 0.3em;
   background-color: white;
   box-shadow: whitesmoke 0px 0px 2px 0px;
 }
@@ -40,5 +41,5 @@ body {
 .card-game-image{
   height: 45%;
   width: 100%;
-  border-radius: 1em 1em 0 0;
+  border-radius: 0.3em 0.3em 0 0;
 }
