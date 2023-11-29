@@ -1,77 +1,54 @@
 <div class="container">
   <div class="page-container">
+    <div class="row justify-content-left">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: games_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Type a keyword"
+            %>
+          <%= submit_tag "Search", name: "", class: "search-button btn-primary" %>
+        <% end %>
+      </div>
+    </div>
     <div class="filter-buttons">
       <button onclick="filterBy('nearMe')">Near Me</button>
       <button onclick="filterBy('playersYouKnow')">Players You Know</button>
-      <button onclick="filterBy('rentals')">Rentals</button>
       <button onclick="filterBy('tennis')">Tennis</button>
       <button onclick="filterBy('squash')">Squash</button>
       <button onclick="filterBy('paddle')">Paddle</button>
     </div>
     <div class="grid-container">
-      <div class="memory-card-game">
-        <img src="https://www.parrishkauai.com/wp-content/uploads/2013/08/Tennis-at-Hanalei-Bay-Resort-1.jpg" alt="tennis court" class="card-game-image">
-        <div class="card-game-text m-2">
-          <h1>Advanced - Court 1</h1>
-          <h1>Nov 29, 2023 at 6:30 PM</h1>
-          <h1>location name</h1>
-          <hr class="solid">
-          <h1> 2 spots left</h1>
-          <button class="button card-game-button">Join Game</button>
+      <% today_games = Game.where('start_time >= ? AND start_time < ?', Time.zone.now.beginning_of_day, 1.day.from_now.beginning_of_day).limit(4) %>
+      <% tomorrow_games = Game.where('start_time >= ?', 1.day.from_now.beginning_of_day).limit(4) %>
 
-        </div>
 
-      </div>
-      <div class="memory-card-game">
-        <img src="https://img.olympics.com/images/image/private/t_s_w860/t_s_16_9_g_auto/f_auto/primary/byhxvhqqkfpgnfzemsk8" alt="tennis court" class="card-game-image">
-        <div class="card-game-text m-2">
-          <h1>Easy - Court 4</h1>
-          <h1>Nov 29, 2023 at 2:30 PM</h1>
-          <h1>location name</h1>
-          <hr class="solid">
-          <h1> 5 spots left</h1>
-            <button class="button card-game-button">Join Game</button>
-        </div>
+      <% [today_games, tomorrow_games].each do |games| %>
+        <% games.each do |game| %>
+          <div class="memory-card-game">
+            <img src="https://www.parrishkauai.com/wp-content/uploads/2013/08/Tennis-at-Hanalei-Bay-Resort-1.jpg" alt="<%= game.sport %> court" class="card-game-image">
+            <div class="card-game-text m-2">
+              <h1><%= game.sport %></h1>
+              <h1><%= game.start_time.strftime('%b %d, %Y at %I:%M %p') %></h1>
+              <h1><%= game.venue.name %></h1>
+              <hr class="solid">
+              <h1>spots left</h1>
+              <% if game.capacity > 0 %>
+                <%= link_to "Join Game", join_game_path(game), class: "button card-game-button" %>
+              <% else %>
+                <button class="button card-game-button" disabled>Game filled</button>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
 
+      <!-- Add a link or button to load more games -->
+      <div class="load-more-games">
+        <%= link_to "Load More Games", new_user_session_path, class: "button" %>
       </div>
-      <div class="memory-card-game">
-        <img src="https://shackdemos.co.za/oldlifegreen/wp-content/uploads/2016/08/tennis.jpg" alt="tennis court" class="card-game-image">
-        <div class="card-game-text m-2">
-          <h1>Advanced - Court 1</h1>
-          <h1>Nov 29, 2023 at 7:00 PM</h1>
-          <h1>location name</h1>
-          <hr class="solid">
-          <h1> 0 spots left</h1>
-          <button class="button card-game-button">Game filled</button>
-        </div>
-      </div>
-      <div class="memory-card-game">
-        <img src="https://www.blairatholl.co.za/wp-content/uploads/2022/10/tennis-court-mobile.jpg" alt="tennis court" class="card-game-image">
-        <div class="card-game-text m-2">
-          <h1>Advanced - Court 1</h1>
-          <h1>Nov 29, 2023 at 10:30 AM</h1>
-          <h1>location name</h1>
-          <hr class="solid">
-          <h1> 7 spots left</h1>
-          <button class="button card-game-button">Join Game</button>
-        </div>
-      </div>
+    </div>
     </div>
   </div>
 </div>
-<script>
-  function filterBy(category) {
-    // Implement filtering logic here
-
-    const cards = document.querySelectorAll('.memory-card-game');
-    cards.forEach(card => {
-      const categoryClass = card.getAttribute('data-category');
-
-      if (category === 'all' || category === categoryClass) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-</script>
