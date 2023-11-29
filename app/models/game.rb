@@ -1,4 +1,9 @@
 class Game < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_keyword, against: [:name, :description, :sport],
+                  associated_against: { venue: [:name, :address] },
+                  using: { tsearch: { prefix: true } }
+
   VALID_VISIBILITIES = ["Public", "Community", "Private"]
   VALID_SPORTS = ["Tennis", "Squash", "Padel"]
 
