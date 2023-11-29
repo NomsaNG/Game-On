@@ -1,7 +1,7 @@
 <div class="container">
   <div class="page-container">
     <div class="row justify-content-left">
-      <div class="col-sm-8 my-3">
+      <div class="search-bar my-3">
         <%= form_with url: root_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
@@ -31,17 +31,25 @@
             <h1><%= game.start_time.strftime('%b %d, %Y at %I:%M %p') %></h1>
             <h1><%= game.venue.name %></h1>
             <hr class="solid">
-            <h1><%= "#{game.capacity} spots left" %></h1>
-            <% if game.capacity > 0 %>
+
+          <div class="capacity-avatar-container">
+            <div class="game-capacity">
+              <h1><%= "#{game.capacity} spots left" %></h1>
+            </div>
+
+            <div class="avatars d-flex">
+              <% game.participations.each do |participation| %>
+                <div class="game-avatar">
+                  <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <% if game.capacity > 0 %>
               <%= link_to "Join Game", new_user_session_path, class: "button card-game-button" %>
-            <% else %>
-              <button class="button card-game-button" disabled>Game filled</button>
-            <% end %>
-            <!--<div class="avatars">-->
-              <%# @games.each do |game| %>
-                <%#= cl_image_tag(game.participations.user.photo.key, class: "avatar-image") %>
-              <%# end %>
-<!--            </div>-->
+              <% else %>
+                <button class="button card-game-button" disabled>Game filled</button>
+              <% end %>
           </div>
         </div>
       <% end %>
