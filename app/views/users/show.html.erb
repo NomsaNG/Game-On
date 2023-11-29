@@ -9,6 +9,9 @@
     <%= @user.bio %>
   </div>
   <h2>Participated Games</h2>
+  <% @games.each do |played| %>
+      <p><%= played%></p>
+    <% end %>
 </div>
 <% else %>
   <p>You need to sign in to view this page.</p>
