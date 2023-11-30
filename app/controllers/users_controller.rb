@@ -5,5 +5,3 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 end
-# @games = @user.game
-# @games = @user.participations

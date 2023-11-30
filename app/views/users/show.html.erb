@@ -1,33 +1,24 @@
-<% if user_signed_in? %>
 <div class="user-name-div">
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
   <button class="edit-profile-btn">Edit Profile</button>
   <%# striftime the time to user friendly ux %>
-  <p>Joined <%= @user.created_at%></p>
+  <p>@<%= @user.username %> • Joined <%= @user.created_at.strftime('%b %d, %Y at %I:%M %p') %></p>
 </div>
-<div class="user-info-container">
-  <div class="user-info-card">
-    <p><strong>Username:</strong></p>
-    <p><%= @user.username %></p>
-    <p><strong>Bio:</strong></p>
-    <p><%= @user.bio %></p>
-    <p><strong>Gender:</strong></p>
-    <p><%= @user.gender %></p>
+  <div class="user-info-container">
+    <div class="user-info-card">
+      <p><strong>About</strong></p>
+      <p><%= @user.gender %> <br> <%= @user.bio %></p>
+    </div>
   </div>
-    <h1 class="games-h1">Your Games</h1>
   <div class="user-game-container">
+      <h1 class="games-h1">Your Games</h1>
     <% @user.games.each do |game| %>
       <div class="user-games-card">
-        <p><%= game.name %></p>
-        <p><%= game.sport %></p>
-        <p><%= game.venue.name %></p>
-        <p><%= game.venue.address %></p>
-        <p><%= game.start_time.strftime('%b %d, %Y at %I:%M %p') %></p>
+        <p><strong><%= game.name %></strong></p>
+        <p><strong>Sport: </strong><%= game.sport %></p>
+        <p><strong>Venue: </strong><%= game.venue.name %></p>
+        <p><strong>Address: </strong><%= game.venue.address %></p>
+        <p><strong>Start time: </strong><%= game.created_at.strftime('%b %d, %Y at %I:%M %p') %></p>
       </div>
     <% end %>
-  </div>
 </div>
-
-<% else %>
-  <p>You need to sign in to view this page.</p>
-<% end %>
