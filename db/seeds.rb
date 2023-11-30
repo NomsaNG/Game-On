@@ -355,11 +355,9 @@ Game.create!(
   capacity: 4,
   venue: venue1,
   sport: "Tennis",
-  start_time: Date.tomorrow.beginning_of_day + 12.hours,
-  end_time: Date.tomorrow.beginning_of_day + 14.hours
+  game_date: Date.today,
+  start_time: 6
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Bob's Center Open",
@@ -368,11 +366,9 @@ Game.create!(
   capacity: 4,
   venue: venue2,
   sport: "Tennis",
-  start_time: Date.tomorrow.beginning_of_day + 12.hours,
-  end_time: Date.tomorrow.beginning_of_day + 14.hours
+  game_date: Date.today,
+  start_time: 8
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Racket Haven Squash Challenge",
@@ -381,11 +377,9 @@ Game.create!(
   capacity: 4,
   venue: venue5,
   sport: "Squash",
-  start_time: Date.tomorrow.beginning_of_day + 12.hours,
-  end_time: Date.tomorrow.beginning_of_day + 14.hours
+  game_date: Date.today,
+  start_time: 10
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Ace Palace Padel Tournament",
@@ -394,11 +388,9 @@ Game.create!(
   capacity: 4,
   venue: venue4,
   sport: "Padel",
-  start_time: Date.tomorrow.beginning_of_day + 12.hours,
-  end_time: Date.tomorrow.beginning_of_day + 14.hours
+  game_date: Date.today,
+  start_time: 12
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Tennis Thriller",
@@ -407,10 +399,9 @@ Game.create!(
   capacity: 4,
   venue: venue1,
   sport: "Tennis",
-  start_time: Date.today + 12.hours,
-  end_time: Date.today + 14.hours
+  game_date: Date.today,
+  start_time: 14
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
-puts "#{Game.last.end_time}"
 
 Game.create!(
   name: "Friendly Padel Tournament",
@@ -419,11 +410,9 @@ Game.create!(
   capacity: 4,
   venue: venue4,
   sport: "Padel",
-  start_time: Date.today + 14.hours,
-  end_time: Date.today + 16.hours
+  game_date: Date.today,
+  start_time: 16
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Squash Rivalry",
@@ -432,11 +421,9 @@ Game.create!(
   capacity: 4,
   venue: venue5,
   sport: "Squash",
-  start_time: Date.today + 16.hours,
-  end_time: Date.today + 18.hours
+  game_date: Date.today,
+  start_time: 18
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Ace Tennis Challenge",
@@ -445,10 +432,9 @@ Game.create!(
   capacity: 4,
   venue: venue8,
   sport: "Tennis",
-  start_time: Date.today + 18.hours,
-  end_time: Date.today + 20.hours
+  game_date: Date.tomorrow,
+  start_time: 6
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
-puts "#{Game.last.end_time}"
 
 Game.create!(
   name: "Padel Extravaganza",
@@ -457,10 +443,9 @@ Game.create!(
   capacity: 4,
   venue: venue10,
   sport: "Padel",
-  start_time: Date.today + 20.hours,
-  end_time: Date.today + 22.hours
+  game_date: Date.tomorrow,
+  start_time: 8
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
-puts "#{Game.last.end_time}"
 
 Game.create!(
   name: "Dynamic Squash Showdown",
@@ -469,11 +454,9 @@ Game.create!(
   capacity: 4,
   venue: venue6,
   sport: "Squash",
-  start_time: Date.today + 22.hours,
-  end_time: Date.today + 1.day
+  game_date: Date.tomorrow,
+  start_time: 10
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Rally Masters Tennis",
@@ -482,11 +465,9 @@ Game.create!(
   capacity: 4,
   venue: venue9,
   sport: "Tennis",
-  start_time: Date.today + 1.day,
-  end_time: Date.today + 1.day + 2.hours
+  game_date: Date.tomorrow,
+  start_time: 12
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Padel Championship",
@@ -495,11 +476,9 @@ Game.create!(
   capacity: 4,
   venue: venue11,
   sport: "Padel",
-  start_time: Date.today + 1.day + 2.hours,
-  end_time: Date.today + 1.day + 4.hours
+  game_date: Date.tomorrow,
+  start_time: 14
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Squash Mastery",
@@ -508,11 +487,9 @@ Game.create!(
   capacity: 4,
   venue: venue5,
   sport: "Squash",
-  start_time: Date.today + 1.day + 4.hours,
-  end_time: Date.today + 1.day + 6.hours
+  game_date: Date.tomorrow,
+  start_time: 16
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Tennis Showtime",
@@ -521,11 +498,9 @@ Game.create!(
   capacity: 4,
   venue: venue2,
   sport: "Tennis",
-  start_time: Date.today + 1.day + 6.hours,
-  end_time: Date.today + 1.day + 8.hours
+  game_date: Date.tomorrow,
+  start_time: 18
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Padel Prodigy",
@@ -534,11 +509,9 @@ Game.create!(
   capacity: 4,
   venue: venue6,
   sport: "Padel",
-  start_time: Date.today + 1.day + 8.hours,
-  end_time: Date.today + 1.day + 10.hours
+  game_date: Date.tomorrow + 1,
+  start_time: 8
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Squash Challenge Extravaganza",
@@ -547,11 +520,9 @@ Game.create!(
   capacity: 4,
   venue: venue5,
   sport: "Squash",
-  start_time: Date.today + 1.day + 10.hours,
-  end_time: Date.today + 2.days
+  game_date: Date.tomorrow + 1,
+  start_time: 10
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Ace Tennis Showdown",
@@ -560,11 +531,9 @@ Game.create!(
   capacity: 4,
   venue: venue4,
   sport: "Tennis",
-  start_time: Date.today + 2.days + 12.hours,
-  end_time: Date.today + 2.days + 14.hours
+  game_date: Date.tomorrow + 1,
+  start_time: 14
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Bob's Center Open",
@@ -573,11 +542,9 @@ Game.create!(
   capacity: 4,
   venue: venue2,
   sport: "Tennis",
-  start_time: Date.today + 2.days + 12.hours,
-  end_time: Date.today + 2.days + 14.hours
+  game_date: Date.tomorrow + 1,
+  start_time: 18
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Racket Haven Squash Challenge",
@@ -586,11 +553,9 @@ Game.create!(
   capacity: 4,
   venue: venue5,
   sport: "Squash",
-  start_time: Date.today + 2.days + 12.hours,
-  end_time: Date.today + 2.days + 14.hours
+  game_date: Date.tomorrow,
+  start_time: 10
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Ace Palace Padel Tournament",
@@ -599,11 +564,9 @@ Game.create!(
   capacity: 4,
   venue: venue8,
   sport: "Padel",
-  start_time: Date.today + 2.days + 12.hours,
-  end_time: Date.today + 2.days + 14.hours
+  game_date: Date.tomorrow,
+  start_time: 14
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Rapid Tennis Showdown",
@@ -612,11 +575,9 @@ Game.create!(
   capacity: 4,
   venue: venue8,
   sport: "Tennis",
-  start_time: Date.today + 2.days + 18.hours,
-  end_time: Date.today + 2.days + 20.hours
+  game_date: Date.tomorrow,
+  start_time: 16
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Dynamic Padel Challenge",
@@ -625,11 +586,9 @@ Game.create!(
   capacity: 4,
   venue: venue10,
   sport: "Padel",
-  start_time: Date.today + 2.days + 20.hours,
-  end_time: Date.today + 2.days + 22.hours
+  game_date: Date.tomorrow,
+  start_time: 18
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
-puts "#{Game.last.end_time}"
-
 
 Game.create!(
   name: "Squash Showdown Spectacle",
@@ -638,9 +597,8 @@ Game.create!(
   capacity: 4,
   venue: venue12,
   sport: "Squash",
-  start_time: Date.today + 2.days + 22.hours,
-  end_time: Date.today + 3.days
+  game_date: Date.tomorrow,
+  start_time: 14
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
-puts "#{Game.last.end_time}"
 
 puts "Successfully generated #{Game.count} games"
