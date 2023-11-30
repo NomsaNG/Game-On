@@ -16,7 +16,6 @@ puts "Database resetted!"
 
 puts "Generating users..."
 
-
 user1 = User.create!(
   email: "user1@gmail.com",
   password: 'password123',

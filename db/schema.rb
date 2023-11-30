@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_101218) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_102743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_101218) do
     t.datetime "updated_at", null: false
     t.index ["community_id"], name: "index_games_on_community_id"
     t.index ["venue_id"], name: "index_games_on_venue_id"
+  end
+
+  create_table "leaderboards", force: :cascade do |t|
+    t.bigint "community_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_leaderboards_on_community_id"
+    t.index ["user_id"], name: "index_leaderboards_on_user_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -143,6 +152,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_101218) do
   add_foreign_key "chatrooms", "games"
   add_foreign_key "games", "communities"
   add_foreign_key "games", "venues"
+  add_foreign_key "leaderboards", "communities"
+  add_foreign_key "leaderboards", "users"
   add_foreign_key "memberships", "communities"
   add_foreign_key "memberships", "users"
   add_foreign_key "messages", "chatrooms"

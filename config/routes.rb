@@ -28,4 +28,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
+
+  resources :communities do
+    resources :leaderboards, only: [:index]
+    resources :games, only: [:new, :create]
+  end
 end

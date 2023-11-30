@@ -9,4 +9,5 @@ class Community < ApplicationRecord
 
   has_many :games
   has_many :chatrooms
+  has_many :leaderboards
 end
