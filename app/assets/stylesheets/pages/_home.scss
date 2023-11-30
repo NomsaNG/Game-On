@@ -1,20 +1,11 @@
-body::before {
-  content: "";
-  background-image: url(https://i.pinimg.com/736x/ca/65/10/ca65101db14b1fddd0b5d512ee44769c.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  // opacity: 0.8;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-}
-
 body {
+  background: linear-gradient(
+    to bottom right,
+    #00172d,   /* Super dark blue at the top left */
+    #001f3f 50%,  /* Same color at the middle to keep it dark */
+    #083258 70%,  /* Slightly lighter blue towards the bottom right */
+    #003366 100%  /* Slightly darker blue at the bottom right */
+  );
   min-height: 100vh;
   display: flex;
   flex-direction: column;

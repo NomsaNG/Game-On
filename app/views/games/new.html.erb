@@ -1,22 +1,37 @@
-<div class="container text-white">
-  <%= simple_form_for(@game) do |f| %>
-    <%= f.input :sport, collection: @sports, selected: "Tennis" %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.association :venue %>
-    <%= f.input :visibility %>
-    <%= f.input :capacity, as: :integer %>
+<div class="container" style="width:600px">
 
-    <%= f.input :start_time, as: :datetime, discard_minute: true,
-                start_year: Date.today.year, end_year: Date.today.year + 1,
-                order: [:day, :month, :year],
-                prompt: { day: 'Select Day', hour: 'Select Hour' },
-                minute_step: 60, include_blank: true,
-                input_html: { class: 'form-control' } %>
+  <div class="container text-white">
+    <%= simple_form_for(@game) do |f| %>
+      <%= f.input :sport,
+              as: :radio_buttons,
+              checked: "Tennis",
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'sports-wrapper',
+              item_wrapper_class: 'sports-item',
+              input_html: {class: 'sports-selector'},
+              collection: Game::VALID_SPORTS%>
 
-    <%# Hidden input field to set minutes to 0 %>
-    <%= f.hidden_field :start_time, value: 0 %>
+      <%= f.input :name,
+              label: "Game title",
+              placeholder: "Make it pop",
+              input_html: { class: "game-title-input"} %>
 
-    <%= f.submit %>
-  <% end %>
+
+
+      <%= f.input :description, placeholder: "Anything other participants should now?" %>
+      <%= f.association :venue %>
+
+      <%= f.input :visibility,
+              as: :radio_buttons,
+              checked: "Public",
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'visibility-wrapper',
+              item_wrapper_class: 'visibility-item',
+              input_html: {class: 'visibility-selector'},
+              collection: Game::VALID_VISIBILITIES %>
+
+      <%= f.input :capacity, as: :integer %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
