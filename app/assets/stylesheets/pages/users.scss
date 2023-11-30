@@ -1,0 +1,77 @@
+.user-name-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 0.3em;
+  background-color: white;
+  box-shadow: whitesmoke 0px 0px 2px 0px;
+}
+.user-name-div h1{
+  font-size: xx-large;
+  margin-bottom: 0%;
+}
+.user-name-div p{
+  font-weight: 5;
+  color: #c4bebe;
+}
+.edit-profile-btn{
+  padding: 0.5em;
+  border-radius: 2em;
+  background-color: #c4bebe;
+  box-shadow: whitesmoke 0px 0px 2px 0px;
+  color: olivedrab;
+  font-size: medium;
+  border: olivedrab 2px solid;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+.user-info-container{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 0.3em;
+  background-color: white;
+  box-shadow: whitesmoke 0px 0px 2px 0px;
+}
+.user-info-card{
+  text-align: center;
+  inline-size: 50%;
+  width: max-content;
+  height: 300px;
+  border-radius: 0.3em;
+  background-color: #1e8ad3;
+  box-shadow: whitesmoke 0px 0px 2px 0px;
+  padding: 10px;
+  margin: auto;
+}
+.user-game-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 0.3em;
+  background-color: white;
+  box-shadow: whitesmoke 0px 0px 2px 0px;
+}
+.user-games-card{
+  margin: 1em;
+  border-radius: 0.3em;
+  border: 1px solid olivedrab;
+  background-color: #c4bebe;
+  box-shadow: whitesmoke 0px 0px 2px 0px;
+  height: 300px;
+  width: 12.5em;
+}
+.games-h1{
+  margin: auto;
+  font-size: xx-large;
+}

@@ -26,4 +26,6 @@ Rails.application.routes.draw do
       post :membership, to: 'memberships#create'
     end
   end
+
+  resources :users, only: [:show, :edit, :update]
 end
