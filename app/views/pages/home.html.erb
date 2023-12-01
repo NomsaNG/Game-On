@@ -31,6 +31,7 @@
             <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
           </div>
           <div class="card-game-text m-2">
+            <h1><%= game.name %></h1>
             <h1><%= game.sport %></h1>
             <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
             <h1><%= game.venue.name %></h1>
@@ -70,6 +71,7 @@
             <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
           </div>
           <div class="card-game-text m-2">
+            <h1><%= game.name %></h1>
             <h1><%= game.sport %></h1>
             <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
             <h1><%= game.venue.name %></h1>
