@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.return-home {
+  margin-top: 20px; /* mt-2 equivalent */
+}
+
+.back-link {
+  background-color: #2b71bb; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for size */
+  text-decoration: none; /* Remove underlines */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.back-link:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.show-container {
+  width: 80%;
+  margin: auto;
+  background: transparent;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Game Header Styles */
+.game-header h1 {
+  color: white;
+  font-size: 24px;
+}
+
+/* Game Body Styles */
+.game-body {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.game-image {
+  max-width: 50%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.game-info h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #1c7eda;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: #216788;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+      width: 95%;
+  }
+
+  .game-body {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .game-image {
+      max-width: 100%;
+      margin-bottom: 20px;
+  }
+}

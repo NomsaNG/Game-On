@@ -1,4 +1,4 @@
-.create-form-input, .create-community-input, .form-inputs{
+.create-form-input, .create-community-input, .form-inputs {
   background: transparent;
   border: 2px solid #0074cc;
   border-radius: 8px;
@@ -297,7 +297,7 @@
   font-size: 15px;
 }
 
-#game_visibility_community:hover + label {
+#game_visibility_private:hover + label {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -305,7 +305,189 @@
 }
 
 
-#game_visibility_community:checked + label {
+#game_visibility_private:checked + label {
+  background: #3aa5ec;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+
+
+
+
+#show-venues-button {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#show-venues-button:hover {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+
+.venue-card-button {
+  display: block;
+  width: 100%;
+  color: #fff;
+  background: transparent;
+  border: 0.3px solid #0074cc;
+  padding: 0px;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.venue-card-button:hover {
+  border: 3px solid #3aa5ec;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.venues-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.venues-item {
+  flex: 0 0 30%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.venues-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.venues-label {
+  display: flex;
+  align-items: center;
+}
+
+.venues-selector + label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  height: 5px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 40px;
+  background-color: white;
+}
+
+.venues-selector:checked + label {
+  color: white !important;
+}
+
+#game_sport_tennis + label {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#game_sport_tennis:hover + label {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+#game_sport_tennis:checked + label {
+  background: #3aa5ec;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+#game_sport_squash + label {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#game_sport_squash:hover + label {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+#game_sport_squash:checked + label {
+  background: #3aa5ec;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+#game_sport_padel + label {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#game_sport_padel:hover + label {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+#game_sport_padel:checked + label {
   background: #3aa5ec;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -319,6 +501,65 @@
 
 
 
-.venue-card {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.create-submit-button {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+.create-submit-button:hover {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+.create-submit-button:checked {
+  background: #3aa5ec;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
 }

@@ -3,6 +3,15 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game = Game.find(params[:id])
+    @community = @game.community
+    @venue = @game.venue
+    @users = @game.users
+    @sport = @game.sport
+    @start_time = @game.start_time
+    @capacity = @game.capacity
+    @description = @game.description
+    @visibility = @game.visibility
   end
 
   def new
@@ -13,21 +22,12 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @venues = Venue.all.limit(5)
 
     if @game.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
-    end
-
-    @community = Community.find(params[:community_id])
-    @game = @community.games.new(game_params)
-    @game.users << current_user
-
-    if @game.save
-      redirect_to community_path(@community), notice: 'Game created successfully.'
-    else
-      render :new
     end
   end
 
@@ -43,6 +43,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :description, :visibility, :community_id, :capacity, :venue_id, :sport, :start_time)
+    params.require(:game).permit(:name, :description, :visibility, :community_id, :capacity, :venue_id, :sport, :start_time, :game_date)
   end
 end
