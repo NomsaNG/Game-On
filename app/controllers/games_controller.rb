@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
     @sports = Game::VALID_SPORTS
+    @venues = Venue.all.limit(5)
   end
 
   def create
