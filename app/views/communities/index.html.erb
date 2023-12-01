@@ -1,14 +1,14 @@
-<div class="community-div m-4">
+<div class="community-div">
   <h3>Communities</h3>
 
   <% @communities.each do |community| %>
     <div class="community">
-      <h2><%= link_to community.name, community %></h2>
-      <h4><%= community.description %></h4>
-      <%= link_to 'View Community', community %>
+      <h2><%= link_to community.name, community, class: "view-community-button" %></h2>
+      <h5><%= community.description %></h5>
+      <%#= link_to 'View Community', community %>
     </div>
   <% end %>
 
-  <%= link_to 'Create a New Community', new_community_path %>
+  <%= link_to 'Create a New Community', new_community_path, class: "create-community-button1" %>
 
 </div>
