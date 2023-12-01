@@ -3,6 +3,15 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game = Game.find(params[:id])
+    @community = @game.community
+    @venue = @game.venue
+    @users = @game.users
+    @sport = @game.sport
+    @start_time = @game.start_time
+    @capacity = @game.capacity
+    @description = @game.description
+    @visibility = @game.visibility
   end
 
   def new

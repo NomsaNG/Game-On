@@ -1,2 +1,45 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Details</title>
+  <!-- Add your stylesheet links here -->
+</head>
+<body>
+    <div class="return-home my-2">
+      <%= button_to "Back to Games List", root_path, class: "back-link" %>
+    </div>
+<div class="container">
+  <div class="page-container">
+    <!-- Game details section -->
+    <div class="game-details">
+      <!-- Add a photo of the venue -->
+      <% game = Game.find(params[:id]) %>
+      <div class="game-header mb-2">
+        <h1><%= game.sport %> - <%= game.name %></h1>
+      </div>
+
+      <div class="game-body">
+        <%= cl_image_tag(game.venue.photo.key, alt: "#{game.sport} court", class: "game-image") %>
+        <div class="game-info">
+          <h2>Description:</h2>
+          <p><%= game.description %></p>
+          <h2>Date and Time:</h2>
+          <p><%= game.start_time.strftime('%b %d, %Y at %I:%M %p') %></p>
+          <h2>Location:</h2>
+          <p><%= game.venue.name %></p>
+          <p><%= game.venue.address %></p>
+          <h2>Spots left:</h2>
+          <p><%= game.capacity %> spots remaining</p>
+          <% if game.capacity > 0 %>
+            <%= link_to "Join Game", join_game_path(game), class: "button game-join-button" %>
+          <% else %>
+            <button class="button game-join-button" disabled>Game filled</button>
+          <% end %>
+        </div>
+      </div>
+      <!-- Optional section for additional details or related games -->
+    </div>
+  </div>
+</div>
+</body>
+</html>
