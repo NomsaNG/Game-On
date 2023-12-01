@@ -23,6 +23,8 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @venues = Venue.all.limit(5)
+    @game.start_time = 10
+    @game.game_date = Date.today
 
     if @game.save
       redirect_to root_path
