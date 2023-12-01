@@ -7,7 +7,7 @@ class Game < ApplicationRecord
   VALID_VISIBILITIES = ["Public", "Community", "Private"]
   VALID_SPORTS = ["Tennis", "Squash", "Padel"]
 
-  validates :capacity, :start_time, :name, :game_date, presence: true
+  validates :capacity, :name, presence: true
   validates :visibility, inclusion: { in: VALID_VISIBILITIES }
   validates :sport, inclusion: { in: VALID_SPORTS }
 

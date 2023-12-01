@@ -38,11 +38,13 @@
               collection: Game::VALID_VISIBILITIES %>
 
 
+      <%#= f.game_date as: :date%>
+      <%#= f.start_time as: :integer%>
+
       <div data-controller="venues">
         <button type="button" id="show-venues-button" data-action="click->venues#show" class="mt-3 mb-3">Show available venues</button>
 
-        <div class="venue-container d-none" data-venues-target="venuesList">
-
+        <div class="venue-container d-none" data-venues-target="TOBEDELETED">
           <% @venues[0..5].each do |venue| %>
             <button type="button" class="venue-card-button" data-action="click->venues#selectVenue" data-venues-target="selectedVenue" data-venue-id="<%= venue.id %>">
               <div class="venue-card d-flex align-items-center justify-content-between" style="height: 90px">
@@ -56,11 +58,15 @@
 
         </div>
 
+        <div class="d-none" data-venues-target="venuesList">
+          <%= f.association :venue %>
+        </div>
 
-        <%= f.association :venue, wrapper_html: {class: "d-none", data: { venues_target: "venueInput" }} %>
 
 
-        <div class = "d-none mt-4" data-venues-target="submitButton">
+
+
+        <div class = "mt-4" data-venues-target="submitButton">
           <%= f.submit "Submit", class: "create-submit-button mb-4" %>
         </div>
 

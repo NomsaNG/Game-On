@@ -25,7 +25,7 @@
             <h2>Spots left:</h2>
             <p><%= game.capacity %> spots remaining</p>
             <% if game.capacity > 0 %>
-              <%= link_to "Join Game", join_game_path(game), class: "button game-join-button" %>
+              <%= button_to "Join Game", join_game_path(game), method: :post, class: "button game-join-button" %>
             <% else %>
               <button class="button game-join-button" disabled>Game filled</button>
             <% end %>
