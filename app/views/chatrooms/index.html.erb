@@ -1,0 +1,14 @@
+<h1>Chatrooms</h1>
+
+<ul>
+  <% @chatrooms.each do |chatroom| %>
+    <li class="text-white">
+      <h2><%= link_to chatroom.name, chatroom_path(chatroom) %></h2>
+      <% if chatroom.messages.last %>
+        <p>Latest message: <%= chatroom.messages.last.content %> by <%= chatroom.messages.last.sender.username %></p>
+      <% else %>
+        <p>No messages yet</p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
