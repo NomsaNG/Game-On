@@ -46,7 +46,7 @@
             </div>
           </div>
           <% if game.capacity > 0 %>
-              <%= link_to "Join Game", new_user_session_path, class: "button card-game-button" %>
+              <%= link_to "Show details", game_path(game), class: "button card-game-button" %>
               <% else %>
                 <button class="button card-game-button" disabled>Game filled</button>
               <% end %>
