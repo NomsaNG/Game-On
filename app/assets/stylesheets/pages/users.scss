@@ -4,7 +4,10 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
-  margin: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 30em;
+  margin-right: 30em;
   padding: 1em;
   border-radius: 0.3em;
   background-color: white;
@@ -33,7 +36,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: center;
+  justify-self: end;
   margin: 1em;
   padding: 1em;
   border-radius: 0.3em;
@@ -43,10 +46,10 @@
 .user-info-card{
   text-align: center;
   inline-size: 50%;
-  width: max-content;
+  width: 50em;
   height: 300px;
   border-radius: 0.3em;
-  background-color: #1e8ad3;
+  background-color: #f4f6f8;
   box-shadow: whitesmoke 0px 0px 2px 0px;
   padding: 10px;
   margin: auto;
@@ -65,11 +68,11 @@
 .user-games-card{
   margin: 1em;
   border-radius: 0.3em;
-  border: 1px solid olivedrab;
-  background-color: #c4bebe;
+  background-color: #f4f6f8;
   box-shadow: whitesmoke 0px 0px 2px 0px;
   height: 300px;
   width: 12.5em;
+  padding: 5px;
 }
 .games-h1{
   margin: auto;
