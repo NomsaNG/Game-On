@@ -25,7 +25,7 @@
     <div class="grid-container">
       <% today_games = @games.select { |game| game.game_date.to_date == Date.today } %>
 
-      `<% today_games.first(4).each do |game| %>
+      <% today_games.first(4).each do |game| %>
         <div class="memory-card-game" data-category="<%= game.sport.downcase %>">
           <div class="image-container">
             <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
@@ -53,19 +53,18 @@
           </div>
           <% if game.capacity > 0 %>
               <%= link_to "Show details", game_path(game), class: "button card-game-button" %>
-              <% else %>
-                <button class="button card-game-button" disabled>Game filled</button>
-              <% end %>
-          </div>
+          <% else %>
+              <button class="button card-game-button" disabled>Game filled</button>
+          <% end %>
         </div>
-      <% end %>`
+      <% end %>
     </div>
 
-  <h1>Tomorrow's Games</h1>
-  <div class="grid-container">
+    <h1>Tomorrow's Games</h1>
+    <div class="grid-container">
       <% tomorrow_games = @games.select { |game| game.game_date.to_date == Date.tomorrow } %>
 
-      `<% tomorrow_games.first(4).each do |game| %>
+      <% tomorrow_games.first(4).each do |game| %>
         <div class="memory-card-game" data-category="<%= game.sport.downcase %>">
           <div class="image-container">
             <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
@@ -94,52 +93,26 @@
             <% if game.capacity > 0 %>
               <%= link_to "Join Game", new_user_session_path, class: "button card-game-button" %>
             <% else %>
-              <button class="button card-game-button" disabled>Game filled</button>
+              <button class="home-button card-game-button" disabled>Game filled</button>
             <% end %>
           </div>
         </div>
-      <% end %>`
+      <% end %>
     </div>
-      <div class="load-more-games">
-          <%= link_to "Load More Games", new_user_session_path, class: "load-button" %>
-      </div>
+
+    <div class="load-more-games">
+      <%= link_to "Load More Games", new_user_session_path, class: "load-button" %>
     </div>
   </div>
 </div>
 
 <!--  for search bar-->
-  <script>
-    function filterBy(game) {
+<script>
+  function filterBy(game) {
     document.querySelector('form').submit();
-    }
-  </script>
-
-
-<!-- for filter buttons
---><!--<script>
-  function filterBy(category) {
-    // Get all game elements
-    const games = document.querySelectorAll('.memory-card-game');
-
-    // Show all games if 'All' is selected
-    if (category === 'all') {
-      games.forEach(game => {
-        game.style.display = 'block';
-      });
-      return;
-    }
-
-    // Hide games that do not match the selected category
-    games.forEach(game => {
-      const gameCategory = game.getAttribute('data-category');
-      if (gameCategory === category) {
-        game.style.display = 'block';
-      } else {
-        game.style.display = 'none';
-      }
-    });
   }
-</script>-->
+</script>
+
 <script>
   function filterBy(category) {
     // Remove 'active' class from all buttons
