@@ -1,4 +1,4 @@
-.create-form-input {
+.create-form-input, .create-community-input, .form-inputs{
   background: transparent;
   border: 2px solid #0074cc;
   border-radius: 8px;
@@ -6,19 +6,19 @@
   padding: 10px;
 }
 
-.create-form-input::placeholder {
+.create-form-input::placeholder, .create-community-input::placeholder,.form-inputs::placeholder {
   background: transparent;
   color: lightgrey;
   color: #fff
 }
 
-.create-form-input:focus {
+.create-form-input:focus, .create-community-input:focus, .form-inputs:focus {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff
 }
 
-.create-form-input:hover {
+.create-form-input:hover, .create-community-input:hover, .form-inputs:hover {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -237,7 +237,7 @@
 
 
 
-#game_visibility_public + label {
+#game_visibility_public + label,#community_visibility_public + label {
   color: #fff;
   background: transparent;
   border: 2px solid #0074cc;
@@ -247,7 +247,7 @@
   font-size: 15px;
 }
 
-#game_visibility_public:hover + label {
+#game_visibility_public:hover + label#community_visibility_public:hover + label {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -255,14 +255,14 @@
 }
 
 
-#game_visibility_public:checked + label {
+#game_visibility_public:checked + label, #community_visibility_public:checked + label {
   background: #3aa5ec;
   border: 4px solid #3aa5ec;
   color: #fff;
   font-size: 16px;
 }
 
-#game_visibility_community + label {
+#game_visibility_community + label,#community_visibility_private + label {
   color: #fff;
   background: transparent;
   border: 2px solid #0074cc;
@@ -272,7 +272,7 @@
   font-size: 15px;
 }
 
-#game_visibility_community:hover + label {
+#game_visibility_community:hover + label,#community_visibility_private:hover + label {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -280,7 +280,7 @@
 }
 
 
-#game_visibility_community:checked + label {
+#game_visibility_community:checked + label, #community_visibility_private:checked + label {
   background: #3aa5ec;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -320,5 +320,5 @@
 
 
 .venue-card {
-  
+
 }
