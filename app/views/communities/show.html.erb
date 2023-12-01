@@ -1,2 +1,35 @@
-<h1>Communities#show</h1>
-<p>Find me in app/views/communities/show.html.erb</p>
+<!-- app/views/communities/show.html.erb -->
+
+<div class="community-show">
+  <h4 class="text-center"><%= @community.name %></h4>
+
+  <div class="row">
+    <!-- Upcoming Games -->
+    <div class="col-md-6">
+      <h2>Upcoming Games</h2>
+      <%# if @upcoming_games.any? %>
+<!--        <ul>-->
+          <%# @upcoming_games.each do |game| %>
+<!--            <li><%#= link_to game.title, game %></li>-->
+          <%# end %>
+<!--        </ul>-->
+      <%# else %>
+<!--        <p>No upcoming games.</p>-->
+      <%# end %>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="col-md-6">
+      <h2>Leaderboard</h2>
+      <% if @leaderboard.any? %>
+        <ol>
+          <% @leaderboard.each do |entry| %>
+            <li><%= entry.user.username %> - <%= entry.total_games %> games played</li>
+          <% end %>
+        </ol>
+      <% else %>
+        <h4>No leaderboard entries.</h4>
+      <% end %>
+    </div>
+  </div>
+</div>
