@@ -22,21 +22,12 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @venues = Venue.all.limit(5)
 
     if @game.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
-    end
-
-    @community = Community.find(params[:community_id])
-    @game = @community.games.new(game_params)
-    @game.users << current_user
-
-    if @game.save
-      redirect_to community_path(@community), notice: 'Game created successfully.'
-    else
-      render :new
     end
   end
 

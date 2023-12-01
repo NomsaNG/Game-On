@@ -282,7 +282,7 @@
   font-size: 15px;
 }
 
-#game_visibility_community:hover + label {
+#game_visibility_private:hover + label {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -290,7 +290,7 @@
 }
 
 
-#game_visibility_community:checked + label {
+#game_visibility_private:checked + label {
   background: #3aa5ec;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -302,8 +302,85 @@
 
 
 
+#show-venues-button {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#show-venues-button:hover {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
 
 
-.venue-card {
 
+.venue-card-button {
+  display: block;
+  width: 100%;
+  color: #fff;
+  background: transparent;
+  border: 0.3px solid #0074cc;
+  padding: 0px;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.venue-card-button:hover {
+  border: 3px solid #3aa5ec;
+
+}
+
+.selected-venue-card-button {
+  background-color: #3aa5ec;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.create-submit-button {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+.create-submit-button:hover {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+.create-submit-button:checked {
+  background: #3aa5ec;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
 }

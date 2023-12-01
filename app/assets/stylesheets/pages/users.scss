@@ -1,17 +1,27 @@
+.user-main-holder{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 0.3em;
+  background: transparent;
+  margin-bottom: 1em;
+  margin-right: 10em;
+  margin-left: 10em;
+}
 .user-name-div{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: fit-content;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 30em;
-  margin-right: 30em;
+  margin: 2em;
   padding: 1em;
   border-radius: 0.3em;
-  background-color: white;
+  border: 4px solid #3aa5ec;
+  background: transparent;
   box-shadow: whitesmoke 0px 0px 2px 0px;
+  color: #fff;
 }
 .user-name-div h1{
   font-size: xx-large;
@@ -19,18 +29,23 @@
 }
 .user-name-div p{
   font-weight: 5;
-  color: #c4bebe;
+  color: #fff;
 }
 .edit-profile-btn{
   padding: 0.5em;
   border-radius: 2em;
-  background-color: #c4bebe;
+  background: transparent;
   box-shadow: whitesmoke 0px 0px 2px 0px;
-  color: olivedrab;
-  font-size: medium;
-  border: olivedrab 2px solid;
+  color: #fff;
+  font-size: large;
+  border: 2px solid #3aa5ec;
   padding-right: 1em;
   padding-left: 1em;
+}
+.edit-profile-btn:hover {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
 }
 .user-info-container{
   display: flex;
@@ -40,8 +55,11 @@
   margin: 1em;
   padding: 1em;
   border-radius: 0.3em;
-  background-color: white;
-  box-shadow: whitesmoke 0px 0px 2px 0px;
+  background: transparent;
+}
+.gender-p{
+  font-weight: 500;
+  font-size: large;
 }
 .user-info-card{
   text-align: center;
@@ -49,32 +67,48 @@
   width: 50em;
   height: 300px;
   border-radius: 0.3em;
-  background-color: #f4f6f8;
+  background: transparent;
   box-shadow: whitesmoke 0px 0px 2px 0px;
+  border: 4px solid #3aa5ec;
+  color: #fff;
   padding: 10px;
   margin: auto;
 }
 .user-game-container{
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   margin: 1em;
+  margin-left: 10em;
+  margin-right: 10em;
   padding: 1em;
   border-radius: 0.3em;
-  background-color: white;
-  box-shadow: whitesmoke 0px 0px 2px 0px;
+  background: transparent;
+}
+.image-info-glue{
+  display: flex;
+  flex-direction: row;
+  border: 4px solid #3aa5ec;
+  border-radius: 0.8em;
+  background: transparent;
+  margin-bottom: 1em;
+}
+.profile-venue-img{
+  height: 14em;
+  width: 14em;
+  border-radius: 0.3em;
 }
 .user-games-card{
-  margin: 1em;
+  width: 100%;
+  margin: 0.1em;
   border-radius: 0.3em;
-  background-color: #f4f6f8;
-  box-shadow: whitesmoke 0px 0px 2px 0px;
-  height: 300px;
-  width: 12.5em;
-  padding: 5px;
+  background: transparent;
+  padding: 0.7em;
+  color: #fff;
 }
 .games-h1{
+  color: #fff;
   margin: auto;
   font-size: xx-large;
+  font-weight: bolder;
+  margin-bottom: 1em;
 }
