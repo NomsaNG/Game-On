@@ -1,5 +1,5 @@
 <div class="text-white">
-      <div class="return-home my-2">
+      <div class="return-home mt-2">
         <%= link_to "Back to Games List", root_path, class: "back-link" %>
       </div>
   <div class="show-container">
@@ -11,7 +11,6 @@
         <div class="game-header mb-2">
           <h1><%= game.sport %> - <%= game.name %></h1>
         </div>
-
         <div class="game-body">
           <%= cl_image_tag(game.venue.photo.key, alt: "#{game.sport} court", class: "game-image") %>
           <div class="game-info">
@@ -35,4 +34,4 @@
       </div>
     </div>
   </div>
-<div>
+</div>
