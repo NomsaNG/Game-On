@@ -18,7 +18,7 @@
       <button onclick="filterBy('playersYouKnow')">Players You Know</button>
       <button onclick="filterBy('tennis')">Tennis</button>
       <button onclick="filterBy('squash')">Squash</button>
-      <button onclick="filterBy('paddle')">Paddle</button>
+      <button onclick="filterBy('padel')">Padel</button>
     </div>
     <div class="grid-container">
         <%@games.each do |game| %>
@@ -57,7 +57,7 @@
 
       <!-- Add a link or button to load more games -->
       <div class="load-more-games">
-        <%= link_to "Load More Games", new_user_session_path, class: "button" %>
+        <%= link_to "Load More Games", new_user_session_path, class: "load-button" %>
       </div>
     </div>
     </div>
