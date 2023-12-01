@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_101218) do
   create_table "chatrooms", force: :cascade do |t|
     t.bigint "community_id"
     t.bigint "game_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["community_id"], name: "index_chatrooms_on_community_id"
