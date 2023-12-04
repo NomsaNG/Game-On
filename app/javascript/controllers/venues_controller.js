@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["venuesList", "selectedVenue", "submitButton", "venueInput"]
+  static targets = ["venuesList", "selectedVenue", "submitButton"]
   connect() {
     console.log("Hello from venues_controller.js")
   }
@@ -10,10 +10,10 @@ export default class extends Controller {
     this.venuesListTarget.classList.remove("d-none")
   }
 
-  selectVenue(event) {
-    event.currentTarget.classList.add("selected-venue-card-button");
-    const venueId = event.currentTarget.dataset.venueId;
-    this.venueInputTarget.value = venueId;
-    this.submitButtonTarget.classList.remove("d-none");
-  }
+  // selectVenue(event) {
+  //   event.currentTarget.classList.add("selected-venue-card-button");
+  //   const venueId = event.currentTarget.dataset.venueId;
+  //   this.venueInputTarget.value = venueId;
+  //   this.submitButtonTarget.classList.remove("d-none");
+  // }
 }

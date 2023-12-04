@@ -1,24 +1,27 @@
 <h3>Create your own vibe</h3>
+<div class="container" style="width:400px">
+  <%= simple_form_for(@community) do |f| %>
+    <%= f.input :name,
+      label: "Name",
+      placeholder: "Name",
+      input_html: {class: "create-community-input"} %>
 
-<%= form_with(model: @community, url: communities_path, method: :post) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <%= f.input :description,
+      label: "Description",
+      placeholder: "Description",
+      input_html: {class: "create-community-input"} %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <%= f.input :visibility,
+      as: :radio_buttons,
+      checked: "Public",
+      collection_wrapper_tag: 'div',
+      collection_wrapper_class: 'visibility-wrapper',
+      item_wrapper_class: 'visibility-item',
+      input_html: {class: 'visibility-selector'},
+      collection: Community::VALID_VISIBILITIES %>
 
-  <div class="field">
-    <%= form.label :visibility %>
-    <%= form.select :visibility, Community::VALID_VISIBILITIES %>
-  </div>
+    <%= f.submit "Submit", class: "create-community-button" %>
+  <% end %>
 
-  <div class="actions">
-    <%= form.submit 'Create Community' %>
-  </div>
-<% end %>
-
-<%= link_to 'Back to Communities', communities_path %>
+  <%= link_to 'Back to Communities', communities_path, class: "community-button" %>
+</div>

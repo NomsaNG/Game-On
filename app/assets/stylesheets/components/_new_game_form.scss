@@ -1,4 +1,4 @@
-.create-form-input {
+.create-form-input, .create-community-input, .form-inputs {
   background: transparent;
   border: 2px solid #0074cc;
   border-radius: 8px;
@@ -6,19 +6,18 @@
   padding: 10px;
 }
 
-.create-form-input::placeholder {
+.create-form-input::placeholder, .create-community-input::placeholder,.form-inputs::placeholder {
   background: transparent;
-  color: lightgrey;
-  color: #fff
+  color: rgba(211, 211, 211, 0.838);
 }
 
-.create-form-input:focus {
+.create-form-input:focus, .create-community-input:focus, .form-inputs:focus {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff
 }
 
-.create-form-input:hover {
+.create-form-input:hover, .create-community-input:hover, .form-inputs:hover {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -144,36 +143,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .visibility-wrapper {
   display: flex;
   justify-content: space-between;
@@ -222,7 +191,7 @@
 
 
 
-#game_visibility_public + label {
+#game_visibility_public + label,#community_visibility_public + label {
   color: #fff;
   background: transparent;
   border: 2px solid #0074cc;
@@ -232,7 +201,7 @@
   font-size: 15px;
 }
 
-#game_visibility_public:hover + label {
+#game_visibility_public:hover + label#community_visibility_public:hover + label {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -240,14 +209,14 @@
 }
 
 
-#game_visibility_public:checked + label {
+#game_visibility_public:checked + label, #community_visibility_public:checked + label {
   background: #3aa5ec;
   border: 4px solid #3aa5ec;
   color: #fff;
   font-size: 16px;
 }
 
-#game_visibility_community + label {
+#game_visibility_community + label,#community_visibility_private + label {
   color: #fff;
   background: transparent;
   border: 2px solid #0074cc;
@@ -257,7 +226,7 @@
   font-size: 15px;
 }
 
-#game_visibility_community:hover + label {
+#game_visibility_community:hover + label,#community_visibility_private:hover + label {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -265,7 +234,7 @@
 }
 
 
-#game_visibility_community:checked + label {
+#game_visibility_community:checked + label, #community_visibility_private:checked + label {
   background: #3aa5ec;
   border: 4px solid #3aa5ec;
   color: #fff;
@@ -337,9 +306,173 @@
 
 }
 
-.selected-venue-card-button {
-  background-color: #3aa5ec;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.venues-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
+
+.venues-item {
+  flex: 0 0 30%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.venues-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.venues-label {
+  display: flex;
+  align-items: center;
+}
+
+.venues-selector + label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  height: 5px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 40px;
+  background-color: white;
+}
+
+.venues-selector:checked + label {
+  color: white !important;
+}
+
+#game_sport_tennis + label {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#game_sport_tennis:hover + label {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+#game_sport_tennis:checked + label {
+  background: #3aa5ec;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+#game_sport_squash + label {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#game_sport_squash:hover + label {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+#game_sport_squash:checked + label {
+  background: #3aa5ec;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+#game_sport_padel + label {
+  color: #fff;
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 18px;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#game_sport_padel:hover + label {
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+#game_sport_padel:checked + label {
+  background: #3aa5ec;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

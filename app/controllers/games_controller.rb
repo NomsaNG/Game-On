@@ -23,6 +23,8 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @venues = Venue.all.limit(5)
+    @game.start_time = 10
+    @game.game_date = Date.today
 
     if @game.save
       redirect_to root_path
@@ -43,6 +45,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :description, :visibility, :community_id, :capacity, :venue_id, :sport, :start_time)
+    params.require(:game).permit(:name, :description, :visibility, :community_id, :capacity, :venue_id, :sport, :start_time, :game_date)
   end
 end
