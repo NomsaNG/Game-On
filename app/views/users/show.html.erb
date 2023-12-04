@@ -12,18 +12,24 @@
       </div>
     </div>
 </div>
-  <div class="user-game-container">
-      <h1 class="games-h1">Your Games</h1>
-    <% @user.games.each do |game| %>
-      <div class="image-info-glue">
-        <%= cl_image_tag(game.venue.photo.key, class: "profile-venue-img") %>
-          <div class="user-games-card">
-            <p><strong><%= game.name %></strong></p>
-            <p><strong>Sport: </strong><%= game.sport %></p>
-            <p><strong>Venue: </strong><%= game.venue.name %></p>
-            <p><strong>Address: </strong><%= game.venue.address %></p>
-            <p><strong>Start time: </strong><%= game.created_at.strftime('%b %d, %Y at %I:%M %p') %></p>
-          </div>
+
+<div class="user-game-container">
+  <h1 class="games-h1">Your Games</h1>
+  <% @user.games.each do |game| %>
+    <div class="image-info-glue">
+      <%= cl_image_tag(game.venue.photo.key, class: "profile-venue-img") %>
+      <div class="user-games-card">
+        <p><strong><%= game.name %></strong></p>
+        <p><strong>Sport: </strong><%= game.sport %></p>
+        <p><strong>Venue: </strong><%= game.venue.name %></p>
+        <p><strong>Address: </strong><%= game.venue.address %></p>
+        <p><strong>Start time: </strong><%= game.created_at.strftime('%b %d, %Y at %I:%M %p') %></p>
+
+        <!-- Delete Button (visible only to the game's creator) -->
+        <% if current_user == game.user %>
+          <%= link_to 'Delete Game', game_path(game), method: :delete, data: { confirm: "Are you sure you want to delete this game?" }, class: "btn btn-danger" %>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>

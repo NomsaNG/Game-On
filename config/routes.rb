@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  get 'games/rules', to: 'games#rules', as: :games_rules
 
   resources :games, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     member do
       post :join, to: 'participations#create'
+      post :leave, to: 'participations#destroy'
     end
   end
 

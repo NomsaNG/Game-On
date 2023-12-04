@@ -92,3 +92,9 @@ hr{
   color: #fff;
   padding: 10px;
 }
+
+.form-control::placeholder {
+  color: white;
+  opacity: 1; /* Override any default opacity */
+}
+
