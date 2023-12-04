@@ -356,7 +356,9 @@ game1 = Game.create!(
   sport: "Tennis",
   game_date: Date.today,
   start_time: 6
-).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+)
+
+game1.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game2 = Game.create!(
   name: "Bob's Center Open",
@@ -367,7 +369,9 @@ game2 = Game.create!(
   sport: "Tennis",
   game_date: Date.today,
   start_time: 8
-).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
+)
+
+game2.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 game4 = Game.create!(
   name: "Racket Haven Squash Challenge",
@@ -378,7 +382,9 @@ game4 = Game.create!(
   sport: "Squash",
   game_date: Date.today,
   start_time: 10
-).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+)
+
+game4.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 game5 = Game.create!(
   name: "Ace Palace Padel Tournament",
@@ -389,7 +395,9 @@ game5 = Game.create!(
   sport: "Padel",
   game_date: Date.today,
   start_time: 12
-).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+)
+
+game5.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game6 = Game.create!(
   name: "Tennis Thriller",
@@ -400,7 +408,9 @@ game6 = Game.create!(
   sport: "Tennis",
   game_date: Date.today,
   start_time: 14
-).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+)
+
+game6.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game7 = Game.create!(
   name: "Friendly Padel Tournament",
@@ -411,7 +421,9 @@ game7 = Game.create!(
   sport: "Padel",
   game_date: Date.today,
   start_time: 16
-).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
+)
+
+game7.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 game8 = Game.create!(
   name: "Squash Rivalry",
@@ -422,7 +434,9 @@ game8 = Game.create!(
   sport: "Squash",
   game_date: Date.today,
   start_time: 18
-).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+)
+
+game8.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 game9 = Game.create!(
   name: "Ace Tennis Challenge",
@@ -433,7 +447,9 @@ game9 = Game.create!(
   sport: "Tennis",
   game_date: Date.tomorrow,
   start_time: 6
-).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+)
+
+game9.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game10 = Game.create!(
   name: "Padel Extravaganza",
@@ -444,7 +460,9 @@ game10 = Game.create!(
   sport: "Padel",
   game_date: Date.tomorrow,
   start_time: 8
-).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+)
+
+game10.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game11 = Game.create!(
   name: "Dynamic Squash Showdown",
@@ -455,7 +473,9 @@ game11 = Game.create!(
   sport: "Squash",
   game_date: Date.tomorrow,
   start_time: 10
-).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
+)
+
+game11.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 game12 = Game.create!(
   name: "Rally Masters Tennis",
@@ -466,7 +486,9 @@ game12 = Game.create!(
   sport: "Tennis",
   game_date: Date.tomorrow,
   start_time: 12
-).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+)
+
+game12.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 game13 = Game.create!(
   name: "Padel Championship",
@@ -477,7 +499,9 @@ game13 = Game.create!(
   sport: "Padel",
   game_date: Date.tomorrow,
   start_time: 14
-).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+)
+
+game13.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game14 = Game.create!(
   name: "Squash Mastery",
@@ -488,7 +512,9 @@ game14 = Game.create!(
   sport: "Squash",
   game_date: Date.tomorrow,
   start_time: 16
-).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+)
+
+game14.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game15 = Game.create!(
   name: "Tennis Showtime",
@@ -499,7 +525,9 @@ game15 = Game.create!(
   sport: "Tennis",
   game_date: Date.tomorrow,
   start_time: 18
-).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
+)
+
+game15.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 game16 = Game.create!(
   name: "Padel Prodigy",
@@ -510,7 +538,9 @@ game16 = Game.create!(
   sport: "Padel",
   game_date: Date.tomorrow + 1,
   start_time: 8
-).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+)
+
+game16.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 game17 = Game.create!(
   name: "Squash Challenge Extravaganza",
@@ -521,7 +551,9 @@ game17 = Game.create!(
   sport: "Squash",
   game_date: Date.tomorrow + 1,
   start_time: 10
-).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+)
+
+game17.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game18 = Game.create!(
   name: "Ace Tennis Showdown",
@@ -532,7 +564,9 @@ game18 = Game.create!(
   sport: "Tennis",
   game_date: Date.tomorrow + 1,
   start_time: 14
-).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+)
+
+game18.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game19 = Game.create!(
   name: "Bob's Center Open",
@@ -543,7 +577,9 @@ game19 = Game.create!(
   sport: "Tennis",
   game_date: Date.tomorrow + 1,
   start_time: 18
-).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
+)
+
+game19.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 game20 = Game.create!(
   name: "Racket Haven Squash Challenge",
@@ -554,7 +590,9 @@ game20 = Game.create!(
   sport: "Squash",
   game_date: Date.tomorrow,
   start_time: 10
-).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+)
+
+game20.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 game21 = Game.create!(
   name: "Ace Palace Padel Tournament",
@@ -565,7 +603,9 @@ game21 = Game.create!(
   sport: "Padel",
   game_date: Date.tomorrow,
   start_time: 14
-).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+)
+
+game21.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game22 = Game.create!(
   name: "Rapid Tennis Showdown",
@@ -576,7 +616,9 @@ game22 = Game.create!(
   sport: "Tennis",
   game_date: Date.tomorrow,
   start_time: 16
-).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+)
+
+game22.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game23 = Game.create!(
   name: "Dynamic Padel Challenge",
@@ -587,7 +629,9 @@ game23 = Game.create!(
   sport: "Padel",
   game_date: Date.tomorrow,
   start_time: 18
-).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+)
+
+game23.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game3 = Game.create!(
   name: "Squash Showdown Spectacle",
@@ -598,7 +642,9 @@ game3 = Game.create!(
   sport: "Squash",
   game_date: Date.tomorrow,
   start_time: 14
-).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
+)
+
+game3.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 puts "Successfully generated #{Game.count} games"
 
@@ -721,15 +767,43 @@ puts "Successfully generated chatrooms for #{Game.count} games"
 
 puts "Generating community chatrooms..."
 
-chatroom_community1 = Chatroom.create!(name: community1.name, community_id: community5.id)
-chatroom_community2 = Chatroom.create!(name: community2.name, community_id: community6.id)
-chatroom_community3 = Chatroom.create!(name: community3.name, community_id: community7.id)
-chatroom_community4 = Chatroom.create!(name: community4.name, community_id: community8.id)
-
-
+chatroom_community1 = Chatroom.create!(name: community1.name, community_id: community1.id)
+chatroom_community2 = Chatroom.create!(name: community2.name, community_id: community2.id)
+chatroom_community3 = Chatroom.create!(name: community3.name, community_id: community3.id)
+chatroom_community4 = Chatroom.create!(name: community4.name, community_id: community4.id)
 
 puts "Successfully generated chatrooms for #{Community.count} communities"
 
 puts "Generating messages..."
 
-Message.create(sender: user1, chatroom: chatroom_game1: content: "Anyone up for a game?")
+Message.create(sender: user1, chatroom: chatroom_game1, content: "Anyone up for a game?")
+Message.create(sender: user2, chatroom: chatroom_game2, content: "I'm ready for the next round!")
+Message.create(sender: user3, chatroom: chatroom_game3, content: "Let's make this game epic!")
+Message.create(sender: user4, chatroom: chatroom_game4, content: "Ready to show my skills!")
+Message.create(sender: user5, chatroom: chatroom_game5, content: "Game on! Who's with me?")
+Message.create(sender: user6, chatroom: chatroom_game6, content: "Time for some gaming action!")
+Message.create(sender: user7, chatroom: chatroom_game7, content: "Count me in for the game!")
+Message.create(sender: user8, chatroom: chatroom_game8, content: "I've been practicing – bring it on!")
+Message.create(sender: user1, chatroom: chatroom_game9, content: "New game, new challenges!")
+Message.create(sender: user2, chatroom: chatroom_game10, content: "Game time! Let's do this!")
+Message.create(sender: user3, chatroom: chatroom_game11, content: "Who's up for some friendly competition?")
+Message.create(sender: user4, chatroom: chatroom_game12, content: "Game faces on, everyone!")
+Message.create(sender: user5, chatroom: chatroom_game13, content: "Ready to dominate the game!")
+Message.create(sender: user6, chatroom: chatroom_game14, content: "Game enthusiasts, unite!")
+Message.create(sender: user7, chatroom: chatroom_game15, content: "Let's make this game memorable!")
+Message.create(sender: user8, chatroom: chatroom_game16, content: "I smell victory in the air!")
+Message.create(sender: user1, chatroom: chatroom_game17, content: "Game night is the best night!")
+Message.create(sender: user2, chatroom: chatroom_game18, content: "Another game, another adventure!")
+Message.create(sender: user3, chatroom: chatroom_game19, content: "Gaming squad, assemble!")
+Message.create(sender: user4, chatroom: chatroom_game20, content: "Game strategy locked and loaded!")
+Message.create(sender: user5, chatroom: chatroom_game21, content: "Let's make this game legendary!")
+Message.create(sender: user6, chatroom: chatroom_game22, content: "Ready to level up in this game!")
+Message.create(sender: user7, chatroom: chatroom_game23, content: "Who's bringing beers?")
+
+
+Message.create(sender: user1, chatroom: chatroom_community1, content: "Anyone up for a game?")
+Message.create(sender: user2, chatroom: chatroom_community2, content: "We should try out that new tennis court in Claremont")
+Message.create(sender: user3, chatroom: chatroom_community3, content: "Guys what is the purpose of life")
+Message.create(sender: user4, chatroom: chatroom_community4, content: "Can't wait for the next game!")
+
+puts "Successfully generated #{Message.count} messages"
