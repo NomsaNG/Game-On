@@ -107,3 +107,9 @@ body {
   align-items: center;
   margin-bottom: 10px;
 }
+
+.form-control::placeholder {
+  color: white;
+  opacity: 1; /* Override any default opacity */
+}
+
