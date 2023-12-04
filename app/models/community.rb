@@ -1,4 +1,6 @@
 class Community < ApplicationRecord
+  has_one_attached :photo
+
   VALID_VISIBILITIES = ["Public", "Private"]
 
   validates :name, :description, :visibility, presence: true
@@ -9,5 +11,4 @@ class Community < ApplicationRecord
 
   has_many :games
   has_many :chatrooms, dependent: :destroy
-  has_many :leaderboards, dependent: :destroy
 end

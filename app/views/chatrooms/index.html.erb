@@ -1,14 +1,46 @@
-<h1>Chatrooms</h1>
+<div class="chatrooms-container">
 
-<ul>
+
+
   <% @chatrooms.each do |chatroom| %>
-    <li class="text-white">
-      <h2><%= link_to chatroom.name, chatroom_path(chatroom) %></h2>
-      <% if chatroom.messages.last %>
-        <p>Latest message: <%= chatroom.messages.last.content %> by <%= chatroom.messages.last.sender.username %></p>
-      <% else %>
-        <p>No messages yet</p>
-      <% end %>
-    </li>
+    <div class="text-white chatroom-item d-flex justify-content-between" style="width: 100%%">
+      <div>
+        <p style="font-size: 20px; text-decoration: none"><strong><%= link_to chatroom.name, chatroom_path(chatroom) %></strong></h2>
+        <% if chatroom.messages.last %>
+          <p>Latest message: <%= chatroom.messages.last.content %> by <%= chatroom.messages.last.sender.username %>
+            <%= time_ago_in_words(chatroom.messages.last.created_at) %> ago</p>
+        <% else %>
+          <p>No messages yet</p>
+        <% end %>
+      </div>
+
+      <div class="chatroom-avatars">
+        <% if !chatroom.community.nil? %>
+          <div class="avatars d-flex">
+                  <% chatroom.community.memberships.each do |membership| %>
+                    <div class="game-avatar">
+                      <%= cl_image_tag(membership.user.photo.key, class: "avatar-image") %>
+                    </div>
+                  <% end %>
+          </div>
+        <% end %>
+
+        <% if !chatroom.game.nil? %>
+          <div class="avatars d-flex">
+                  <% chatroom.game.participations.each do |participation| %>
+                    <div class="game-avatar">
+                      <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+                    </div>
+                  <% end %>
+          </div>
+        <% end %>
+
+
+      </div>
+    </div>
+
   <% end %>
-</ul>
+
+
+
+</div>

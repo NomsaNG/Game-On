@@ -347,7 +347,7 @@ puts "Succesfully generated #{Venue.count} venues"
 
 puts "Generating games..."
 
-Game.create!(
+game1 = Game.create!(
   name: "Epic Tennis Showdown",
   description: "Join us for an epic tennis showdown at Green Point Tennis Club! Fast serves, intense rallies, and a lot of fun.",
   visibility: "Public",
@@ -358,7 +358,7 @@ Game.create!(
   start_time: 6
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
-Game.create!(
+game2 = Game.create!(
   name: "Bob's Center Open",
   description: "Welcome to Bob's Tennis Center Open! A friendly tennis competition with skilled players and a great atmosphere.",
   visibility: "Public",
@@ -369,7 +369,7 @@ Game.create!(
   start_time: 8
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
-Game.create!(
+game4 = Game.create!(
   name: "Racket Haven Squash Challenge",
   description: "Experience the Racket Haven Squash Challenge! Tight spaces, lightning-fast shots, and thrilling squash matches await you.",
   visibility: "Public",
@@ -380,7 +380,7 @@ Game.create!(
   start_time: 10
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
-Game.create!(
+game5 = Game.create!(
   name: "Ace Palace Padel Tournament",
   description: "Ace Palace invites you to the Padel Tournament! Smash the ball, strategic plays, and exciting padel matches.",
   visibility: "Public",
@@ -391,7 +391,7 @@ Game.create!(
   start_time: 12
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
-Game.create!(
+game6 = Game.create!(
   name: "Tennis Thriller",
   description: "Join us for a tennis thriller! Witness a match filled with powerful serves and strategic volleys.",
   visibility: "Public",
@@ -402,7 +402,7 @@ Game.create!(
   start_time: 14
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
-Game.create!(
+game7 = Game.create!(
   name: "Friendly Padel Tournament",
   description: "Welcome to a friendly padel tournament! Enjoy a fun-filled game of smashing the ball and strategic plays.",
   visibility: "Public",
@@ -413,7 +413,7 @@ Game.create!(
   start_time: 16
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
-Game.create!(
+game8 = Game.create!(
   name: "Squash Rivalry",
   description: "Witness a squash rivalry! Engage in lightning-fast shots and thrilling rallies.",
   visibility: "Public",
@@ -424,7 +424,7 @@ Game.create!(
   start_time: 18
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
-Game.create!(
+game9 = Game.create!(
   name: "Ace Tennis Challenge",
   description: "Ace Palace presents the ultimate tennis challenge! Showcase of skills in a match filled with aces and powerful rallies.",
   visibility: "Public",
@@ -435,7 +435,7 @@ Game.create!(
   start_time: 6
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
-Game.create!(
+game10 = Game.create!(
   name: "Padel Extravaganza",
   description: "Join us for a padel extravaganza! Promise of an exciting match with smashing rallies and strategic plays.",
   visibility: "Public",
@@ -446,7 +446,7 @@ Game.create!(
   start_time: 8
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
-Game.create!(
+game11 = Game.create!(
   name: "Dynamic Squash Showdown",
   description: "Dynamic Courts hosts a squash showdown! Competition in a match full of energy, lightning-fast shots, and precise plays.",
   visibility: "Public",
@@ -457,7 +457,7 @@ Game.create!(
   start_time: 10
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
-Game.create!(
+game12 = Game.create!(
   name: "Rally Masters Tennis",
   description: "Rally Masters Tennis! Showcase of tennis mastery in a match filled with powerful serves and precise shots.",
   visibility: "Public",
@@ -468,7 +468,7 @@ Game.create!(
   start_time: 12
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
-Game.create!(
+game13 = Game.create!(
   name: "Padel Championship",
   description: "Padel Championship! Thrilling match of strategic padel plays and intense rallies.",
   visibility: "Public",
@@ -479,7 +479,7 @@ Game.create!(
   start_time: 14
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
-Game.create!(
+game14 = Game.create!(
   name: "Squash Mastery",
   description: "Experience squash mastery! Showcase of skills in a match filled with tricky shots and deceptive plays.",
   visibility: "Public",
@@ -490,7 +490,7 @@ Game.create!(
   start_time: 16
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
-Game.create!(
+game15 = Game.create!(
   name: "Tennis Showtime",
   description: "It's tennis showtime! Promise of an entertaining match with skillful plays and friendly competition.",
   visibility: "Public",
@@ -501,7 +501,7 @@ Game.create!(
   start_time: 18
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
-Game.create!(
+game16 = Game.create!(
   name: "Padel Prodigy",
   description: "Witness a padel prodigy match! Showcase of expertise in a game filled with skillful plays and strategic moves.",
   visibility: "Public",
@@ -512,7 +512,7 @@ Game.create!(
   start_time: 8
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
-Game.create!(
+game17 = Game.create!(
   name: "Squash Challenge Extravaganza",
   description: "Join us for a squash challenge extravaganza! Competition in a match filled with intensity and squash mastery.",
   visibility: "Public",
@@ -523,7 +523,7 @@ Game.create!(
   start_time: 10
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
-Game.create!(
+game18 = Game.create!(
   name: "Ace Tennis Showdown",
   description: "Join us for an ace tennis showdown! Promise of a match filled with powerful serves, intense rallies, and a lot of fun.",
   visibility: "Public",
@@ -534,7 +534,7 @@ Game.create!(
   start_time: 14
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
-Game.create!(
+game19 = Game.create!(
   name: "Bob's Center Open",
   description: "Welcome to Bob's Tennis Center Open! A friendly tennis competition with skilled players and a great atmosphere.",
   visibility: "Public",
@@ -545,7 +545,7 @@ Game.create!(
   start_time: 18
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
-Game.create!(
+game20 = Game.create!(
   name: "Racket Haven Squash Challenge",
   description: "Experience the Racket Haven Squash Challenge! Tight spaces, lightning-fast shots, and thrilling squash matches await you.",
   visibility: "Public",
@@ -556,7 +556,7 @@ Game.create!(
   start_time: 10
 ).participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
-Game.create!(
+game21 = Game.create!(
   name: "Ace Palace Padel Tournament",
   description: "Ace Palace invites you to the Padel Tournament! Smash the ball, strategic plays, and exciting padel matches.",
   visibility: "Public",
@@ -567,7 +567,7 @@ Game.create!(
   start_time: 14
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
-Game.create!(
+game22 = Game.create!(
   name: "Rapid Tennis Showdown",
   description: "Experience a rapid tennis showdown! Showcase of agility and precision in a fast-paced match.",
   visibility: "Public",
@@ -578,7 +578,7 @@ Game.create!(
   start_time: 16
 ).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
-Game.create!(
+game23 = Game.create!(
   name: "Dynamic Padel Challenge",
   description: "Dive into a dynamic padel challenge! Promise of an exhilarating match filled with strategic plays.",
   visibility: "Public",
@@ -589,7 +589,7 @@ Game.create!(
   start_time: 18
 ).participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
-Game.create!(
+game3 = Game.create!(
   name: "Squash Showdown Spectacle",
   description: "Get ready for a squash showdown spectacle! Competition for victory in a high-energy match.",
   visibility: "Public",
@@ -601,3 +601,135 @@ Game.create!(
 ).participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 puts "Successfully generated #{Game.count} games"
+
+puts "Generating communities..."
+
+community1 = Community.create!(
+  name: "Tennis Titans",
+  description: "A community for passionate tennis enthusiasts. Join us for epic matches and tennis discussions!",
+  visibility: "Public",
+)
+
+community1_url = "https://scontent.fbru1-1.fna.fbcdn.net/v/t39.30808-6/300390241_593629509134826_4831983855745723648_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeEDLCVHxWA9x6_ssu3pUY-Yp_jmlMbr5Xun-OaUxuvle9dDvJdy-Z_a7ddunxkKvrmryUbjsXj5hPPwkNQKkjec&_nc_ohc=fRk-23s_r1YAX8R4GbS&_nc_ht=scontent.fbru1-1.fna&oh=00_AfDlvj8EPMvqE7p1hPw9TjWazFJMkFicvHpCFAb5iaz4ZQ&oe=65739E21"
+community1_file = URI.open(community1_url)
+community1.photo.attach(io: community1_file, filename: 'community1_img.jpeg', content_type: 'image/png')
+community1.save!
+
+Membership.create!(user: user1, community: community1)
+Membership.create!(user: user2, community: community1)
+Membership.create!(user: user3, community: community1)
+Membership.create!(user: user4, community: community1)
+Membership.create!(user: user5, community: community1)
+Membership.create!(user: user6, community: community1)
+Membership.create!(user: user7, community: community1)
+Membership.create!(user: user8, community: community1)
+
+
+community2 = Community.create!(
+  name: "Smash Masters",
+  description: "A community for those who love powerful smashes and masterful plays on the court!",
+  visibility: "Public",
+)
+
+community2_url = "https://cdn.24.co.za/files/Cms/General/d/3068/22bcc95c0a5e41e29839ef52a71592db.jpg"
+community2_file = URI.open(community2_url)
+community2.photo.attach(io: community2_file, filename: 'community2_img.jpeg', content_type: 'image/png')
+community2.save!
+
+Membership.create!(user: user1, community: community2)
+Membership.create!(user: user2, community: community2)
+Membership.create!(user: user3, community: community2)
+Membership.create!(user: user4, community: community2)
+Membership.create!(user: user5, community: community2)
+Membership.create!(user: user6, community: community2)
+Membership.create!(user: user7, community: community2)
+Membership.create!(user: user8, community: community2)
+
+
+community3 = Community.create!(
+  name: "Racket Royalty",
+  description: "A community for those who believe in the royal artistry of racket sports. Join us for regal matches!",
+  visibility: "Private",
+)
+
+community3_url = "https://universe.byu.edu/wp-content/uploads/2019/11/tennis-team-1.jpeg"
+community3_file = URI.open(community3_url)
+community3.photo.attach(io: community3_file, filename: 'community3_img.jpeg', content_type: 'image/png')
+community3.save!
+
+Membership.create!(user: user1, community: community3)
+Membership.create!(user: user2, community: community3)
+Membership.create!(user: user3, community: community3)
+Membership.create!(user: user4, community: community3)
+Membership.create!(user: user5, community: community3)
+Membership.create!(user: user6, community: community3)
+Membership.create!(user: user7, community: community3)
+Membership.create!(user: user8, community: community3)
+
+
+community4 = Community.create!(
+  name: "Ace Achievers",
+  description: "A community for achievers who love acing the game. Join us for thrilling matches and achievements!",
+  visibility: "Public",
+)
+
+community4_url = "https://hollandchristian.org/wp-content/uploads/2023/09/boys-varsity-tennis-team.jpg"
+community4_file = URI.open(community4_url)
+community4.photo.attach(io: community4_file, filename: 'community4_img.jpeg', content_type: 'image/png')
+community4.save!
+
+Membership.create!(user: user1, community: community4)
+Membership.create!(user: user2, community: community4)
+Membership.create!(user: user3, community: community4)
+Membership.create!(user: user4, community: community4)
+Membership.create!(user: user5, community: community4)
+Membership.create!(user: user6, community: community4)
+Membership.create!(user: user7, community: community4)
+Membership.create!(user: user8, community: community4)
+
+
+puts "Successfully generated #{Community.count} communities"
+
+puts "Generating games chatrooms..."
+
+chatroom_game1 = Chatroom.create!(name: game1.name, game_id: game1.id)
+chatroom_game2 = Chatroom.create!(name: game2.name, game_id: game2.id)
+chatroom_game3 = Chatroom.create!(name: game3.name, game_id: game3.id)
+chatroom_game4 = Chatroom.create!(name: game4.name, game_id: game4.id)
+chatroom_game5 = Chatroom.create!(name: game5.name, game_id: game5.id)
+chatroom_game6 = Chatroom.create!(name: game6.name, game_id: game6.id)
+chatroom_game7 = Chatroom.create!(name: game7.name, game_id: game7.id)
+chatroom_game8 = Chatroom.create!(name: game8.name, game_id: game8.id)
+chatroom_game9 = Chatroom.create!(name: game9.name, game_id: game9.id)
+chatroom_game10 = Chatroom.create!(name: game10.name, game_id: game10.id)
+chatroom_game11 = Chatroom.create!(name: game11.name, game_id: game11.id)
+chatroom_game12 = Chatroom.create!(name: game12.name, game_id: game12.id)
+chatroom_game13 = Chatroom.create!(name: game13.name, game_id: game13.id)
+chatroom_game14 = Chatroom.create!(name: game14.name, game_id: game14.id)
+chatroom_game15 = Chatroom.create!(name: game15.name, game_id: game15.id)
+chatroom_game16 = Chatroom.create!(name: game16.name, game_id: game16.id)
+chatroom_game17 = Chatroom.create!(name: game17.name, game_id: game17.id)
+chatroom_game18 = Chatroom.create!(name: game18.name, game_id: game18.id)
+chatroom_game19 = Chatroom.create!(name: game19.name, game_id: game19.id)
+chatroom_game20 = Chatroom.create!(name: game20.name, game_id: game20.id)
+chatroom_game21 = Chatroom.create!(name: game21.name, game_id: game21.id)
+chatroom_game22 = Chatroom.create!(name: game22.name, game_id: game22.id)
+chatroom_game23 = Chatroom.create!(name: game22.name, game_id: game23.id)
+
+
+puts "Successfully generated chatrooms for #{Game.count} games"
+
+puts "Generating community chatrooms..."
+
+chatroom_community1 = Chatroom.create!(name: community1.name, community_id: community5.id)
+chatroom_community2 = Chatroom.create!(name: community2.name, community_id: community6.id)
+chatroom_community3 = Chatroom.create!(name: community3.name, community_id: community7.id)
+chatroom_community4 = Chatroom.create!(name: community4.name, community_id: community8.id)
+
+
+
+puts "Successfully generated chatrooms for #{Community.count} communities"
+
+puts "Generating messages..."
+
+Message.create(sender: user1, chatroom: chatroom_game1: content: "Anyone up for a game?")
