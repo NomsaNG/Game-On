@@ -1,8 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-      <%= link_to(root_path, class: "navbar-brand") do %>
-        <%= image_tag "pngtree-green-burning-tennis-ball-in-motion-png-image_2202897-removebg-preview.png", alt: "Logo", size: "300x" %>
-      <% end %>
+    <%= link_to(root_path, class: "navbar-brand") do %>
+      <%= image_tag "pngtree-green-burning-tennis-ball-in-motion-png-image_2202897-removebg-preview.png", alt: "Logo", size: "300x" %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,10 +21,15 @@
           <li class="nav-item">
             <%= link_to "Community", communities_path, class: "nav-link" %>
           </li>
+        <% end %>
+        <!-- Games Rules Link -->
+        <li class="nav-item">
+          <%= link_to "Games Rules", games_rules_path, class: "nav-link" %>
+        </li>
+        <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= cl_image_tag(current_user.photo.key, class: "avatar", alt: "dropdown menu") if user_signed_in? %>
-
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

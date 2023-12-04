@@ -34,6 +34,9 @@ class GamesController < ApplicationController
     end
   end
 
+  def rules
+  end
+
   def edit
   end
 
@@ -41,11 +44,29 @@ class GamesController < ApplicationController
   end
 
   def destroy
+    if @game.destroy
+      flash[:notice] = "Game was successfully deleted."
+      redirect_to games_path
+    else
+      flash[:alert] = "There was a problem deleting the game."
+      redirect_to game_path(@game)
+    end
   end
 
   private
 
   def game_params
     params.require(:game).permit(:name, :description, :visibility, :community_id, :capacity, :venue_id, :sport, :start_time, :game_date)
+  end
+
+  def set_game
+    @game = Game.find(params[:id])
+  end
+
+  def check_authorization
+    unless current_user == @game.user
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to games_path
+    end
   end
 end
