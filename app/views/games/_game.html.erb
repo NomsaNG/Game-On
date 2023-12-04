@@ -1,0 +1,29 @@
+
+    <div class='home-card-game' data-category='<%= game.sport.downcase %>'>
+      <div class='image-container'>
+        <%= cl_image_tag(game.venue.photo.key, class: 'card-game-image') %>
+      </div>
+      <div class='card-game-text m-2'>
+        <h1><%= game.sport %></h1>
+        <h1><%= game.game_date %> at <%= game.game_date %>h</h1>
+        <h1><%= game.venue.name %></h1>
+        <hr class='solid'>
+        <div class='capacity-avatar-container'>
+          <div class='game-capacity'>
+            <h1><%= game.capacity %>spots left</h1>
+          </div>
+          <div class='avatars d-flex'>
+            <% game.participations.each do |participation| %>
+              <div class='game-avatar'>
+                <%= cl_image_tag(participation.user.photo.key, class: 'avatar-image') %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% if game.capacity > 0 %>
+          <%= link_to 'Show details', game_path(game), class: 'button card-game-button' %>
+        <% else %>
+          <button class='button card-game-button' disabled>Game filled</button>
+        <% end %>
+      </div>
+    </div>

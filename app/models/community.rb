@@ -9,5 +9,4 @@ class Community < ApplicationRecord
 
   has_many :games
   has_many :chatrooms, dependent: :destroy
-  has_many :leaderboards, dependent: :destroy
 end

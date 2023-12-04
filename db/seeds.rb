@@ -521,7 +521,7 @@ Game.create!(
   sport: "Squash",
   game_date: Date.tomorrow + 1,
   start_time: 10
-).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+).participations.create!([{ user: user3, is_creator: true }, { user: user8 }])
 
 Game.create!(
   name: "Ace Tennis Showdown",
@@ -565,7 +565,7 @@ Game.create!(
   sport: "Padel",
   game_date: Date.tomorrow,
   start_time: 14
-).participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+).participations.create!([{ user: user3, is_creator: true }, { user: user8 }])
 
 Game.create!(
   name: "Rapid Tennis Showdown",

@@ -27,8 +27,8 @@ body {
   justify-content: space-between;
 }
 
-.memory-card-game{
-  height: 314px;
+.home-card-game{
+  height: auto;
   width: 260px;
   border-radius: 0.3em;
   background: transparent;
@@ -68,10 +68,13 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-hr{
+.solid{
   margin: 10px 0px 10px 0px;
+  font-size: 10px;
+  border: #0074cc 1px solid;
 }
 
 .search-bar{
@@ -91,4 +94,16 @@ hr{
   border-radius: 8px;
   color: #fff;
   padding: 10px;
+
+  &:hover{
+    border: 3px solid #3aa5ec;
+  }
+}
+
+
+.search-filters{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
