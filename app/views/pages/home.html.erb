@@ -22,7 +22,7 @@
     </div>
 
     <h1>Today's Games</h1>
-    <div class="grid-container">
+    <div id="todays-games" class="grid-container">
       <% today_games = @games.select { |game| game.game_date.to_date == Date.today } %>
 
       <% today_games.first(4).each do |game| %>
@@ -61,7 +61,7 @@
     </div>
 
     <h1>Tomorrow's Games</h1>
-    <div class="grid-container">
+    <div id="tomorrows-games" class="grid-container">
       <% tomorrow_games = @games.select { |game| game.game_date.to_date == Date.tomorrow } %>
 
       <% tomorrow_games.first(4).each do |game| %>
