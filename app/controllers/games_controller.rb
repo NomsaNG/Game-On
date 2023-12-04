@@ -18,15 +18,16 @@ class GamesController < ApplicationController
     @game = Game.new
     @sports = Game::VALID_SPORTS
     @venues = Venue.all.limit(5)
+    @communities = Community.all
   end
 
   def create
     @game = Game.new(game_params)
+    @communities = Community.all
     @venues = Venue.all.limit(5)
-    @game.start_time = 10
-    @game.game_date = Date.today
 
     if @game.save
+      Chatroom.create(name: @game.name, game_id: @game.id)
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
