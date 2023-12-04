@@ -1,8 +1,7 @@
-<!-- app/views/communities/show.html.erb -->
-
 <div class="community-show">
   <h2 class="text-center"><%= @community.name %></h2>
 
+  <hr class="line">
   <div class="community-show-container d-flex">
     <!-- Upcoming Games -->
     <div class="upcoming-games">
@@ -10,7 +9,7 @@
       <% if @upcoming_games.any? %>
         <ul>
           <% @upcoming_games.each do |game| %>
-            <li><%= link_to game.title, game %></li>
+            <li><%= link_to game.name, game, class:"community-list-games" %></li>
           <% end %>
         </ul>
       <% else %>
@@ -18,18 +17,11 @@
       <% end %>
     </div>
 
+  <div class="vl"></div>
+
     <!-- Leaderboard -->
     <div class="leaderboard">
       <h2>Leaderboard</h2>
-      <% if @leaderboard.any? %>
-        <ol>
-          <% @leaderboard.each do |entry| %>
-            <li><%= entry.user.username %> - <%= entry.total_games %> games played</li>
-          <% end %>
-        </ol>
-      <% else %>
-        <h4>No leaderboard entries.</h4>
-      <% end %>
     </div>
   </div>
 </div>

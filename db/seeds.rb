@@ -551,7 +551,6 @@ game17 = Game.create!(
   sport: "Squash",
   game_date: Date.tomorrow + 1,
   start_time: 10
-)
 
 game17.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
@@ -603,7 +602,6 @@ game21 = Game.create!(
   sport: "Padel",
   game_date: Date.tomorrow,
   start_time: 14
-)
 
 game21.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 

@@ -22,8 +22,8 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
-    @upcoming_games = @community.games.where('game_date >= ?', Date.today).order(:date)
-    @leaderboard = @community.leaderboards.order(total_games: :desc)
+    @upcoming_games = @community.games.where('game_date >= ?', Date.today).order(:game_date)
+    # @leaderboard = @community.leaderboards.order(total_games: :desc)
   end
 
   private
