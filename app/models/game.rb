@@ -20,5 +20,5 @@ class Game < ApplicationRecord
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
 
-  has_many :chatrooms, dependent: :destroy
+  belongs_to :chatroom, optional: true, dependent: :destroy
 end

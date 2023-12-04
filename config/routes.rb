@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
   resources :venues, only: [:index, :show]
 
+  resources :chatrooms, only: [:index, :show] do
+    resources :messages, only: :create
+  end
+
   delete 'participations/:id', to: 'participations#destroy'
 
   resources :communities, only: [:new, :create, :index, :show] do

@@ -1,19 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["venuesList", "selectedVenue", "submitButton"]
+  static targets = ["venuesList", "selectedVenue", "submitButton", "venuesDisplay", "communitiesList"]
+
   connect() {
-    console.log("Hello from venues_controller.js")
+    console.log("Hello from venues_controller.js");
   }
 
   show() {
-    this.venuesListTarget.classList.remove("d-none")
+    this.venuesListTarget.classList.remove("d-none");
+    this.venuesDisplayTarget.classList.remove("d-none");
   }
 
-  // selectVenue(event) {
-  //   event.currentTarget.classList.add("selected-venue-card-button");
-  //   const venueId = event.currentTarget.dataset.venueId;
-  //   this.venueInputTarget.value = venueId;
-  //   this.submitButtonTarget.classList.remove("d-none");
-  // }
+  showCommunities() {
+    this.communitiesListTarget.classList.remove("d-none");
+  }
 }
