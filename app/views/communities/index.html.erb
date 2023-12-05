@@ -1,14 +1,19 @@
 <div class="community-div">
   <h3>Communities</h3>
-
+  <%= link_to 'Create a New Community', new_community_path, class: "create-community-button1" %>
   <% @communities.each do |community| %>
-    <div class="community">
-      <h2><%= link_to community.name, community, class: "view-community-button" %></h2>
+    <div class="community d-flex">
+    <div class="community-chat-icon">
+      <%= link_to community do %>
+        <i class="fas fa-comment-alt chat"></i>
+      <% end %>
+    </div>
+    <div class="community-info">
+      <h6><%= community.name %></h6>
       <h5><%= community.description %></h5>
-      <%#= link_to 'View Community', community %>
+      <%= link_to 'View Community', community, class: "community-link" %>
+    </div>
+
     </div>
   <% end %>
-
-  <%= link_to 'Create a New Community', new_community_path, class: "create-community-button1" %>
-
 </div>

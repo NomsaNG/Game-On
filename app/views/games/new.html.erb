@@ -13,6 +13,22 @@
               input_html: {class: 'sports-selector'},
               collection: Game::VALID_SPORTS%>
 
+      <div class="d-flex">
+        <div class="flex-grow-1">
+          <%= f.input :game_date,
+              as: :date,
+              input_html: { class: "create-form-input"} %>
+        </div>
+
+        <div class="flex-grow-1">
+            <%= f.input :start_time,
+                label: "Time slot",
+                as: :select,
+                collection: [["6-8am", 6], ["8-10am", 8], ["12am-2pm", 12], ["8-10pm", 20]],
+                input_html: { class: "create-form-input"} %>
+        </div>
+      </div>
+
       <%= f.input :name,
               label: "Game title",
               placeholder: "Make it pop",
@@ -29,37 +45,46 @@
             selected: 2,
             input_html: { class: "create-form-input"} %>
 
-      <%= f.input :visibility,
-              as: :radio_buttons,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'visibility-wrapper',
-              item_wrapper_class: 'visibility-item',
-              input_html: {class: 'visibility-selector'},
-              collection: Game::VALID_VISIBILITIES %>
 
-
-      <%#= f.game_date as: :date%>
-      <%#= f.start_time as: :integer%>
 
       <div data-controller="venues">
+
+        <div class="visibility-html-selector" data-action="click->venues#showCommunities">
+          <%= f.input :visibility,
+                as: :radio_buttons,
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'visibility-wrapper',
+                item_wrapper_class: 'visibility-item',
+                input_html: {class: 'visibility-selector'},
+                collection: Game::VALID_VISIBILITIES %>
+        </div>
+
+        <div class="d-none" data-venues-target="communitiesList">
+          <%= f.association :community,
+                collection: @communities,
+                input_html: { class: "create-form-input"}  %>
+        </div>
+
         <button type="button" id="show-venues-button" data-action="click->venues#show" class="mt-3 mb-3">Show available venues</button>
 
-        <div class="venue-container d-none" data-venues-target="TOBEDELETED">
+        <div class="venue-container venue-card-button d-none" data-venues-target="venuesDisplay">
           <% @venues[0..5].each do |venue| %>
-            <button type="button" class="venue-card-button" data-action="click->venues#selectVenue" data-venues-target="selectedVenue" data-venue-id="<%= venue.id %>">
-              <div class="venue-card d-flex align-items-center justify-content-between" style="height: 90px">
-                <%= cl_image_tag(venue.photo.key, class: "card-game-image", style: "width: 120px; height: 90px; object-fit: cover;") %>
-                <div class="venue-details">
-                  <%= venue.name %>
-                </div>
+            <div class="venue-card" style="height: 75px; border: 1px solid #3aa5ec; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; padding: 10px; border-radius: 8px">
+              <div class="venue-image" style="width: 70px; height: 100%; object-fit: cover;">
+                <%= cl_image_tag(venue.photo.key, class: "card-game-image", style: "width: 100%; height: 100%; object-fit: cover; border-radius: 8px;") %>
               </div>
-            </button>
+              <div class="venue-details" style="margin-left: 10px;">
+                <%= venue.name %>
+                <p style="font-size: 12px" ><%= rand(1..30) %> km away</p>
+              </div>
+            </div>
           <% end %>
-
         </div>
 
         <div class="d-none" data-venues-target="venuesList">
-          <%= f.association :venue %>
+            <%= f.association :venue,
+                  collection: @venues[0..5],
+                  input_html: { class: "create-form-input"}  %>
         </div>
 
 

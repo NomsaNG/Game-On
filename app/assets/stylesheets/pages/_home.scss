@@ -17,9 +17,6 @@ body {
 }
 
 .grid-container {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-gap: 3em;
   margin-top: 0;
   margin-bottom: 30px;
   overflow-y: auto;
@@ -27,8 +24,14 @@ body {
   justify-content: space-between;
 }
 
-.memory-card-game{
-  height: 314px;
+.list-grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5em;
+}
+
+.home-card-game{
+  height: auto;
   width: 260px;
   border-radius: 0.3em;
   background: transparent;
@@ -68,10 +71,13 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-hr{
+.solid{
   margin: 10px 0px 10px 0px;
+  font-size: 10px;
+  border: #0074cc 1px solid;
 }
 
 .search-bar{
@@ -91,4 +97,28 @@ hr{
   border-radius: 8px;
   color: #fff;
   padding: 10px;
+
+  &:hover{
+    border: 3px solid #3aa5ec;
+  }
+}
+
+
+.search-filters{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.all-the-games {
+  display: none;
+}
+
+.all-the-games.visible {
+  display: block;
+}
+.form-control::placeholder {
+  color: white;
+  opacity: 1; /* Override any default opacity */
 }
