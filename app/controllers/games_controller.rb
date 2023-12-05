@@ -28,7 +28,7 @@ class GamesController < ApplicationController
 
     if @game.save
       Chatroom.create(name: @game.name, game_id: @game.id)
-      redirect_to root_path
+      redirect_to game_path(@game)
     else
       render :new, status: :unprocessable_entity
     end
