@@ -55,6 +55,17 @@
           <% else %>
               <button class="home-button" disabled>Game filled</button>
           <% end %>
+
+          <div class="d-none">
+            <%= simple_form_for(@message) do |f| %>
+              <%= f.input :content %>
+              <%= f.association :chatroom, collection:  %>
+              <%= f.association :chatroom, collection: %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+
+
         </div>
       <% end %>
     </div>
