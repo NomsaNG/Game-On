@@ -290,21 +290,19 @@
 
 
 
-.venue-card-button {
-  display: block;
+.venue-card {
   width: 100%;
-  color: #fff;
-  background: transparent;
-  border: 0.3px solid #0074cc;
-  padding: 0px;
-  font-size: 15px;
-  margin: 0px;
+  background-color: transparent;
 }
 
-.venue-card-button:hover {
-  border: 3px solid #3aa5ec;
-
+.venue-image {
+  border-radius: 8px;
 }
+
+.venue-details {
+  flex-grow: 1; 
+}
+
 
 
 
