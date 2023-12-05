@@ -66,7 +66,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row game-card-buttons">
                   <div class="col-7">
                     <% if game.capacity > 0 %>
                         <%= link_to "Show details", game_path(game), class: "home-button" %>
@@ -132,7 +132,7 @@
                       <% end %>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row game-card-buttons">
                     <div class="col-7">
                       <% if game.capacity > 0 %>
                           <%= link_to "Show details", game_path(game), class: "home-button" %>
@@ -183,7 +183,7 @@
                   </div>
                   <div class='card-game-text m-2'>
                     <h1><%= game.sport %></h1>
-                    <h1><%= game.game_date %> at <%= game.game_date %>h</h1>
+                    <h1><%= game.game_date %> at <%= game.game_date %></h1>
                     <h1><%= game.venue.name %></h1>
                     <hr class='solid'>
                     <div class='capacity-avatar-container'>
@@ -198,11 +198,41 @@
                         <% end %>
                       </div>
                     </div>
-                    <% if game.capacity > 0 %>
-                      <%= link_to 'Show details', game_path(game), class: 'home-button' %>
-                    <% else %>
-                      <button class='home-button' disabled>Game filled</button>
+                    <div class="row game-card-buttons">
+                    <div class="col-7">
+                      <% if game.capacity > 0 %>
+                          <%= link_to "Show details", game_path(game), class: "home-button" %>
+                      <% else %>
+                          <button class="home-button" disabled>Game filled</button>
+                      <% end %>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
+                    </div>
+                  </div>
+                  <div class="d-none share-card" data-share-target="card">
+                    <%= simple_form_for(@message) do |f| %>
+                      <%= f.input :content,
+                          as: :hidden,
+                          label: false,
+                          input_html: { class: "create-form-input"} %>
+                      <%= f.input :chatroom_id,
+                            include_blank: true,
+                            label: false,
+                            collection: @chatrooms_from_communities,
+                            include_blank: "Select community",
+                            input_html: { class: "create-form-input-small"} %>
+                      <div class="d-none">
+                        <%= f.input :game_id,
+                          label: false,
+                          collection: @games_all,
+                          input_html: { class: "create-form-input"},
+                          selected: game.id,
+                          include_blank: false %>
+                      </div>
+                      <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
                     <% end %>
+                  </div>
                   </div>
                 </div>
               <% end %>

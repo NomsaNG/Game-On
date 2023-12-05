@@ -1,15 +1,30 @@
 <div class="community-show">
-  <h2 class="text-center"><%= @community.name %></h2>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path(@community.photo.key) %>');">
+    <div class="banner-container">
+        <h2 class="banner-text"><%= @community.name %></h2>
+        <a class="btn btn-flat" href="#">Apply now</a>
+    </div>
+  </div>
 
-  <hr class="line">
-  <div class="community-show-container d-flex">
+
+
+  <div class="community-show-container">
     <!-- Upcoming Games -->
     <div class="upcoming-games">
-      <h2>Upcoming Games</h2>
+      <h2 class="community-text">Upcoming Games</h2>
       <% if @upcoming_games.any? %>
         <ul>
           <% @upcoming_games.each do |game| %>
-            <li><%= link_to game.name, game, class:"community-list-games" %></li>
+            <div class="image-community-container">
+              <%= cl_image_tag(game.venue.photo.key, class: "community-venue-img") %>
+                <div class="community-game-card">
+                  <%= link_to game.name, game, class:"community-list-games" %>
+                  <p><strong>Sport: </strong><%= game.sport %></p>
+                  <p><strong>Venue: </strong><%= game.venue.name %></p>
+                  <p><strong>Address: </strong><%= game.venue.address %></p>
+                  <p><strong>Start time: </strong><%= game.created_at.strftime('%b %d, %Y at %I:%M %p') %></p>
+                </div>
+            </div>
           <% end %>
         </ul>
       <% else %>
@@ -17,11 +32,40 @@
       <% end %>
     </div>
 
-  <div class="vl"></div>
-
     <!-- Leaderboard -->
     <div class="leaderboard">
-      <h2>Leaderboard</h2>
+      <div class="community-chatroom">
+        <h2 class="community-text">Community Chatroom</h2>
+      </div>
+      <h2 class="community-text">Leaderboard</h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Ranking</th>
+              <th>Player</th>
+              <th>Number of Games Won</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @community.memberships.each_with_index do |membership, index| %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td>
+                  <div class="leaderboard-card">
+                    <div class="leaderboard-avatar">
+                      <%= cl_image_tag(membership.user.photo.key, class: "leaderboard-avatar-image") %>
+                    </div>
+                    <p class="leaderboard-text"><%= membership.user.first_name %></p>
+                  </div>
+                </td>
+                <td>5</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
     </div>
   </div>
+
 </div>
