@@ -14,7 +14,6 @@ class Game < ApplicationRecord
   validates :community_id, presence: true, if: -> { visibility == 'Community' }
 
   belongs_to :venue
-  belongs_to :user
   belongs_to :community, optional: true
 
   has_many :participations, dependent: :destroy

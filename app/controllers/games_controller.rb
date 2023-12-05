@@ -64,7 +64,7 @@ class GamesController < ApplicationController
   end
 
   def check_authorization
-    unless current_user == @game.user
+    unless current_user.participations.exists?(game_id: @game.id, is_creator: true)
       flash[:alert] = "You are not authorized to perform this action."
       redirect_to games_path
     end
