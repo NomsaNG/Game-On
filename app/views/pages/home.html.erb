@@ -30,7 +30,7 @@
       <!-- today's games -->
       <h1 class="m-2">Today's Games</h1>
       <div class="grid-container">
-        <% today_games = @games.select { |game| game.game_date.to_date == Date.today } %>
+        <% today_games = @games.select { |game| game.game_date == Date.today } %>
 
         <% today_games.first(4).each do |game| %>
           <!-- your game card HTML here -->
@@ -40,7 +40,7 @@
       <!-- Tomorrow's games -->
       <h1 class="m-2">Tomorrow's Games</h1>
       <div class="grid-container">
-        <% tomorrow_games = @games.select { |game| game.game_date.to_date == Date.tomorrow } %>
+        <% tomorrow_games = @games.select { |game| game.game_date == Date.tomorrow } %>
 
         <% tomorrow_games.first(4).each do |game| %>
           <!-- your game card HTML here -->
