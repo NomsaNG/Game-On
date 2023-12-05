@@ -1,6 +1,7 @@
 <div class="container">
   <div class="page-container">
     <div class="row justify-content-left">
+
       <div class="search-filters">
         <div class="filter-buttons">
           <button class="filter-button" onclick="filterBy('all')">All</button>
@@ -20,6 +21,7 @@
             <%= submit_tag "Search", name: "", class: "searchbar-button btn-primary" %>
           <% end %>
         </div>
+
       </div>
     </div>
 
@@ -73,6 +75,7 @@
               </div>
             <% end %>
           </div>
+
         </div>
         <div id="tomorrows-games">
           <h1>Tomorrow's Games</h1>
@@ -150,11 +153,14 @@
         </div>
       </div>
     </div>
+
     <div data-controller="games" class="load-more-games">
       <button data-action="click->games#loadMore" data-target="games.loadButton" data-href="<%= root_path %>" class="home-load-button">Load More Games</button>
+
     </div>
   </div>
 </div>
+
 <!--  for search bar-->
 <script>
   function filterBy(game) {

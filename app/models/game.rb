@@ -11,8 +11,6 @@ class Game < ApplicationRecord
   validates :visibility, inclusion: { in: VALID_VISIBILITIES }
   validates :sport, inclusion: { in: VALID_SPORTS }
 
-  validates :community_id, presence: true, if: -> { visibility == 'Community' }
-
   belongs_to :venue
   belongs_to :community, optional: true
 
@@ -20,4 +18,7 @@ class Game < ApplicationRecord
   has_many :users, through: :participations
 
   belongs_to :chatroom, optional: true, dependent: :destroy
+
+  scope :past, -> { where('game_date < ?', Date.today) }
+  scope :upcoming, -> { where('game_date >= ?', Date.today) }
 end

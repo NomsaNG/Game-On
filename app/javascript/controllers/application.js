@@ -1,3 +1,5 @@
+
+
 import "@rails/actioncable"
 
 import { Application } from "@hotwired/stimulus"

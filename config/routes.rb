@@ -18,6 +18,11 @@ Rails.application.routes.draw do
       post :join, to: 'participations#create'
       post :leave, to: 'participations#destroy'
     end
+
+    collection do
+      get :past_games
+      get :upcoming_games
+    end
   end
 
   resources :venues, only: [:index, :show]
