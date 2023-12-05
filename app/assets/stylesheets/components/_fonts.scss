@@ -6,7 +6,7 @@ h1{
 
 h2{
   color: #39a3f3;
-  text-shadow: -2px -2px 0 #00172d, 2px -2px 0 #00172d, -2px 2px 0 #00172d, 2px 2px 0 #00172d;
+  // text-shadow: -2px -2px 0 #00172d, 2px -2px 0 #00172d, -2px 2px 0 #00172d, 2px 2px 0 #00172d;
 }
 
 h3{
@@ -33,5 +33,20 @@ h6{
 }
 
 .navbar-nav, .nav-link{
+  color: white;
+}
+
+.banner-text{
+  color: white;
+  text-align: center;
+}
+
+.community-text{
+  color: white;
+  text-align: center;
+}
+
+.leaderboard-text{
+  margin: 0;
   color: white;
 }
