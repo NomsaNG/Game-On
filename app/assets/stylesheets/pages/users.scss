@@ -18,10 +18,11 @@
   margin: 2em;
   padding: 1em;
   border-radius: 0.3em;
-  border: 4px solid #3aa5ec;
+  border: 2px solid #3aa5ec;
   background: transparent;
   box-shadow: whitesmoke 0px 0px 2px 0px;
   color: #fff;
+  height: 200px;
 }
 .user-name-div h1{
   font-size: xx-large;
@@ -37,15 +38,18 @@
   background: transparent;
   box-shadow: whitesmoke 0px 0px 2px 0px;
   color: #fff;
-  font-size: large;
-  border: 2px solid #3aa5ec;
+  font-size: 13px;
+  border: 1px solid #3aa5ec;
   padding-right: 1em;
   padding-left: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 .edit-profile-btn:hover {
   background: transparent;
-  border: 4px solid #3aa5ec;
+  border: 3px solid #3aa5ec;
   color: #fff;
+  text-align: center;
 }
 .user-info-container{
   display: flex;
@@ -64,12 +68,12 @@
 .user-info-card{
   text-align: center;
   inline-size: 50%;
-  width: 50em;
-  height: 300px;
+  width: 30em;
+  height: 200px;
   border-radius: 0.3em;
   background: transparent;
   box-shadow: whitesmoke 0px 0px 2px 0px;
-  border: 4px solid #3aa5ec;
+  border: 2px solid #3aa5ec;
   color: #fff;
   padding: 10px;
   margin: auto;
@@ -87,7 +91,7 @@
 .image-info-glue{
   display: flex;
   flex-direction: row;
-  border: 4px solid #3aa5ec;
+  border: 2px solid #3aa5ec;
   border-radius: 0.8em;
   background: transparent;
   margin-bottom: 1em;
