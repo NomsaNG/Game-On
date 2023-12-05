@@ -17,14 +17,17 @@ body {
 }
 
 .grid-container {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-gap: 3em;
   margin-top: 0;
   margin-bottom: 30px;
   overflow-y: auto;
   display: flex;
   justify-content: space-between;
+}
+
+.list-grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5em;
 }
 
 .home-card-game{
@@ -108,8 +111,14 @@ body {
   margin-bottom: 10px;
 }
 
+.all-the-games {
+  display: none;
+}
+
+.all-the-games.visible {
+  display: block;
+}
 .form-control::placeholder {
   color: white;
   opacity: 1; /* Override any default opacity */
 }
-
