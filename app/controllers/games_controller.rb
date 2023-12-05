@@ -2,6 +2,14 @@ class GamesController < ApplicationController
   def index
   end
 
+  def past_games
+    @past_games = current_user.participated_games.past
+  end
+
+  def upcoming_games
+    @upcoming_games = current_user.participated_games.upcoming
+  end 
+
   def show
     @game = Game.find(params[:id])
     @community = @game.community

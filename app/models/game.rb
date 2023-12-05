@@ -18,4 +18,7 @@ class Game < ApplicationRecord
   has_many :users, through: :participations
 
   belongs_to :chatroom, optional: true, dependent: :destroy
+
+  scope :past, -> { where('game_date < ?', Date.today) }
+  scope :upcoming, -> { where('game_date >= ?', Date.today) }
 end

@@ -12,7 +12,6 @@ class PagesController < ApplicationController
     @message = Message.new
     @chatroom = Chatroom.new
 
-
     if params[:query].present?
       @games = Game.search_by_keyword(params[:query])
     else
