@@ -1,0 +1,55 @@
+/* Assuming this is your existing code */
+.chatrooms-container {
+  width: 900px;
+  margin: 0 auto;
+  background: transparent;
+  margin-top: 14px;
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+h1 {
+  margin-top: 2px;
+  margin-bottom: 0;
+  padding: 1rem;
+}
+
+.chatrooms-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.chatroom-item {
+  border: 1px solid lightblue;
+  border-radius: 6px;
+  padding-left: 1rem;
+  margin-bottom: 0.3rem;
+  transition: background-color 0.3s;
+}
+
+.chatroom-item:hover {
+  background-color: lightblue;
+}
+
+.chatroom-link {
+  text-decoration: none; /* Remove underlines */
+  border: none; /* Remove border around each letter */
+}
+
+.messages {
+  height: 100%;
+  margin-top: 0px;
+  padding-left: 1rem;
+}
+
+#new_message {
+  border-top: 1px solid $gray-200;
+  padding-left: 1rem;
+
+  .form-group {
+    margin-bottom: 0;
+  }
+}

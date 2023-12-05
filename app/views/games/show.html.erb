@@ -1,5 +1,5 @@
-<div class="text-white">
-      <div class="return-home mt-2">
+  <div class="text-white">
+      <div class="return-home">
         <%= link_to "Back to Games List", root_path, class: "back-link" %>
       </div>
   <div class="show-container">
@@ -15,16 +15,16 @@
           <%= cl_image_tag(game.venue.photo.key, alt: "#{game.sport} court", class: "game-image") %>
           <div class="game-info">
             <h2>Description:</h2>
-            <p><%= game.description %></p>
+            <p><%=game.description %></p>
             <h2>Date and Time:</h2>
-            <p><%= game.game_date %> - <%= game.start_time %></p>
+            <p><%=game.game_date %> - <%= game.start_time %></p>
             <h2>Location:</h2>
-            <p><%= game.venue.name %></p>
-            <p><%= game.venue.address %></p>
+            <p><%=game.venue.name %></p>
+            <p><%=game.venue.address %></p>
             <h2>Spots left:</h2>
-            <p><%= game.capacity %> spots remaining</p>
+            <p><%=game.capacity %> spots remaining</p>
             <% if game.capacity > 0 %>
-              <%= button_to "Join Game", join_game_path(game), method: :post, class: "button game-join-button" %>
+              <%=button_to "Join Game", join_game_path(game), method: :post, class: "button game-join-button" %>
             <% else %>
               <button class="button game-join-button" disabled>Game filled</button>
             <% end %>
