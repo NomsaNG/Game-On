@@ -4,9 +4,13 @@
 >
   <h1>#<%= @chatroom.name %></h1>
 
-  <div class="messages text-white" data-chatroom-subscription-target="messages">
+  <div class="messages text-white" style="width: 100%" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <% if message.game.present? %>
+        <%= render "messages/message_game", message: message %>
+      <% else %>
+        <%= render "messages/message", message: message %>
+      <% end %>
     <% end %>
   </div>
 </div>

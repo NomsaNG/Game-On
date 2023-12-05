@@ -1,0 +1,7 @@
+.white-hint::after {
+  color: white;
+  content: attr(data-hint);
+  display: block;
+  margin-top: 4px; /* Adjust as needed */
+  font-size: 80%; /* Adjust as needed */
+}

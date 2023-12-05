@@ -7,8 +7,12 @@
         <div>
           <p style="font-size: 20px; text-decoration: none"><strong><%= link_to chatroom.name, chatroom_path(chatroom) %></strong></h2>
           <% if chatroom.messages.last %>
-            <p><em><%= chatroom.messages.last.content %></em> - <%= chatroom.messages.last.sender.username %>
-              (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+            <% if chatroom.messages.last.game.present? %>
+              <p><%= chatroom.messages.last.sender.username %> shared a game (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+            <% else %>
+              <p><em><%= chatroom.messages.last.content %></em> - <%= chatroom.messages.last.sender.username %>
+                (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+            <% end %>
           <% else %>
             <p>No messages yet</p>
           <% end %>
@@ -34,8 +38,12 @@
         <div>
           <p style="font-size: 20px; text-decoration: none"><strong><%= link_to chatroom.name, chatroom_path(chatroom) %></strong></h2>
           <% if chatroom.messages.last %>
-            <p><em><%= chatroom.messages.last.content %></em> - <%= chatroom.messages.last.sender.username %>
-              (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+            <% if chatroom.messages.last.game.present? %>
+              <p><%= chatroom.messages.last.sender.username %> shared a game (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+            <% else %>
+              <p><em><%= chatroom.messages.last.content %></em> - <%= chatroom.messages.last.sender.username %>
+                (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+            <% end %>
           <% else %>
             <p>No messages yet</p>
           <% end %>

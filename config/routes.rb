@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  resources :messages, only: [:create]
+
   delete 'participations/:id', to: 'participations#destroy'
 
   resources :communities, only: [:new, :create, :index, :show] do

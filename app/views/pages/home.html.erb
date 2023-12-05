@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="page-container">
+  <div class="page-container" data-controller="share">
     <div class="row justify-content-left">
 
       <div class="search-filters">
@@ -67,14 +67,45 @@
                     </div>
                   </div>
                 </div>
-                <% if game.capacity > 0 %>
-                    <%= link_to "Show details", game_path(game), class: "home-button" %>
-                <% else %>
-                    <button class="home-button" disabled>Game filled</button>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+    
+                <div class="row">
+                  <div class="col-7">
+                    <% if game.capacity > 0 %>
+                        <%= link_to "Show details", game_path(game), class: "home-button" %>
+                    <% else %>
+                        <button class="home-button" disabled>Game filled</button>
+                    <% end %>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
+                  </div>
+                </div>
+
+
+
+                <div class="d-none share-card" data-share-target="card">
+                  <%= simple_form_for(@message) do |f| %>
+                    <%= f.input :content,
+                        as: :hidden,
+                        label: false,
+                        input_html: { class: "create-form-input"} %>
+                    <%= f.input :chatroom_id,
+                          include_blank: true,
+                          label: false,
+                          collection: @chatrooms_from_communities,
+                          include_blank: "Select community",
+                          input_html: { class: "create-form-input-small"} %>
+                    <div class="d-none">
+                      <%= f.input :game_id,
+                        label: false,
+                        collection: @games_all,
+                        input_html: { class: "create-form-input"},
+                        selected: game.id,
+                        include_blank: false %>
+                    </div>
+                    <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
+                  <% end %>
+                </div>
 
         </div>
         <div id="tomorrows-games">
@@ -104,15 +135,45 @@
                       <% end %>
                     </div>
                   </div>
-                  <% if game.capacity > 0 %>
-                    <%= link_to "Join Game", new_user_session_path, class: "home-button" %>
-                  <% else %>
-                    <button class="home-button" disabled>Game filled</button>
-                  <% end %>
-                </div>
-              </div>
+                  <div class="row">
+                    <div class="col-7">
+                      <% if game.capacity > 0 %>
+                          <%= link_to "Show details", game_path(game), class: "home-button" %>
+                      <% else %>
+                          <button class="home-button" disabled>Game filled</button>
+                      <% end %>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
+                    </div>
+                  </div>
+
+                  <div class="d-none share-card" data-share-target="card">
+                    <%= simple_form_for(@message) do |f| %>
+                      <%= f.input :content,
+                          as: :hidden,
+                          label: false,
+                          input_html: { class: "create-form-input"} %>
+                      <%= f.input :chatroom_id,
+                            include_blank: true,
+                            label: false,
+                            collection: @chatrooms_from_communities,
+                            include_blank: "Select community",
+                            input_html: { class: "create-form-input-small"} %>
+                      <div class="d-none">
+                        <%= f.input :game_id,
+                          label: false,
+                          collection: @games_all,
+                          input_html: { class: "create-form-input"},
+                          selected: game.id,
+                          include_blank: false %>
+                      </div>
+                      <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
             <% end %>
           </div>
+
+
+
         </div>
         <div id="games-list" >
             <h1>All Games</h1>
