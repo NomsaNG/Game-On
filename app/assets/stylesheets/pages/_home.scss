@@ -118,3 +118,7 @@ body {
 .all-the-games.visible {
   display: block;
 }
+.form-control::placeholder {
+  color: white;
+  opacity: 1; /* Override any default opacity */
+}
