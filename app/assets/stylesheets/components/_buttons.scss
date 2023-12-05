@@ -54,18 +54,23 @@
   color: #3aa5ec;
 }
 
-.load-button{
+.home-load-button{
   text-decoration: none;
   margin-left: 1152px;
-  color: white;
   font-style: italic;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  width: 150px;
+  font-size: 15px;
 
   &:hover{
     color: #3aa5ec;
   }
 }
 
-button{
+.filter-button{
   color: #fff;
   background: transparent;
   border: 2px solid #0074cc;
@@ -75,14 +80,14 @@ button{
   font-size: 15px;
 }
 
-button:hover{
+.filter-button:hover{
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;
   font-size: 16px;
 }
 
-button.active{
+.filter-button.active{
   background: #3aa5ec;
   border: 4px solid #3aa5ec;
   color: #fff;

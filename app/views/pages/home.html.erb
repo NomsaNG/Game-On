@@ -3,12 +3,12 @@
     <div class="search-filters">
 
     <div class="filter-buttons">
-      <button onclick="filterBy('all')">All</button>
-      <button onclick="filterBy('nearMe')">Near Me</button>
-      <button onclick="filterBy('playersYouKnow')">Players You Know</button>
-      <button onclick="filterBy('tennis')">Tennis</button>
-      <button onclick="filterBy('squash')">Squash</button>
-      <button onclick="filterBy('padel')">Padel</button>
+      <button class="filter-button" onclick="filterBy('all')">All</button>
+      <button class="filter-button" onclick="filterBy('nearMe')">Near Me</button>
+      <button class="filter-button" onclick="filterBy('playersYouKnow')">Players You Know</button>
+      <button class="filter-button" onclick="filterBy('tennis')">Tennis</button>
+      <button class="filter-button" onclick="filterBy('squash')">Squash</button>
+      <button class="filter-button" onclick="filterBy('padel')">Padel</button>
     </div>
 
       <div class="search-bar my-3">
@@ -22,14 +22,14 @@
         <% end %>
       </div>
     </div>
-    <div class="all-the-games">
-      <div class="load-more-games">
-        <%= link_to "Load More Games", "#", class: "load-button", remote: true, id: "load-more-games", data: { action: "click->games#loadMore" }  %>
+    <div class="today-tomorrow-container">
+      <div data-controller="games" class="load-more-games">
+          <button data-action="click->games#loadMore" data-target="games.loadButton" class="home-load-button">Load More Games</button>
       </div>
 
                     <!-- today's games-->
       <h1 class="m-2">Today's Games</h1>
-      <div class="grid-container">
+      <div id="todays-games" class="grid-container">
         <% today_games = @games.select { |game| game.game_date.to_date == Date.today } %>
 
         <% today_games.first(4).each do |game| %>
@@ -63,13 +63,12 @@
                 <button class="home-button" disabled>Game filled</button>
             <% end %>
             </div>
-
           </div>
         <% end %>
       </div>
                             <!--Tomorrow's games-->
       <h1 class="m-2">Tomorrow's Games</h1>
-      <div class="grid-container">
+      <div id="tomorrows-games" class="grid-container">
         <% tomorrow_games = @games.select { |game| game.game_date.to_date == Date.tomorrow } %>
 
         <% tomorrow_games.first(4).each do |game| %>
@@ -107,6 +106,43 @@
           </div>
         <% end %>
       </div>
+
+      <div id="games-list" class="all-the-games">
+        <div class="list-grid-container">
+          <% @games.each do |game| %>
+            <div class='home-card-game' data-category='<%= game.sport.downcase %>'>
+            <div class='image-container'>
+              <%= cl_image_tag(game.venue.photo.key, class: 'card-game-image') %>
+            </div>
+            <div class='card-game-text m-2'>
+              <h1><%= game.sport %></h1>
+              <h1><%= game.game_date %> at <%= game.game_date %>h</h1>
+              <h1><%= game.venue.name %></h1>
+              <hr class='solid'>
+              <div class='capacity-avatar-container'>
+                <div class='game-capacity'>
+                  <h1><%= game.capacity %>spots left</h1>
+                </div>
+                <div class='avatars d-flex'>
+                  <% game.participations.each do |participation| %>
+                    <div class='game-avatar'>
+                      <%= cl_image_tag(participation.user.photo.key, class: 'avatar-image') %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <% if game.capacity > 0 %>
+                <%= link_to 'Show details', game_path(game), class: 'home-button' %>
+              <% else %>
+                <button class='home-button' disabled>Game filled</button>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </div>
@@ -131,7 +167,7 @@
     activeButton.classList.add('active');
 
     // Get all game elements
-    const games = document.querySelectorAll('.home-card-game');
+    const games = document.querySelectorAll('.home-home');
 
     // Show all games if 'All' is selected
     if (category === 'all') {
@@ -151,10 +187,4 @@
       }
     });
   }
-</script>
-
-
-<script>
-  $("#grid-container").html("<%= escape_javascript(render @games) %>");
-  $("#load-more-games").hide();
 </script>
