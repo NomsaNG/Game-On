@@ -1,102 +1,161 @@
 <div class="container">
   <div class="page-container">
     <div class="row justify-content-left">
-    <div class="search-filters">
-      <div class="search-bar my-3">
-        <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Type a keyword"
-            %>
-          <%= submit_tag "Search", name: "", class: "searchbar-button btn-primary" %>
-        <% end %>
-      </div>
-      </div>
 
-      <div class="filter-buttons">
-        <button class="filter-button" onclick="filterBy('all')">All</button>
-        <button class="filter-button" onclick="filterBy('nearMe')">Near Me</button>
-        <button class="filter-button" onclick="filterBy('playersYouKnow')">Players You Know</button>
-        <button class="filter-button" onclick="filterBy('tennis')">Tennis</button>
-        <button class="filter-button" onclick="filterBy('squash')">Squash</button>
-        <button class="filter-button" onclick="filterBy('padel')">Padel</button>
+      <div class="search-filters">
+        <div class="filter-buttons">
+          <button class="filter-button" onclick="filterBy('all')">All</button>
+          <button class="filter-button" onclick="filterBy('nearMe')">Near Me</button>
+          <button class="filter-button" onclick="filterBy('playersYouKnow')">Players You Know</button>
+          <button class="filter-button" onclick="filterBy('tennis')">Tennis</button>
+          <button class="filter-button" onclick="filterBy('squash')">Squash</button>
+          <button class="filter-button" onclick="filterBy('padel')">Padel</button>
+        </div>
+        <div class="search-bar my-3">
+          <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "Type a keyword"
+              %>
+            <%= submit_tag "Search", name: "", class: "searchbar-button btn-primary" %>
+          <% end %>
+        </div>
+
       </div>
     </div>
 
-    <h1>Today's Games</h1>
-    <div class="grid-container">
-      <% today_games = @games.select { |game| game.game_date.to_date == Date.today } %>
-      <% today_games.first(4).each do |game| %>
-        <div class="home-card-game" data-category="<%= game.sport.downcase %>">
-          <div class="image-container">
-            <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
-          </div>
-          <div class="card-game-text m-2">
-            <h1><%= game.name %></h1>
-            <h1><%= game.sport %></h1>
-            <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
-            <h1><%= game.venue.name %></h1>
-            <hr class="solid">
-            <div class="capacity-avatar-container">
-              <div class="game-capacity">
-                <h1><%= "#{game.capacity} spots left" %></h1>
-              </div>
-              <div class="avatars d-flex">
-                <% game.participations.each do |participation| %>
-                  <div class="game-avatar">
-                    <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+      <div class="map-button-container">
+        <button id="show-map-button" class="map-button">Show Map</button>
+        <i class="fa-solid fa-map"></i>
+      </div>
+    <div class="map-games-container">
+<!---->
+      <div class="map-container">
+        <div style="height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+      <div class="all-games-container">
+        <div id="todays-games">
+          <h1>Today's Games</h1>
+          <div class="grid-container">
+            <% today_games = @games.select { |game| game.game_date == Date.today } %>
+            <% today_games.first(4).each do |game| %>
+              <div class="home-card-game" data-category="<%= game.sport.downcase %>">
+                <div class="image-container">
+                  <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
+                </div>
+                <div class="card-game-text m-2">
+                  <h1><%= game.name %></h1>
+                  <h1><%= game.sport %></h1>
+                  <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
+                  <h1><%= game.venue.name %></h1>
+                  <hr class="solid">
+                  <div class="capacity-avatar-container">
+                    <div class="game-capacity">
+                      <h1><%= "#{game.capacity} spots left" %></h1>
+                    </div>
+                    <div class="avatars d-flex">
+                      <% game.participations.each do |participation| %>
+                        <div class="game-avatar">
+                          <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+                        </div>
+                      <% end %>
+                    </div>
                   </div>
+                </div>
+                <% if game.capacity > 0 %>
+                    <%= link_to "Show details", game_path(game), class: "home-button" %>
+                <% else %>
+                    <button class="home-button" disabled>Game filled</button>
                 <% end %>
               </div>
-            </div>
+            <% end %>
           </div>
-          <% if game.capacity > 0 %>
-              <%= link_to "Show details", game_path(game), class: "home-button" %>
-          <% else %>
-              <button class="home-button" disabled>Game filled</button>
-          <% end %>
 
         </div>
-      <% end %>
-    </div>
-    <h1>Tomorrow's Games</h1>
-    <div class="grid-container">
-      <% tomorrow_games = @games.select { |game| game.game_date.to_date == Date.tomorrow } %>
-      <% tomorrow_games.first(4).each do |game| %>
-        <div class="home-card-game" data-category="<%= game.sport.downcase %>">
-          <div class="image-container">
-            <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
-          </div>
-          <div class="card-game-text m-2">
-            <h1><%= game.name %></h1>
-            <h1><%= game.sport %></h1>
-            <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
-            <h1><%= game.venue.name %></h1>
-            <hr class="solid">
-            <div class="capacity-avatar-container">
-              <div class="game-capacity">
-                <h1><%= "#{game.capacity} spots left" %></h1>
-              </div>
-              <div class="avatars d-flex">
-                <% game.participations.each do |participation| %>
-                  <div class="game-avatar">
-                    <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+        <div id="tomorrows-games">
+          <h1>Tomorrow's Games</h1>
+          <div class="grid-container">
+            <% tomorrow_games = @games.select { |game| game.game_date == Date.tomorrow } %>
+            <% tomorrow_games.first(4).each do |game| %>
+              <div class="home-card-game" data-category="<%= game.sport.downcase %>">
+                <div class="image-container">
+                  <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
+                </div>
+                <div class="card-game-text m-2">
+                  <h1><%= game.name %></h1>
+                  <h1><%= game.sport %></h1>
+                  <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
+                  <h1><%= game.venue.name %></h1>
+                  <hr class="solid">
+                  <div class="capacity-avatar-container">
+                    <div class="game-capacity">
+                      <h1><%= "#{game.capacity} spots left" %></h1>
+                    </div>
+                    <div class="avatars d-flex">
+                      <% game.participations.each do |participation| %>
+                        <div class="game-avatar">
+                          <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+                        </div>
+                      <% end %>
+                    </div>
                   </div>
-                <% end %>
+                  <% if game.capacity > 0 %>
+                    <%= link_to "Join Game", new_user_session_path, class: "home-button" %>
+                  <% else %>
+                    <button class="home-button" disabled>Game filled</button>
+                  <% end %>
+                </div>
               </div>
-            </div>
-            <% if game.capacity > 0 %>
-              <%= link_to "Join Game", new_user_session_path, class: "home-button" %>
-            <% else %>
-              <button class="home-button" disabled>Game filled</button>
             <% end %>
           </div>
         </div>
-      <% end %>
+        <div id="games-list" >
+            <h1>All Games</h1>
+          <div class="all-the-games">
+              <div class="list-grid-container">
+                <% @games.each do |game| %>
+                  <div class='home-card-game' data-category='<%= game.sport.downcase %>'>
+                  <div class='image-container'>
+                    <%= cl_image_tag(game.venue.photo.key, class: 'card-game-image') %>
+                  </div>
+                  <div class='card-game-text m-2'>
+                    <h1><%= game.sport %></h1>
+                    <h1><%= game.game_date %> at <%= game.game_date %>h</h1>
+                    <h1><%= game.venue.name %></h1>
+                    <hr class='solid'>
+                    <div class='capacity-avatar-container'>
+                      <div class='game-capacity'>
+                        <h1><%= game.capacity %>spots left</h1>
+                      </div>
+                      <div class='avatars d-flex'>
+                        <% game.participations.each do |participation| %>
+                          <div class='game-avatar'>
+                            <%= cl_image_tag(participation.user.photo.key, class: 'avatar-image') %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                    <% if game.capacity > 0 %>
+                      <%= link_to 'Show details', game_path(game), class: 'home-button' %>
+                    <% else %>
+                      <button class='home-button' disabled>Game filled</button>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="load-more-games">
-      <%= link_to "Load More Games", new_user_session_path, class: "load-button" %>
+
+    <div data-controller="games" class="load-more-games">
+      <button data-action="click->games#loadMore" data-target="games.loadButton" data-href="<%= root_path %>" class="home-load-button">Load More Games</button>
 
     </div>
   </div>
@@ -138,3 +197,13 @@
     });
   }
 </script>
+
+      <!--map-->
+  <script>
+    $(document).ready(function() {
+        $("#show-map-button").click(function() {
+          $(".map-container").toggle();
+          $(".all-games-container").toggleClass("map-shown");
+        });
+    });
+  </script>
