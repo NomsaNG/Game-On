@@ -1,0 +1,23 @@
+<div class="edit-user-container">
+<%= form_for @user, url: user_path(@user), method: :patch do |f| %>
+  <%= f.label :username %> <br>
+  <%= f.text_field :username, :class => "field-profile" %>
+    <br>
+  <%= f.label :email %> <br>
+  <%= f.email_field :email, :class => "field-profile"%>
+    <br>
+  <%= f.label :first_name %> <br>
+  <%= f.text_field :first_name, :class => "field-profile" %>
+    <br>
+  <%= f.label :last_name %> <br>
+  <%= f.text_field :last_name, :class => "field-profile" %>
+    <br>
+  <%= f.label :bio %> <br>
+  <%= f.text_area :bio, :class => "field-profile" %>
+    <br>
+  <%= f.label :gender %> <br>
+  <%= f.text_field :gender, :class => "field-profile" %>
+    <br>
+  <%= f.submit 'Update Profile', :class => "field-button"%>
+<% end %>
+</div>
