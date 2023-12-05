@@ -1,0 +1,8 @@
+<div id="message-<%= message.id %>">
+  <small>
+    <strong><%= message.sender.username %></strong>
+    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p> <em><%= link_to "[View Game]", game_path(message.game) %> <%= message.game.name %> (<%= message.game.sport %>) on <%= message.game.game_date %> at <%= message.game.start_time %>:00</h1> at <%= message.game.venue.name %></em>
+  </p>
+</div>

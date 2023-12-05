@@ -6,8 +6,9 @@
   width: 100%;
   text-decoration: none;
   padding: 0.3em;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.5em;
   text-align: center;
+  margin-left: 0.8em;
 
   &:hover{
     background-color: #00172d;
@@ -15,6 +16,44 @@
   }
 }
 
+.home-button-share{
+  border: 0px;
+  display: block;
+  background-color: #0074cc;
+  color: white;
+  border-radius: 0.7em;
+  width: 100%;
+  text-decoration: none;
+  padding: 0.3em;
+  margin-bottom: 0.3em;
+  text-align: center;
+  margin-right: 0.9em;
+
+  &:hover{
+    background-color: #00172d;
+    ;
+  }
+}
+
+.home-button-confirm{
+  border: 0px;
+  display: block;
+  background-color: #0074cc;
+  color: white;
+  border-radius: 0.7em;
+  width: 40%;
+  text-decoration: none;
+  margin-top: 1px;
+  padding: 0.3em;
+  margin-bottom: 0.3em;
+  text-align: center;
+  margin-right: 0.9em;
+
+  &:hover{
+    background-color: #00172d;
+    ;
+  }
+}
 
 .search-button{
   background-color: black;
