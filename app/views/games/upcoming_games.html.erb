@@ -1,0 +1,16 @@
+<!-- app/views/games/upcoming_games.html.erb -->
+<div class="user-game-container">
+  <h1 class="games-h1">Upcoming Games</h1>
+    <% @upcoming_games.each do |game| %>
+    <div class="image-info-glue">
+        <%= cl_image_tag(game.venue.photo.key, class: "profile-venue-img") %>
+        <div class="user-games-card">
+          <p><strong><%= game.name %></strong></p>
+          <p><strong>Sport: </strong><%= game.sport %></p>
+          <p><strong>Venue: </strong><%= game.venue.name %></p>
+          <p><strong>Address: </strong><%= game.venue.address %></p>
+          <p><strong>Start time: </strong><%= game.created_at.strftime('%b %d, %Y at %I:%M %p') %></p>
+        </div>
+    </div>
+<% end %>
+</div>
