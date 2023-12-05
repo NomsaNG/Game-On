@@ -4,9 +4,9 @@ require 'open-uri'
 puts "Resetting the database..."
 
 Chatroom.destroy_all
-Community.destroy_all
 Participation.destroy_all
 Game.destroy_all
+Community.destroy_all
 Membership.destroy_all
 Message.destroy_all
 User.destroy_all
@@ -345,6 +345,96 @@ venue13.save!
 
 puts "Succesfully generated #{Venue.count} venues"
 
+
+puts "Generating communities..."
+
+community1 = Community.create!(
+  name: "Tennis Titans",
+  description: "A community for passionate tennis enthusiasts. Join us for epic matches and tennis discussions!",
+  visibility: "Public",
+)
+
+community1_url = "https://scontent.fbru1-1.fna.fbcdn.net/v/t39.30808-6/300390241_593629509134826_4831983855745723648_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeEDLCVHxWA9x6_ssu3pUY-Yp_jmlMbr5Xun-OaUxuvle9dDvJdy-Z_a7ddunxkKvrmryUbjsXj5hPPwkNQKkjec&_nc_ohc=fRk-23s_r1YAX8R4GbS&_nc_ht=scontent.fbru1-1.fna&oh=00_AfDlvj8EPMvqE7p1hPw9TjWazFJMkFicvHpCFAb5iaz4ZQ&oe=65739E21"
+community1_file = URI.open(community1_url)
+community1.photo.attach(io: community1_file, filename: 'community1_img.jpeg', content_type: 'image/png')
+community1.save!
+
+Membership.create!(user: user1, community: community1)
+Membership.create!(user: user2, community: community1)
+Membership.create!(user: user3, community: community1)
+Membership.create!(user: user4, community: community1)
+Membership.create!(user: user5, community: community1)
+Membership.create!(user: user6, community: community1)
+Membership.create!(user: user7, community: community1)
+Membership.create!(user: user8, community: community1)
+
+
+community2 = Community.create!(
+  name: "Smash Masters",
+  description: "A community for those who love powerful smashes and masterful plays on the court!",
+  visibility: "Public",
+)
+
+community2_url = "https://cdn.24.co.za/files/Cms/General/d/3068/22bcc95c0a5e41e29839ef52a71592db.jpg"
+community2_file = URI.open(community2_url)
+community2.photo.attach(io: community2_file, filename: 'community2_img.jpeg', content_type: 'image/png')
+community2.save!
+
+Membership.create!(user: user1, community: community2)
+Membership.create!(user: user2, community: community2)
+Membership.create!(user: user3, community: community2)
+Membership.create!(user: user4, community: community2)
+Membership.create!(user: user5, community: community2)
+Membership.create!(user: user6, community: community2)
+Membership.create!(user: user7, community: community2)
+Membership.create!(user: user8, community: community2)
+
+
+community3 = Community.create!(
+  name: "Racket Royalty",
+  description: "A community for those who believe in the royal artistry of racket sports. Join us for regal matches!",
+  visibility: "Private",
+)
+
+community3_url = "https://universe.byu.edu/wp-content/uploads/2019/11/tennis-team-1.jpeg"
+community3_file = URI.open(community3_url)
+community3.photo.attach(io: community3_file, filename: 'community3_img.jpeg', content_type: 'image/png')
+community3.save!
+
+Membership.create!(user: user1, community: community3)
+Membership.create!(user: user2, community: community3)
+Membership.create!(user: user3, community: community3)
+Membership.create!(user: user4, community: community3)
+Membership.create!(user: user5, community: community3)
+Membership.create!(user: user6, community: community3)
+Membership.create!(user: user7, community: community3)
+Membership.create!(user: user8, community: community3)
+
+
+community4 = Community.create!(
+  name: "Ace Achievers",
+  description: "A community for achievers who love acing the game. Join us for thrilling matches and achievements!",
+  visibility: "Public",
+)
+
+community4_url = "https://hollandchristian.org/wp-content/uploads/2023/09/boys-varsity-tennis-team.jpg"
+community4_file = URI.open(community4_url)
+community4.photo.attach(io: community4_file, filename: 'community4_img.jpeg', content_type: 'image/png')
+community4.save!
+
+Membership.create!(user: user1, community: community4)
+Membership.create!(user: user2, community: community4)
+Membership.create!(user: user3, community: community4)
+Membership.create!(user: user4, community: community4)
+Membership.create!(user: user5, community: community4)
+Membership.create!(user: user6, community: community4)
+Membership.create!(user: user7, community: community4)
+Membership.create!(user: user8, community: community4)
+
+
+puts "Successfully generated #{Community.count} communities"
+
+
 puts "Generating games..."
 
 game1 = Game.create!(
@@ -536,7 +626,7 @@ game16 = Game.create!(
   capacity: 4,
   venue: venue6,
   sport: "Padel",
-  game_date: Date.tomorrow + 1,
+  game_date: Date.today - 1,
   start_time: 8
 )
 
@@ -549,7 +639,7 @@ game17 = Game.create!(
   capacity: 4,
   venue: venue5,
   sport: "Squash",
-  game_date: Date.tomorrow + 1,
+  game_date: Date.today - 1,
   start_time: 10
 )
 
@@ -562,7 +652,7 @@ game18 = Game.create!(
   capacity: 4,
   venue: venue4,
   sport: "Tennis",
-  game_date: Date.tomorrow + 1,
+  game_date: Date.today - 1,
   start_time: 14
 )
 
@@ -575,7 +665,7 @@ game19 = Game.create!(
   capacity: 4,
   venue: venue2,
   sport: "Tennis",
-  game_date: Date.tomorrow + 1,
+  game_date: Date.today - 1,
   start_time: 18
 )
 
@@ -588,7 +678,7 @@ game20 = Game.create!(
   capacity: 4,
   venue: venue5,
   sport: "Squash",
-  game_date: Date.tomorrow,
+  game_date: Date.today - 1,
   start_time: 10
 )
 
@@ -601,7 +691,7 @@ game21 = Game.create!(
   capacity: 4,
   venue: venue8,
   sport: "Padel",
-  game_date: Date.tomorrow,
+  game_date: Date.today - 1,
   start_time: 14
 )
 
@@ -614,7 +704,7 @@ game22 = Game.create!(
   capacity: 4,
   venue: venue8,
   sport: "Tennis",
-  game_date: Date.tomorrow,
+  game_date: Date.today - 1,
   start_time: 16
 )
 
@@ -646,95 +736,126 @@ game3 = Game.create!(
 
 game3.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
+
+game24 = Game.create!(
+  name: "Tennis Tango Tournament",
+  description: "Join the tennis tango tournament for a thrilling match of skills and strategy!",
+  visibility: "Community",
+  capacity: 4,
+  venue: venue1,
+  community: community1,
+  sport: "Tennis",
+  game_date: Date.today,
+  start_time: 16
+)
+
+game24.participations.create!([{ user: user1, is_creator: true }, { user: user2 }, { user: user6 }])
+
+
+game26 = Game.create!(
+  name: "Padel Palace Showdown",
+  description: "Prepare for a padel palace showdown filled with fast-paced action and intense rallies!",
+  visibility: "Community",
+  capacity: 4,
+  venue: venue2,
+  community: community2,
+  sport: "Padel",
+  game_date: Date.today,
+  start_time: 16
+)
+
+game26.participations.create!([{ user: user3, is_creator: true }, { user: user4 }, { user: user8 }])
+
+
+game27 = Game.create!(
+  name: "Tennis Triumph Tournament",
+  description: "Experience the thrill of victory in the tennis triumph tournament! Battle it out for the top spot.",
+  visibility: "Community",
+  capacity: 4,
+  venue: venue3,
+  community: community3,
+  sport: "Tennis",
+  game_date: Date.today,
+  start_time: 16
+)
+
+game27.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+
+
+game28 = Game.create!(
+  name: "Padel Power Play",
+  description: "Engage in a padel power play where strategy meets excitement! Compete for dominance on the court.",
+  visibility: "Community",
+  capacity: 4,
+  venue: venue4,
+  community: community4,
+  sport: "Padel",
+  game_date: Date.today,
+  start_time: 16
+)
+
+game28.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+
+
+game29 = Game.create!(
+  name: "Tennis Turf Tussle",
+  description: "Join the tennis turf tussle for a challenging match on the courts! Show off your tennis prowess.",
+  visibility: "Community",
+  capacity: 4,
+  venue: venue5,
+  community: community1,
+  sport: "Tennis",
+  game_date: Date.today,
+  start_time: 16
+)
+
+game29.participations.create!([{ user: user1, is_creator: true }, { user: user6 }])
+
+
+game30 = Game.create!(
+  name: "Padel Paradise Showdown",
+  description: "Enter the padel paradise showdown and experience the excitement of intense rallies and swift moves!",
+  visibility: "Community",
+  capacity: 4,
+  venue: venue6,
+  community: community2,
+  sport: "Padel",
+  game_date: Date.today,
+  start_time: 16
+)
+
+game30.participations.create!([{ user: user3, is_creator: true }, { user: user4 }, { user: user8 }])
+
+game31 = Game.create!(
+  name: "Tennis Triumph Tournament II",
+  description: "Compete once again in the tennis triumph tournament! Prove your skills and emerge victorious.",
+  visibility: "Community",
+  capacity: 4,
+  venue: venue7,
+  community: community3,
+  sport: "Tennis",
+  game_date: Date.today,
+  start_time: 16
+)
+
+game31.participations.create!([{ user: user5, is_creator: true }])
+
+
+game32 = Game.create!(
+  name: "Padel Power Play II",
+  description: "Return for another round of padel power play! Strategize and play your way to glory on the court.",
+  visibility: "Community",
+  capacity: 4,
+  venue: venue8,
+  community: community4,
+  sport: "Padel",
+  game_date: Date.today,
+  start_time: 16
+)
+
+game32.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+
 puts "Successfully generated #{Game.count} games"
-
-puts "Generating communities..."
-
-community1 = Community.create!(
-  name: "Tennis Titans",
-  description: "A community for passionate tennis enthusiasts. Join us for epic matches and tennis discussions!",
-  visibility: "Public",
-)
-
-community1_url = "https://scontent.fbru1-1.fna.fbcdn.net/v/t39.30808-6/300390241_593629509134826_4831983855745723648_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeEDLCVHxWA9x6_ssu3pUY-Yp_jmlMbr5Xun-OaUxuvle9dDvJdy-Z_a7ddunxkKvrmryUbjsXj5hPPwkNQKkjec&_nc_ohc=fRk-23s_r1YAX8R4GbS&_nc_ht=scontent.fbru1-1.fna&oh=00_AfDlvj8EPMvqE7p1hPw9TjWazFJMkFicvHpCFAb5iaz4ZQ&oe=65739E21"
-community1_file = URI.open(community1_url)
-community1.photo.attach(io: community1_file, filename: 'community1_img.jpeg', content_type: 'image/png')
-community1.save!
-
-Membership.create!(user: user1, community: community1)
-Membership.create!(user: user2, community: community1)
-Membership.create!(user: user3, community: community1)
-Membership.create!(user: user4, community: community1)
-Membership.create!(user: user5, community: community1)
-Membership.create!(user: user6, community: community1)
-Membership.create!(user: user7, community: community1)
-Membership.create!(user: user8, community: community1)
-
-
-community2 = Community.create!(
-  name: "Smash Masters",
-  description: "A community for those who love powerful smashes and masterful plays on the court!",
-  visibility: "Public",
-)
-
-community2_url = "https://cdn.24.co.za/files/Cms/General/d/3068/22bcc95c0a5e41e29839ef52a71592db.jpg"
-community2_file = URI.open(community2_url)
-community2.photo.attach(io: community2_file, filename: 'community2_img.jpeg', content_type: 'image/png')
-community2.save!
-
-Membership.create!(user: user1, community: community2)
-Membership.create!(user: user2, community: community2)
-Membership.create!(user: user3, community: community2)
-Membership.create!(user: user4, community: community2)
-Membership.create!(user: user5, community: community2)
-Membership.create!(user: user6, community: community2)
-Membership.create!(user: user7, community: community2)
-Membership.create!(user: user8, community: community2)
-
-
-community3 = Community.create!(
-  name: "Racket Royalty",
-  description: "A community for those who believe in the royal artistry of racket sports. Join us for regal matches!",
-  visibility: "Private",
-)
-
-community3_url = "https://universe.byu.edu/wp-content/uploads/2019/11/tennis-team-1.jpeg"
-community3_file = URI.open(community3_url)
-community3.photo.attach(io: community3_file, filename: 'community3_img.jpeg', content_type: 'image/png')
-community3.save!
-
-Membership.create!(user: user1, community: community3)
-Membership.create!(user: user2, community: community3)
-Membership.create!(user: user3, community: community3)
-Membership.create!(user: user4, community: community3)
-Membership.create!(user: user5, community: community3)
-Membership.create!(user: user6, community: community3)
-Membership.create!(user: user7, community: community3)
-Membership.create!(user: user8, community: community3)
-
-
-community4 = Community.create!(
-  name: "Ace Achievers",
-  description: "A community for achievers who love acing the game. Join us for thrilling matches and achievements!",
-  visibility: "Public",
-)
-
-community4_url = "https://hollandchristian.org/wp-content/uploads/2023/09/boys-varsity-tennis-team.jpg"
-community4_file = URI.open(community4_url)
-community4.photo.attach(io: community4_file, filename: 'community4_img.jpeg', content_type: 'image/png')
-community4.save!
-
-Membership.create!(user: user1, community: community4)
-Membership.create!(user: user2, community: community4)
-Membership.create!(user: user3, community: community4)
-Membership.create!(user: user4, community: community4)
-Membership.create!(user: user5, community: community4)
-Membership.create!(user: user6, community: community4)
-Membership.create!(user: user7, community: community4)
-Membership.create!(user: user8, community: community4)
-
-
-puts "Successfully generated #{Community.count} communities"
 
 puts "Generating games chatrooms..."
 
@@ -760,7 +881,15 @@ chatroom_game19 = Chatroom.create!(name: game19.name, game_id: game19.id)
 chatroom_game20 = Chatroom.create!(name: game20.name, game_id: game20.id)
 chatroom_game21 = Chatroom.create!(name: game21.name, game_id: game21.id)
 chatroom_game22 = Chatroom.create!(name: game22.name, game_id: game22.id)
-chatroom_game23 = Chatroom.create!(name: game22.name, game_id: game23.id)
+chatroom_game23 = Chatroom.create!(name: game23.name, game_id: game23.id)
+chatroom_game24 = Chatroom.create!(name: game24.name, game_id: game24.id)
+chatroom_game26 = Chatroom.create!(name: game26.name, game_id: game26.id)
+chatroom_game27 = Chatroom.create!(name: game27.name, game_id: game27.id)
+chatroom_game28 = Chatroom.create!(name: game28.name, game_id: game28.id)
+chatroom_game29 = Chatroom.create!(name: game29.name, game_id: game29.id)
+chatroom_game30 = Chatroom.create!(name: game30.name, game_id: game30.id)
+chatroom_game31 = Chatroom.create!(name: game31.name, game_id: game31.id)
+chatroom_game32 = Chatroom.create!(name: game32.name, game_id: game32.id)
 
 
 puts "Successfully generated chatrooms for #{Game.count} games"
