@@ -29,7 +29,6 @@
         <i class="fa-solid fa-map"></i>
       </div>
     <div class="map-games-container">
-<!---->
       <div class="map-container">
         <div style="height: 600px;"
           data-controller="map"
@@ -66,8 +65,7 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="row">
+                <div class="row game-card-buttons">
                   <div class="col-7">
                     <% if game.capacity > 0 %>
                         <%= link_to "Show details", game_path(game), class: "home-button" %>
@@ -79,9 +77,6 @@
                     <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
                   </div>
                 </div>
-
-
-
                 <div class="d-none share-card" data-share-target="card">
                   <%= simple_form_for(@message) do |f| %>
                     <%= f.input :content,
@@ -105,7 +100,9 @@
                     <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
                   <% end %>
                 </div>
-
+              </div>
+            <% end %>
+          </div>
         </div>
         <div id="tomorrows-games">
           <h1>Tomorrow's Games</h1>
@@ -134,7 +131,7 @@
                       <% end %>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row game-card-buttons">
                     <div class="col-7">
                       <% if game.capacity > 0 %>
                           <%= link_to "Show details", game_path(game), class: "home-button" %>
@@ -146,7 +143,6 @@
                       <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
                     </div>
                   </div>
-
                   <div class="d-none share-card" data-share-target="card">
                     <%= simple_form_for(@message) do |f| %>
                       <%= f.input :content,
@@ -168,29 +164,30 @@
                           include_blank: false %>
                       </div>
                       <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             <% end %>
           </div>
-
-
-
         </div>
         <div id="games-list" >
-            <h1>All Games</h1>
+          <h1>All Games</h1>
           <div class="all-the-games">
-              <div class="list-grid-container">
-                <% @games.each do |game| %>
-                  <div class='home-card-game' data-category='<%= game.sport.downcase %>'>
+            <div class="list-grid-container">
+              <% @games.each do |game| %>
+                <div class='home-card-game' data-category='<%= game.sport.downcase %>'>
                   <div class='image-container'>
                     <%= cl_image_tag(game.venue.photo.key, class: 'card-game-image') %>
                   </div>
                   <div class='card-game-text m-2'>
                     <h1><%= game.sport %></h1>
-                    <h1><%= game.game_date %> at <%= game.game_date %>h</h1>
+                    <h1><%= game.game_date %> at <%= game.game_date %></h1>
                     <h1><%= game.venue.name %></h1>
                     <hr class='solid'>
                     <div class='capacity-avatar-container'>
                       <div class='game-capacity'>
-                        <h1><%= game.capacity %>spots left</h1>
+                        <h1><%= game.capacity %> spots left</h1>
                       </div>
                       <div class='avatars d-flex'>
                         <% game.participations.each do |participation| %>
@@ -200,15 +197,45 @@
                         <% end %>
                       </div>
                     </div>
-                    <% if game.capacity > 0 %>
-                      <%= link_to 'Show details', game_path(game), class: 'home-button' %>
-                    <% else %>
-                      <button class='home-button' disabled>Game filled</button>
+                    <div class="row game-card-buttons">
+                    <div class="col-7">
+                      <% if game.capacity > 0 %>
+                          <%= link_to "Show details", game_path(game), class: "home-button" %>
+                      <% else %>
+                          <button class="home-button" disabled>Game filled</button>
+                      <% end %>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
+                    </div>
+                  </div>
+                  <div class="d-none share-card" data-share-target="card">
+                    <%= simple_form_for(@message) do |f| %>
+                      <%= f.input :content,
+                          as: :hidden,
+                          label: false,
+                          input_html: { class: "create-form-input"} %>
+                      <%= f.input :chatroom_id,
+                            include_blank: true,
+                            label: false,
+                            collection: @chatrooms_from_communities,
+                            include_blank: "Select community",
+                            input_html: { class: "create-form-input-small"} %>
+                      <div class="d-none">
+                        <%= f.input :game_id,
+                          label: false,
+                          collection: @games_all,
+                          input_html: { class: "create-form-input"},
+                          selected: game.id,
+                          include_blank: false %>
+                      </div>
+                      <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
                     <% end %>
+                  </div>
                   </div>
                 </div>
               <% end %>
-              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -216,10 +243,13 @@
 
     <div data-controller="games" class="load-more-games">
       <button data-action="click->games#loadMore" data-target="games.loadButton" data-href="<%= root_path %>" class="home-load-button">Load More Games</button>
-
     </div>
   </div>
 </div>
+
+
+
+
 
 <!--  for search bar-->
 <script>
