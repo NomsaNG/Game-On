@@ -149,7 +149,25 @@
 
 .map-button{
   text-decoration: none;
-  margin-left: 1152px;
-  margin-bottom: 20px;
   font-size: small;
+  align-self: center;
+  margin-right: 10px;
+  background: transparent;
+  border: #0074cc 2px solid;
+  border-radius: 4px;
+  color: white;
+  padding: 5px;
+}
+
+.map-button:hover{
+  background: transparent;
+  border: 4px solid #3aa5ec;
+  color: #fff;
+}
+.community-button{
+  text-decoration: none;
+  color: white;
+  background: transparent;
+  border: #3aa5ec 2px solid;
+  border-radius: 8px;
 }

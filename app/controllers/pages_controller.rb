@@ -18,6 +18,16 @@ class PagesController < ApplicationController
       @games = Game.all
     end
     @games = filter_by_category(@games, params[:category]) if params[:category].present?
+
+    @venues = Venue.all
+
+    @markers = @venues.geocoded.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {venue: venue})
+      }
+    end
   end
 
   private

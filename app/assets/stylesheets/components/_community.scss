@@ -134,17 +134,6 @@
 }
 
 
-.community-chatroom{
-  border-radius: 0.3em;
-  background: transparent;
-  padding: 0.7em;
-  color: #fff;
-  border: #3aa5ec 2px solid;
-  height: 264px;
-  margin-top: 49px;
-  width: 559px
-}
-
 .leaderboard-avatar{
   width: 2em;
   height: 2em;
@@ -162,4 +151,43 @@
 .leaderboard-card{
   display: flex;
   flex-direction: row;
+}
+
+
+.community-inner-chatroom {
+  max-height: 100%;
+  overflow-y: scroll;
+  border:#3aa5ec 2px solid;
+  height: 288px;
+  border-radius: 4px;
+}
+
+.community-messages {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
+
+.community-form-control{
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+
+.community-inner-chatroom::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+.community-inner-chatroom::-webkit-scrollbar-thumb {
+  background-color: #3aa5ec; /* Set the color of the scrollbar thumb */
+  border-radius: 6px; /* Set the border-radius of the scrollbar thumb */
+}
+
+.community-inner-chatroom::-webkit-scrollbar-track {
+  background: transparent; /* Set the color of the scrollbar track */
 }

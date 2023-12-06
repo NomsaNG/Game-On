@@ -17,8 +17,28 @@ export default class extends Controller {
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
 
+    this.interval = setInterval(() => {
+      this.#resizeMap();
+    }, 10);
+
+    // const mapDiv = this.element;
+    // console.log(mapDiv);
+    // if (!mapDiv.classList.contains("d-none")) this.map.resize();
+    // console.log(!mapDiv.classList.contains("d-none"));
+
+
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
+  }
+
+
+
+  // const mapDiv = document.getElementById('map');
+  // if (mapDiv.style.visibility === true) map.resize();
+
+  #resizeMap() {
+    this.map.resize();
+    console.log("Map resized");
   }
 
   #addMarkersToMap() {
