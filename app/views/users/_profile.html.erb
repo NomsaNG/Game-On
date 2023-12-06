@@ -15,10 +15,10 @@
             <P class="gender-p"><%= @user.gender %></P>
             <p><%= @user.bio %></p>
           </div>
-          <div class="user-games-links-container">
-<%= link_to 'Past Games', past_games_games_path, :class => "past-button" %>
-<%= link_to 'Upcoming Games', upcoming_games_games_path, :class => "upcoming-button"%>
-</div>
         </div>
+          <div class="user-games-links-container">
+            <%= link_to 'Past Games', past_games_games_path, :class => "past-button" %>
+            <%= link_to 'Upcoming Games', upcoming_games_games_path, :class => "upcoming-button"%>
+          </div>
   </div>
 </div>
