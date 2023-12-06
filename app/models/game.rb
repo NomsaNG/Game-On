@@ -13,9 +13,10 @@ class Game < ApplicationRecord
 
   belongs_to :venue
   belongs_to :community, optional: true
+  belongs_to :creator, class_name: 'User', foreign_key: 'user_id', optional: true
 
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
 
-  belongs_to :chatroom, optional: true, dependent: :destroy
+  has_one :chatroom, dependent: :destroy
 end

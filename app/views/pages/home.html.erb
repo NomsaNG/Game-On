@@ -26,7 +26,7 @@
 
     <h1>Today's Games</h1>
     <div class="grid-container">
-      <% today_games = @games.select { |game| game.game_date.to_date == Date.today } %>
+      <% today_games = @games.select { |game| game.game_date == Date.today } %>
       <% today_games.first(4).each do |game| %>
         <div class="home-card-game" data-category="<%= game.sport.downcase %>">
           <div class="image-container">
@@ -62,7 +62,7 @@
     </div>
     <h1>Tomorrow's Games</h1>
     <div class="grid-container">
-      <% tomorrow_games = @games.select { |game| game.game_date.to_date == Date.tomorrow } %>
+      <% tomorrow_games = @games.select { |game| game.game_date == Date.tomorrow } %>
       <% tomorrow_games.first(4).each do |game| %>
         <div class="home-card-game" data-category="<%= game.sport.downcase %>">
           <div class="image-container">
@@ -102,10 +102,7 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
+<!--  for modal-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
