@@ -4,25 +4,15 @@
   justify-content: center;
   margin: 1em;
   padding: 1em;
-  border-radius: 0.3em;
   background: transparent;
-  margin-bottom: 1em;
-  margin-right: 10em;
-  margin-left: 10em;
+  border-bottom: #fff 1px inset;
 }
 .user-name-div{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 2em;
-  padding: 1em;
-  border-radius: 0.3em;
-  border: 2px solid #3aa5ec;
   background: transparent;
-  box-shadow: whitesmoke 0px 0px 2px 0px;
   color: #fff;
-  height: 200px;
 }
 .user-name-div h1{
   font-size: xx-large;
@@ -54,13 +44,11 @@
 }
 .user-info-container{
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-self: end;
-  margin: 1em;
-  padding: 1em;
+  flex-direction: row;
   border-radius: 0.3em;
   background: transparent;
+  margin-right: 8em;
+  margin-left: 10em;
 }
 .gender-p{
   font-weight: 500;
@@ -71,10 +59,7 @@
   inline-size: 50%;
   width: 30em;
   height: 200px;
-  border-radius: 0.3em;
   background: transparent;
-  box-shadow: whitesmoke 0px 0px 2px 0px;
-  border: 2px solid #3aa5ec;
   color: #fff;
   padding: 10px;
   margin: auto;
@@ -216,4 +201,12 @@
   border: 3px solid #3aa5ec;
   color: #fff;
   text-align: center;
+}
+.profile-avatar{
+  width: 150px;
+  border-radius: 50%;
+}
+.profile-img-div{
+  display: flex;
+  justify-content: center;
 }
