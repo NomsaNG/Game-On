@@ -26,11 +26,11 @@
       <div class="game-show-info" style="margin-right: 20px">
 
         <h1 style="margin-bottom: 1em"><i class="fa-solid fa-building"></i> <%= @game.venue.name %></h1>
-        <h2><i class="fa-solid fa-location-dot"></i> <%=@game.game_date.strftime("%e %b") %>   <i class="fa-solid fa-clock"></i> <%= @game.start_time %>:00</h2>
+        <p><i class="fa-solid fa-location-dot"></i> <%=@game.game_date.strftime("%e %b") %>   <i class="fa-solid fa-clock"></i> <%= @game.start_time %>:00</p>
 
-        <h3><i class="fa-solid fa-calendar-days"> </i> <%= @game.venue.address %></h3>
+        <p><i class="fa-solid fa-calendar-days"> </i> <%= @game.venue.address %></p>
 
-                  <h4><%= @game.description %></h4>
+                  <p><%= @game.description %></p>
             <% if @game.capacity > 0 %>
               <%= simple_form_for(@participation) do |f| %>
                 <div class="d-none">
