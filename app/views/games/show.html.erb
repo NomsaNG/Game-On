@@ -33,7 +33,7 @@
         <p style="margin-bottom: 30px"><%= @game.venue.name %><br><%= @game.venue.address %></p>
 
             <% if @game.capacity > 0 %>
-              <%= simple_form_for(@participation, data: { turbo: true }) do |f| %>
+              <%= simple_form_for(@participation) do |f| %>
                 <div class="d-none">
                   <%= f.input :game_id, label: false, selected: @game.id%>
                   <%= f.input :user_id, label: false, selected: current_user.id%>
@@ -65,12 +65,42 @@
 
 
 <div class="container" style="width:650px">
-  <!-- ... [your existing HTML/ERB content] ... -->
 
-  <!-- Include SweetAlert Library -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+
   <!-- SweetAlert Trigger Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const id = document.getElementById('hidden-id').innerText;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const currentForm = this;
+      Swal.fire({
+        title: 'Success',
+        text: 'Game succesfully joined!',
+        icon: 'success',
+        confirmButtonText: 'View game chat'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          currentForm.submit();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.querySelector('form'); // Adjust the selector if needed
@@ -81,9 +111,6 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Form processing logic goes here
-
-        // SweetAlert
         Swal.fire({
           title: 'Success!',
           text: 'Game has been joined successfully!',
@@ -98,4 +125,7 @@
       });
     });
   </script>
+
+
+
 </div>
