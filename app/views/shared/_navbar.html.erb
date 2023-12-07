@@ -10,7 +10,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <h1><%= link_to "My profile", user_path(current_user), class: "nav-link" %></h1>
+            <strong><h1><%= link_to "My profile", user_path(current_user), class: "nav-link" %></h1></strong>
           </li>
           <li class="nav-item">
             <h1><%= link_to "Messages", chatrooms_path, class: "nav-link" %></h1>

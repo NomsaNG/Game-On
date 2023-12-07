@@ -59,27 +59,29 @@
 .right-messages{
   width: 100%;
   color: white;
+  padding: 20px;
 }
 
 .message-input-field{
   border: #0074cc 2px solid;
   border-radius: 8px;
-  margin-left: 90px;
+  margin-left: 19px;
   margin-top: 20px;
   width: 60%;
-  height: 616px;
+  height: 510px;
   overflow-y: scroll;
 }
 
 .all-chats-container{
   overflow-y: scroll;
+  overflow-x: hidden;
   height: 640px;
   width: 40%;
 }
 
 .message-input{
   position: absolute;
-  bottom: 124px;
+  bottom: 169px;
 }
 
 .all-chats-container::-webkit-scrollbar {
@@ -108,6 +110,26 @@
   background: transparent; /* Set the color of the scrollbar track */
 }
 
-.fa-people-group{
+.fa-people-group, .fa-gamepad, .fa-paper-plane{
   color: white;
+}
+
+.chat-line{
+  width: 500px;
+}
+
+.chatroom-input{
+  width: 807px;
+  height: 100px;
+  background: transparent;
+  border: #0074cc 2px solid;
+  border-radius: 8px;
+}
+
+.chatroom-button{
+  background: transparent;
+  border: none;
+  position: absolute;
+  bottom: 5px; /* Adjust the bottom spacing as needed */
+  right: 5px;
 }

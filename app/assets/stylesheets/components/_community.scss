@@ -13,9 +13,10 @@
   color: white;
   border: 2px solid #0074cc;
   padding: 10px;
-  margin-left: 441px;
+  margin-left: 360px;
   margin-bottom: 10px;
-  width: 40%;
+  width: 50%;
+  border-radius: 6px;
 }
 
 .community-show-container{
@@ -158,8 +159,9 @@
   max-height: 100%;
   overflow-y: scroll;
   border:#3aa5ec 2px solid;
-  height: 288px;
+  height: 445px;
   border-radius: 4px;
+  padding: 15px;
 }
 
 .community-messages {
@@ -192,11 +194,30 @@
   background: transparent; /* Set the color of the scrollbar track */
 }
 
-.table{
-  background: transparent;
+table.table {
+  background-color: green;
   border: 2px solid #0074cc;
   border-radius: 8px;
-  color: #fff;
   padding: 10px;
   margin: 10px;
+}
+
+.community-link{
+  text-decoration: none;
+  color: white;
+
+  &:hover{
+    color: #239cf9;
+  }
+}
+
+.community-info h1{
+  font-size: 20px;
+}
+
+
+#new_message{
+  width: 510px;
+  margin: 0;
+  padding: 0;
 }
