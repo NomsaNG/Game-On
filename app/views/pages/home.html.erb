@@ -29,7 +29,7 @@
       <div class="all-games-container">
         <div id="todays-games">
 
-          <p style = "font-size: 26px; margin-bottom: 10px" >Today's Games</p>
+          <h1 style = "font-size: 26px; margin-bottom: 10px" >Today's Games</h1>
 
           <div class="grid-container">
             <% today_games = @games.select { |game| game.game_date == Date.today } %>
@@ -89,7 +89,7 @@
                   </div>
                 </div>
                 <div class="d-none share-card" data-share-target="card">
-                  <%= simple_form_for(@message) do |f| %>
+                  <%= simple_form_for(@message, url: share_messages_path, method: :post) do |f| %>
                     <%= f.input :content,
                         as: :hidden,
                         label: false,
@@ -98,7 +98,7 @@
                           include_blank: true,
                           label: false,
                           collection: @chatrooms_from_communities,
-                          include_blank: "Select community",
+                          include_blank: "Select Team",
                           input_html: { class: "create-form-input-small"} %>
                     <div class="d-none">
                       <%= f.input :game_id,

@@ -740,7 +740,7 @@ game3.participations.create!([{ user: user3, is_creator: true }, { user: user4 }
 game24 = Game.create!(
   name: "Tennis Tango",
   description: "Join the tennis tango tournament for a thrilling match of skills and strategy!",
-  visibility: "Community",
+  visibility: "Team",
   capacity: 4,
   venue: venue1,
   community: community1,
@@ -755,7 +755,7 @@ game24.participations.create!([{ user: user1, is_creator: true }, { user: user2 
 game26 = Game.create!(
   name: "Padel Showdown",
   description: "Prepare for a padel palace showdown filled with fast-paced action and intense rallies!",
-  visibility: "Community",
+  visibility: "Team",
   capacity: 4,
   venue: venue2,
   community: community2,
@@ -770,7 +770,7 @@ game26.participations.create!([{ user: user3, is_creator: true }, { user: user4 
 game27 = Game.create!(
   name: "Tennis Triumph",
   description: "Experience the thrill of victory in the tennis triumph tournament! Battle it out for the top spot.",
-  visibility: "Community",
+  visibility: "Team",
   capacity: 4,
   venue: venue3,
   community: community3,
@@ -785,7 +785,7 @@ game27.participations.create!([{ user: user5, is_creator: true }, { user: user6 
 game28 = Game.create!(
   name: "Padel Power",
   description: "Engage in a padel power play where strategy meets excitement! Compete for dominance on the court.",
-  visibility: "Community",
+  visibility: "Team",
   capacity: 4,
   venue: venue4,
   community: community4,
@@ -800,7 +800,7 @@ game28.participations.create!([{ user: user7, is_creator: true }, { user: user8 
 game29 = Game.create!(
   name: "Tennis Tussle",
   description: "Join the tennis turf tussle for a challenging match on the courts! Show off your tennis prowess.",
-  visibility: "Community",
+  visibility: "Team",
   capacity: 4,
   venue: venue5,
   community: community1,
@@ -815,7 +815,7 @@ game29.participations.create!([{ user: user1, is_creator: true }, { user: user6 
 game30 = Game.create!(
   name: "Padel Paradise",
   description: "Enter the padel paradise showdown and experience the excitement of intense rallies and swift moves!",
-  visibility: "Community",
+  visibility: "Team",
   capacity: 4,
   venue: venue6,
   community: community2,
@@ -829,7 +829,7 @@ game30.participations.create!([{ user: user3, is_creator: true }, { user: user4 
 game31 = Game.create!(
   name: "Tennis Triumph II",
   description: "Compete once again in the tennis triumph tournament! Prove your skills and emerge victorious.",
-  visibility: "Community",
+  visibility: "Team",
   capacity: 4,
   venue: venue7,
   community: community3,
@@ -844,7 +844,7 @@ game31.participations.create!([{ user: user5, is_creator: true }])
 game32 = Game.create!(
   name: "Padel Play II",
   description: "Return for another round of padel power play! Strategize and play your way to glory on the court.",
-  visibility: "Community",
+  visibility: "Team",
   capacity: 4,
   venue: venue8,
   community: community4,
@@ -971,7 +971,12 @@ Message.create(sender: user5, chatroom: chatroom_game21, content: "Let's make th
 Message.create(sender: user6, chatroom: chatroom_game22, content: "Ready to level up in this game!")
 Message.create(sender: user7, chatroom: chatroom_game23, content: "Who's bringing beers?")
 
-Message.create(sender: user1, chatroom: chatroom_community1, content: "Anyone up for a game?")
+Message.create(sender: user1, chatroom: chatroom_community1, content: "Should we go for a game next week?")
+Message.create(sender: user2, chatroom: chatroom_community1, content: "I'm down! Have 2 friends who would be keen to join I think")
+Message.create(sender: user3, chatroom: chatroom_community1, content: "If you're still looking for a player I'm in")
+Message.create(sender: user4, chatroom: chatroom_community1, content: "Who remembers the name of that one guy we played with last week? With the great smash")
+Message.create(sender: user5, chatroom: chatroom_community1, content: "John I think?")
+Message.create(sender: user6, chatroom: chatroom_community1, content: "Yeah that's the one")
 Message.create(sender: user2, chatroom: chatroom_community2, content: "We should try out that new tennis court in Claremont")
 Message.create(sender: user3, chatroom: chatroom_community3, content: "Guys what is the purpose of life")
 Message.create(sender: user4, chatroom: chatroom_community4, content: "Can't wait for the next game!")
