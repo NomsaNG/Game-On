@@ -46,7 +46,7 @@
             <% end %>
           </div>
         </div>
-        <%= simple_form_for [@chatroom, @message], url: community_messages_path(@community),
+        <%= simple_form_for [@chatroom, @message], url: community_messages_path(@community), remote: true,
           html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex m-2" } do |f|
         %>
         <%= hidden_field_tag :redirect_path, community_path(@community) %>
@@ -69,7 +69,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @community.memberships.each_with_index do |membership, index| %>
+            <% @community.memberships.sort_by { |membership| membership.random_games_won }.reverse.each_with_index do |membership, index| %>
           <tr>
             <td><%= index + 1 %></td>
             <td>
@@ -80,7 +80,7 @@
                 <p class="leaderboard-text"><%= membership.user.first_name %></p>
               </div>
             </td>
-            <td>5</td>
+            <td><%= membership.random_games_won %></td>
           </tr>
         <% end %>
       </tbody>

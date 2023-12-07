@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-  before_action :set_chatroom
   def create
     @community = Community.find(params[:community_id]) if params[:community_id]
     if params[:chatroom_id]
@@ -19,18 +18,22 @@ class MessagesController < ApplicationController
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
-        render_to_string(partial: "message", locals: {message: @message})
+        render_to_string(partial: "message", locals: { message: @message })
       )
-      # redirect_to chatroom_path(@chatroom)
-      redirect_to params[:redirect_path] || default_redirect_path
+      respond_to do |format|
+        format.html { redirect_to params[:redirect_path] || default_redirect_path }
+        format.js   { head :ok }
+      end
     else
       render "chatrooms/show", status: :unprocessable_entity
     end
   end
 
   def index
-    @messages = Message.where(chatroom_id: params[:chatroom_id])
-    render json: @messages
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    # @messages = Message.where(chatroom_id: params[:chatroom_id])
+    @messages = @chatroom.messages.includes(:sender)
+    render json: @messages, include: :sender
   end
 
   private
@@ -43,7 +46,4 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content, :chatroom_id, :game_id)
   end
 
-  def set_chatroom
-    @chatroom = Chatroom.find(params[:chatroom_id])
-  end
 end
