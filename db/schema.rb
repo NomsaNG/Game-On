@@ -72,9 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_152050) do
     t.integer "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["community_id"], name: "index_games_on_community_id"
-    t.index ["user_id"], name: "index_games_on_user_id"
     t.index ["venue_id"], name: "index_games_on_venue_id"
   end
 
@@ -147,7 +145,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_152050) do
   add_foreign_key "chatrooms", "communities"
   add_foreign_key "chatrooms", "games"
   add_foreign_key "games", "communities"
-  add_foreign_key "games", "users"
   add_foreign_key "games", "venues"
   add_foreign_key "memberships", "communities"
   add_foreign_key "memberships", "users"

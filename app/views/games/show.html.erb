@@ -9,7 +9,7 @@
           <h1 class="game-show-header mb-2"><%= game.sport %> - <%= game.name %></h1>
         </div>
         <div class="btn-container">
-          <% if @game.creator == current_user %>
+          <% if current_user.participations.exists?(game_id: game.id, is_creator: true) %>
             <%= link_to "Edit", edit_game_path(@game), class: "btn-edit" %>
             <%= link_to "Delete",
               game_path(@game),

@@ -38,8 +38,9 @@ class GamesController < ApplicationController
     @communities = Community.all
     @venues = Venue.all.limit(5)
 
-
     if @game.save
+      @participation = Participation.new(game: @game, user: current_user, is_creator: true)
+      @participation.save
       Chatroom.create(name: @game.name, game_id: @game.id)
       redirect_to game_path(@game)
     else
