@@ -92,8 +92,21 @@
   margin: 0.1em;
   border-radius: 0.3em;
   background: transparent;
-  padding: 0.7em;
+  padding: 1em;
   color: #fff;
+}
+.user-games-card h1{
+  font-size: x-large;
+  margin-bottom: 0.5em;
+  font-weight: bolder;
+}
+.user-games-card p{
+  font-size: medium;
+  margin-bottom: 0.5em;
+}
+.user-games-card h5{
+  font-size: medium;
+  margin-bottom: 1em;
 }
 .games-h1{
   color: #fff;
@@ -117,7 +130,7 @@
   background: transparent;
   box-shadow: whitesmoke 0px 0px 2px 0px;
   color: #fff;
-  font-size: xx-large;
+  font-size: medium;
   border: 1px solid #3aa5ec;
   padding-right: 1em;
   padding-left: 1em;
@@ -131,6 +144,7 @@
   border: 3px solid #3aa5ec;
   color: #fff;
   text-align: center;
+  font-weight: bolder;
 }
 .upcoming-button{
   padding: 0.5em;
@@ -138,7 +152,7 @@
   background: transparent;
   box-shadow: whitesmoke 0px 0px 2px 0px;
   color: #fff;
-  font-size: xx-large;
+  font-size: medium;
   border: 1px solid #3aa5ec;
   padding-right: 1em;
   padding-left: 1em;
@@ -152,6 +166,7 @@
   border: 3px solid #3aa5ec;
   color: #fff;
   text-align: center;
+  font-weight: bolder;
 }
 .edit-user-container{
   display: flex;
@@ -209,4 +224,23 @@
 .profile-img-div{
   display: flex;
   justify-content: center;
+}
+.profile-details-button{
+  padding: 0.5em;
+  border-radius: 2em;
+  background: transparent;
+  box-shadow: whitesmoke 0px 0px 2px 0px;
+  color: #fff;
+  font-size: 13px;
+  border: 1px solid #3aa5ec;
+  padding-right: 1em;
+  padding-left: 1em;
+  text-decoration: none;
+}
+.profile-details-button:hover {
+  background: transparent;
+  border: 3px solid #3aa5ec;
+  color: #fff;
+  text-align: center;
+  font-weight: bolder;
 }
