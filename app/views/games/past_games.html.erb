@@ -1,7 +1,7 @@
 <!-- app/views/games/past_games.html.erb -->
 <div class="user-game-container">
   <h1 class="games-h1">Past Games</h1>
-<% @past_games.sort_by { |game| [game.game_date, game.start_time] }.each do |game| %>
+    <% @past_games.sort_by { |game| [game.game_date, game.start_time] }.each do |game| %>
   <div class="image-info-glue">
     <%= cl_image_tag(game.venue.photo.key, class: "profile-venue-img") %>
     <div class="user-games-card">
@@ -13,6 +13,5 @@
       <%= link_to "Show details", game_path(game), class: "profile-details-button" %>
     </div>
   </div>
-<% end %>
+  <% end %>
 </div>
-```
