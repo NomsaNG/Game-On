@@ -28,25 +28,35 @@
     <div class="map-games-container">
       <div class="all-games-container">
         <div id="todays-games">
-          <p>Today's Games</p>
+
+          <p style = "font-size: 26px; margin-bottom: 10px" >Today's Games</p>
+
           <div class="grid-container">
             <% today_games = @games.select { |game| game.game_date == Date.today } %>
             <% today_games.first(4).each do |game| %>
               <div class="home-card-game" data-category="<%= game.sport.downcase %>">
                 <div class="image-container">
                   <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
+                  <div class="image-overlay"></div>
+                  <h2 style="position: absolute; bottom: 0px; right: 12px;
+                  font-size: 16px; font-weight: 500; color: #fff;"> <%= game.sport %></h2>
                 </div>
-                <div class="card-game-text m-2">
+
+                <div class="card-game-text m-2" >
                   <p><%= game.name %></p>
-                  <div class="card-game-details">
-                    <p><i class="fa-solid fa-clock"> </i><%= game.start_time %>h00  <i class="fa-solid fa-calendar-days"> </i><%= game.game_date.strftime("%e %b") %></p>
-                    <p><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></p>
+                  <div class="card-game-details" style="padding: 14px; padding-bottom: 0px">
+                    <p style="text-align: center; margin-bottom: 0px; font-size: 15px"> <i class="fa-solid fa-calendar-days"> </i>     <%= game.game_date.strftime("%e %b") %>      -       <i class="fa-solid fa-clock"> </i>  <%= game.start_time %>-<%= game.start_time + 2%>h </p>
+                    <p style="text-align: center; margin-top: 0px; font-size: 15px"><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></p>
                   </div>
-                    <p><%= game.sport %></p>
+
                   <hr class="solid">
-                  <div class="capacity-avatar-container">
+                  <div class="capacity-avatar-container justify-content-center" style="width:80%">
                     <div class="game-capacity">
-                      <h1><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></h1>
+                      <% if game.capacity - game.participations.count == 1  %>
+                        <p><%= "#{(game.capacity ) -(game.participations.count)} spot left" %></p>
+                      <% else %>
+                        <p><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></p>
+                      <% end %>
                     </div>
                     <div class="avatars d-flex">
                       <% game.participations.each do |participation| %>
@@ -99,7 +109,7 @@
         </div>
 
         <div id="tomorrows-games">
-          <h1>Tomorrow's Games</h1>
+          <h1 style = "font-size: 26px; margin-bottom: 10px">Tomorrow's Games</h1>
           <div class="grid-container">
             <% tomorrow_games = @games.select { |game| game.game_date == Date.tomorrow } %>
             <% tomorrow_games.first(4).each do |game| %>
@@ -115,7 +125,11 @@
                   <hr class="solid">
                   <div class="capacity-avatar-container">
                     <div class="game-capacity">
-                      <h1><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></h1>
+                      <% if game.capacity - game.participations.count == 1  %>
+                        <h1><%= "#{(game.capacity ) -(game.participations.count)} spot left" %></h1>
+                      <% else %>
+                        <h1><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></h1>
+                      <% end %>
                     </div>
                     <div class="avatars d-flex">
                       <% game.participations.each do |participation| %>
@@ -183,7 +197,11 @@
                     <hr class='solid'>
                     <div class='capacity-avatar-container'>
                       <div class='game-capacity'>
-                        <h1><%=(game.capacity ) -(game.participations.count) %> spots left</h1>
+                        <% if game.capacity - game.participations.count == 1  %>
+                          <h1><%= "#{(game.capacity ) -(game.participations.count)} spot left" %></h1>
+                        <% else %>
+                          <h1><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></h1>
+                        <% end %>
                       </div>
                       <div class='avatars d-flex'>
                         <% game.participations.each do |participation| %>
