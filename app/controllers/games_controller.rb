@@ -1,6 +1,5 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
-  before_action :check_authorization_todelete, only: [:edit, :update, :destroy]
   before_action :check_authorization, only: [:edit, :update, :destroy]
 
 
@@ -36,7 +35,6 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.creator = current_user
     @communities = Community.all
     @venues = Venue.all.limit(5)
 
@@ -84,17 +82,9 @@ class GamesController < ApplicationController
   end
 
   def check_authorization
-    unless current_user.participations.exists?(game_id: @game.id) || @game.creator == current_user
+    unless current_user.participations.exists?(game_id: @game.id, is_creator: true)
       flash[:alert] = "You are not authorized to perform this action."
       redirect_to games_path
     end
   end
-
-  def check_authorization_todelete
-    unless @game.creator == current_user
-      flash[:alert] = "You are not authorized to perform this."
-      redirect_to games_path
-    end
-  end
-
 end
