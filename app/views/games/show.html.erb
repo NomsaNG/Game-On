@@ -32,16 +32,17 @@
         <h2 style="font-size: 18px">Location:</h2>
         <p style="margin-bottom: 30px"><%= @game.venue.name %><br><%= @game.venue.address %></p>
 
-            <% if game.capacity > 0 %>
+            <% if @game.capacity > 0 %>
               <%= simple_form_for(@participation, data: { turbo: true }) do |f| %>
                 <div class="d-none">
-                  <%= f.input :game_id, label: false, selected: game.id%>
+                  <%= f.input :game_id, label: false, selected: @game.id%>
                   <%= f.input :user_id, label: false, selected: current_user.id%>
                 </div>
                 <%= f.submit "Join game", class: "create-submit-button mb-4" %>
               <% end %>
             <% else %>
               <button class="game-show-join-button" disabled>Game filled</button>
+            <% end %>
         <div class="d-flex justify-content-center">
           <div>
             <% unless current_user.participations.exists?(game_id: @game.id, is_creator: true)%>
@@ -53,35 +54,6 @@
                 <% end %>
               </div>
             <% end %>
-          </div>
-
-          <div>
-            <div data-controller="share">
-              <button type="button" class="home-button-share" style="margin-left: 20px; width: 200px; font-size: 14px" data-action="click->share#toggle" data-share-target="button"> Share </button>
-              <div class="d-none share-card" data-share-target="card">
-                <%= simple_form_for(@message) do |f| %>
-                  <%= f.input :content,
-                      as: :hidden,
-                      label: false,
-                      input_html: { class: "create-form-input"} %>
-                  <%= f.input :chatroom_id,
-                        include_blank: true,
-                        label: false,
-                        collection: @chatrooms_from_communities,
-                        include_blank: "Select community",
-                        input_html: { class: "create-form-input-small"} %>
-                  <div class="d-none">
-                    <%= f.input :game_id,
-                      label: false,
-                      collection: @games_all,
-                      input_html: { class: "create-form-input"},
-                      selected: @game.id,
-                      include_blank: false %>
-                  </div>
-                  <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
-                <% end %>
-              </div>
-            </div>
           </div>
         </div>
       </div>
