@@ -24,6 +24,9 @@ class GamesController < ApplicationController
     @capacity = @game.capacity
     @description = @game.description
     @visibility = @game.visibility
+    @participation = Participation.new
+
+    @chatroom_id = @game.chatroom.id
   end
 
   def new
@@ -31,6 +34,7 @@ class GamesController < ApplicationController
     @sports = Game::VALID_SPORTS
     @venues = Venue.all.limit(5)
     @communities = Community.all
+    @game_id = Game.last.id + 1
   end
 
   def create
@@ -42,7 +46,6 @@ class GamesController < ApplicationController
       @participation = Participation.new(game: @game, user: current_user, is_creator: true)
       @participation.save
       Chatroom.create(name: @game.name, game_id: @game.id)
-      redirect_to game_path(@game)
     else
       render :new, status: :unprocessable_entity
     end

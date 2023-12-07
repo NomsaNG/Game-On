@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       post :leave, to: 'participations#destroy'
     end
 
+
     collection do
       get :past_games
       get :upcoming_games
@@ -53,4 +54,7 @@ Rails.application.routes.draw do
   resources :chatrooms do
     resources :messages, only: [:index]
   end
+
+
+  resources :participations, only: [:create, :destroy]
 end

@@ -4,7 +4,6 @@ class ParticipationsController < ApplicationController
     @user = current_user
     @participation = Participation.new(game: @game, user: @user)
     @participation.save
-    redirect_to user_path(current_user)
   end
 
   def destroy

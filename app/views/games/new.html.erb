@@ -102,4 +102,42 @@
   <br>
   <br>
   <br>
+      <p id="hidden-id" class="d-none"><%= @game_id.to_s %></p>
+</div>
+
+
+<div class="container" style="width:650px">
+  <!-- ... [your existing HTML/ERB content] ... -->
+
+  <!-- Include SweetAlert Library -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- SweetAlert Trigger Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form'); // Adjust the selector if needed
+      console.log("hello")
+      const id = document.getElementById('hidden-id').innerText;
+        console.log(id)
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault
+
+        // Form processing logic goes here
+
+        // SweetAlert
+        Swal.fire({
+          title: 'Success!',
+          text: 'Game has been created successfully!',
+          icon: 'success',
+          confirmButtonText: 'View game details'
+        }).then((result) => {
+          if (result.isConfirmed) {
+
+            window.location.href = `/games/${id}`
+          }
+        });
+      });
+    });
+  </script>
 </div>
