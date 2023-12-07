@@ -51,6 +51,7 @@ class GamesController < ApplicationController
       @participation = Participation.new(game: @game, user: current_user, is_creator: true)
       @participation.save
       Chatroom.create(name: @game.name, game_id: @game.id)
+      redirect_to game_path(@game)
     else
       render :new, status: :unprocessable_entity
     end

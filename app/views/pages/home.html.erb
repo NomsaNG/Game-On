@@ -38,8 +38,16 @@
                 <div class="image-container">
                   <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
                   <div class="image-overlay"></div>
-                  <h2 style="position: absolute; bottom: 0px; right: 12px;
-                  font-size: 16px; font-weight: 500; color: #fff;"> <%= game.sport %></h2>
+                  <% if game.sport == "Tennis" %>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #fb8b24; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% elsif game.sport == "Padel"%>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #4d194d; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% elsif game.sport == "Squash"%>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #1982c4; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% end%>
                 </div>
 
                 <div class="card-game-text m-2" >

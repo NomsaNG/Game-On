@@ -92,7 +92,7 @@
 
 
         <div class = "mt-4" data-venues-target="submitButton">
-          <%= f.submit "Submit!", class: "create-submit-button mb-4" %>
+          <%= f.submit "Submit!", class: "create-submit-button mb-4", data: { turbolinks: false } %>
         </div>
 
       </div>
@@ -110,33 +110,26 @@
   <!-- ... [your existing HTML/ERB content] ... -->
 
   <!-- Include SweetAlert Library -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
 
   <!-- SweetAlert Trigger Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.querySelector('form'); // Adjust the selector if needed
-      console.log("hello")
-      const id = document.getElementById('hidden-id').innerText;
-        console.log(id)
-
-      form.addEventListener('submit', function (e) {
-console.log("hello")
-        // Form processing logic goes here
-
-        // SweetAlert
-        Swal.fire({
-          title: 'Success!',
-          text: 'Game has been created successfully!',
-          icon: 'success',
-          confirmButtonText: 'View game details'
-        }).then((result) => {
-          if (result.isConfirmed) {
-
-            window.location.href = `/games/${id}`
-          }
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const currentForm = this;
+      Swal.fire({
+        title: 'Success',
+        text: 'Game succesfully created!',
+        icon: 'success',
+        confirmButtonText: 'View details'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          currentForm.submit();
+        }
       });
     });
-  </script>
+  });
+</script>
 </div>
