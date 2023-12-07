@@ -10,21 +10,21 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "My profile", user_path(current_user), class: "nav-link" %>
+            <h1><%= link_to "My profile", user_path(current_user), class: "nav-link" %></h1>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
+            <h1><%= link_to "Messages", chatrooms_path, class: "nav-link" %></h1>
           </li>
           <li class="nav-item">
-            <%= link_to "Create a Game", new_game_path, class: "nav-link" %>
+            <h1><%= link_to "Create a Game", new_game_path, class: "nav-link" %></h1>
           </li>
           <li class="nav-item">
-            <%= link_to "Teams", communities_path, class: "nav-link" %>
+            <h1><%= link_to "Teams", communities_path, class: "nav-link" %></h1>
           </li>
         <% end %>
         <!-- Games Rules Link -->
         <li class="nav-item">
-          <%= link_to "Rules", games_rules_path, class: "nav-link" %>
+          <h1><%= link_to "Rules", games_rules_path, class: "nav-link" %></h1>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
@@ -37,7 +37,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <h1><%= link_to "Login", new_user_session_path, class: "nav-link" %></h1>
           </li>
         <% end %>
       </ul>

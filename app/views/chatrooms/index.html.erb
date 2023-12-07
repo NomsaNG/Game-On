@@ -7,7 +7,7 @@
           <div class="text-white chatroom-item" style="width: 100%" data-chatroom-id="<%= chatroom.id %>" data-chatroom-target="chatroomItem">
             <div>
               <div style="font-size: 20px; text-decoration: none; cursor: pointer;">
-                <strong><%= chatroom.name %></strong>
+                <i class="fa-solid fa-people-group"></i></i> <strong><%= chatroom.name %></strong>
               </div>
               <% if chatroom.messages.last %>
                 <% if chatroom.messages.last.game.present? %>
