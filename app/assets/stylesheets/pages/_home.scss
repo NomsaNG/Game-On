@@ -49,6 +49,25 @@ body {
   box-shadow: #10508d 0px 0px 5px 0px;
 }
 
+.card-game-text {
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    font-variant: small-caps;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+.card-game-details {
+  text-align: left;
+}
+
 .card-game-image{
   height: 142px;
   width: 100%;
@@ -129,7 +148,7 @@ body {
   display: block;
 }
 .form-control::placeholder {
-  color: white;
+  color: rgb(200, 200, 200);
   opacity: 1; /* Override any default opacity */
 }
 
@@ -138,5 +157,3 @@ body {
   font-size: 20px;
   margin-right: 10px;
 }
-
-

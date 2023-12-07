@@ -24,6 +24,14 @@ class GamesController < ApplicationController
     @capacity = @game.capacity
     @description = @game.description
     @visibility = @game.visibility
+
+    
+    @message = Message.new
+    user_communities = current_user.communities
+    user_games = current_user.games
+    @chatrooms_from_communities = Chatroom.where(community: user_communities)
+    @chatrooms_from_games = Chatroom.left_outer_joins(:game).where(games: { id: user_games })
+    @games_all = Game.all
   end
 
   def new
