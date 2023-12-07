@@ -855,6 +855,45 @@ game32 = Game.create!(
 
 game32.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
+game33 = Game.create!(
+  name: "Sqwash Spwash",
+  description: "Get ready for a squash showdown spectacle! Competition for victory in a high-energy match.",
+  visibility: "Public",
+  capacity: 4,
+  venue: venue2,
+  sport: "Squash",
+  game_date: Date.today,
+  start_time: 18
+)
+
+game33.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+
+game34 = Game.create!(
+  name: "Wagon Squash",
+  description: "Get ready for a squash showdown spectacle! Competition for victory in a high-energy match.",
+  visibility: "Public",
+  capacity: 4,
+  venue: venue11,
+  sport: "Squash",
+  game_date: Date.today,
+  start_time: 18
+)
+
+game34.participations.create!([{ user: user3, is_creator: true }, { user: user6 }])
+
+game35 = Game.create!(
+  name: "Squash 4 Humanity",
+  description: "Get ready for a squash showdown spectacle! Competition for victory in a high-energy match.",
+  visibility: "Public",
+  capacity: 4,
+  venue: venue7,
+  sport: "Squash",
+  game_date: Date.tomorrow,
+  start_time: 14
+)
+
+game35.participations.create!([{ user: user7, is_creator: true }, { user: user3 }])
+
 puts "Successfully generated #{Game.count} games"
 
 puts "Generating games chatrooms..."
@@ -890,6 +929,9 @@ chatroom_game29 = Chatroom.create!(name: game29.name, game_id: game29.id)
 chatroom_game30 = Chatroom.create!(name: game30.name, game_id: game30.id)
 chatroom_game31 = Chatroom.create!(name: game31.name, game_id: game31.id)
 chatroom_game32 = Chatroom.create!(name: game32.name, game_id: game32.id)
+chatroom_game33 = Chatroom.create!(name: game33.name, game_id: game33.id)
+chatroom_game34 = Chatroom.create!(name: game34.name, game_id: game34.id)
+chatroom_game35 = Chatroom.create!(name: game35.name, game_id: game35.id)
 
 
 puts "Successfully generated chatrooms for #{Game.count} games"

@@ -38,10 +38,12 @@
                   <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
                 </div>
                 <div class="card-game-text m-2">
-                  <h1><%= game.name %></h1>
-                  <h1><%= game.sport %></h1>
-                  <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
-                  <h1><%= game.venue.name %></h1>
+                  <h2><%= game.name %></h2>
+                  <div class="card-game-details">
+                    <h3><i class="fa-solid fa-clock"> </i><%= game.start_time %>h00  <i class="fa-solid fa-calendar-days"> </i><%= game.game_date.strftime("%e %b") %></h3>
+                    <h3><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></h3>
+                  </div>
+                    <h3><%= game.sport %></h3>
                   <hr class="solid">
                   <div class="capacity-avatar-container">
                     <div class="game-capacity">

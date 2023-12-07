@@ -16,9 +16,13 @@
   font-size: 14px;
 }
 
-.create-form-input::placeholder, .create-community-input::placeholder,.form-inputs::placeholder {
+.create-form-input::placeholder,
+.create-form-input-small::placeholder,
+.create-community-input::placeholder,
+.form-inputs::placeholder,
+.visibility-selector::placeholder {
   background: transparent;
-  color: rgba(211, 211, 211, 0.838);
+  color: rgba(180, 180, 180, 0.838);
 }
 
 .create-form-input:focus, .create-community-input:focus, .form-inputs:focus {
