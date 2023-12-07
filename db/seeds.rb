@@ -464,7 +464,7 @@ game2 = Game.create!(
 game2.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 game4 = Game.create!(
-  name: "Racket Haven Squash Challenge",
+  name: "Squash Tournie",
   description: "Experience the Racket Haven Squash Challenge! Tight spaces, lightning-fast shots, and thrilling squash matches await you.",
   visibility: "Public",
   capacity: 4,
@@ -477,7 +477,7 @@ game4 = Game.create!(
 game4.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 game5 = Game.create!(
-  name: "Ace Palace Padel Tournament",
+  name: "Padel Shmadel",
   description: "Ace Palace invites you to the Padel Tournament! Smash the ball, strategic plays, and exciting padel matches.",
   visibility: "Public",
   capacity: 4,
@@ -503,7 +503,7 @@ game6 = Game.create!(
 game6.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game7 = Game.create!(
-  name: "Friendly Padel Tournament",
+  name: "Padel 4 Beginners",
   description: "Welcome to a friendly padel tournament! Enjoy a fun-filled game of smashing the ball and strategic plays.",
   visibility: "Public",
   capacity: 4,
@@ -555,7 +555,7 @@ game10 = Game.create!(
 game10.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game11 = Game.create!(
-  name: "Dynamic Squash Showdown",
+  name: "Squash Spwash",
   description: "Dynamic Courts hosts a squash showdown! Competition in a match full of energy, lightning-fast shots, and precise plays.",
   visibility: "Public",
   capacity: 4,
@@ -568,7 +568,7 @@ game11 = Game.create!(
 game11.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 game12 = Game.create!(
-  name: "Rally Masters Tennis",
+  name: "Tennis Masters",
   description: "Rally Masters Tennis! Showcase of tennis mastery in a match filled with powerful serves and precise shots.",
   visibility: "Public",
   capacity: 4,
@@ -633,7 +633,7 @@ game16 = Game.create!(
 game16.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 game17 = Game.create!(
-  name: "Squash Challenge Extravaganza",
+  name: "Squash Extravaganza",
   description: "Join us for a squash challenge extravaganza! Competition in a match filled with intensity and squash mastery.",
   visibility: "Public",
   capacity: 4,
@@ -646,7 +646,7 @@ game17 = Game.create!(
 game17.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game18 = Game.create!(
-  name: "Ace Tennis Showdown",
+  name: "Tennis Showdown",
   description: "Join us for an ace tennis showdown! Promise of a match filled with powerful serves, intense rallies, and a lot of fun.",
   visibility: "Public",
   capacity: 4,
@@ -672,7 +672,7 @@ game19 = Game.create!(
 game19.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
 
 game20 = Game.create!(
-  name: "Racket Haven Squash Challenge",
+  name: "Racket Challenge",
   description: "Experience the Racket Haven Squash Challenge! Tight spaces, lightning-fast shots, and thrilling squash matches await you.",
   visibility: "Public",
   capacity: 4,
@@ -685,7 +685,7 @@ game20 = Game.create!(
 game20.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
 
 game21 = Game.create!(
-  name: "Ace Palace Padel Tournament",
+  name: "Ace Tennis",
   description: "Ace Palace invites you to the Padel Tournament! Smash the ball, strategic plays, and exciting padel matches.",
   visibility: "Public",
   capacity: 4,
@@ -698,7 +698,7 @@ game21 = Game.create!(
 game21.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game22 = Game.create!(
-  name: "Rapid Tennis Showdown",
+  name: "Rapid Tennis",
   description: "Experience a rapid tennis showdown! Showcase of agility and precision in a fast-paced match.",
   visibility: "Public",
   capacity: 4,
@@ -711,7 +711,7 @@ game22 = Game.create!(
 game22.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
 
 game23 = Game.create!(
-  name: "Dynamic Padel Challenge",
+  name: "Padel 4 Dawgs",
   description: "Dive into a dynamic padel challenge! Promise of an exhilarating match filled with strategic plays.",
   visibility: "Public",
   capacity: 4,
@@ -724,7 +724,7 @@ game23 = Game.create!(
 game23.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
 
 game3 = Game.create!(
-  name: "Squash Showdown Spectacle",
+  name: "Squash Showdown",
   description: "Get ready for a squash showdown spectacle! Competition for victory in a high-energy match.",
   visibility: "Public",
   capacity: 4,
@@ -738,7 +738,7 @@ game3.participations.create!([{ user: user3, is_creator: true }, { user: user4 }
 
 
 game24 = Game.create!(
-  name: "Tennis Tango Tournament",
+  name: "Tennis Tango",
   description: "Join the tennis tango tournament for a thrilling match of skills and strategy!",
   visibility: "Community",
   capacity: 4,
@@ -753,7 +753,7 @@ game24.participations.create!([{ user: user1, is_creator: true }, { user: user2 
 
 
 game26 = Game.create!(
-  name: "Padel Palace Showdown",
+  name: "Padel Showdown",
   description: "Prepare for a padel palace showdown filled with fast-paced action and intense rallies!",
   visibility: "Community",
   capacity: 4,
@@ -768,7 +768,7 @@ game26.participations.create!([{ user: user3, is_creator: true }, { user: user4 
 
 
 game27 = Game.create!(
-  name: "Tennis Triumph Tournament",
+  name: "Tennis Triumph",
   description: "Experience the thrill of victory in the tennis triumph tournament! Battle it out for the top spot.",
   visibility: "Community",
   capacity: 4,
@@ -783,7 +783,7 @@ game27.participations.create!([{ user: user5, is_creator: true }, { user: user6 
 
 
 game28 = Game.create!(
-  name: "Padel Power Play",
+  name: "Padel Power",
   description: "Engage in a padel power play where strategy meets excitement! Compete for dominance on the court.",
   visibility: "Community",
   capacity: 4,
@@ -798,7 +798,7 @@ game28.participations.create!([{ user: user7, is_creator: true }, { user: user8 
 
 
 game29 = Game.create!(
-  name: "Tennis Turf Tussle",
+  name: "Tennis Tussle",
   description: "Join the tennis turf tussle for a challenging match on the courts! Show off your tennis prowess.",
   visibility: "Community",
   capacity: 4,
@@ -813,7 +813,7 @@ game29.participations.create!([{ user: user1, is_creator: true }, { user: user6 
 
 
 game30 = Game.create!(
-  name: "Padel Paradise Showdown",
+  name: "Padel Paradise",
   description: "Enter the padel paradise showdown and experience the excitement of intense rallies and swift moves!",
   visibility: "Community",
   capacity: 4,
@@ -827,7 +827,7 @@ game30 = Game.create!(
 game30.participations.create!([{ user: user3, is_creator: true }, { user: user4 }, { user: user8 }])
 
 game31 = Game.create!(
-  name: "Tennis Triumph Tournament II",
+  name: "Tennis Triumph II",
   description: "Compete once again in the tennis triumph tournament! Prove your skills and emerge victorious.",
   visibility: "Community",
   capacity: 4,
@@ -842,7 +842,7 @@ game31.participations.create!([{ user: user5, is_creator: true }])
 
 
 game32 = Game.create!(
-  name: "Padel Power Play II",
+  name: "Padel Play II",
   description: "Return for another round of padel power play! Strategize and play your way to glory on the court.",
   visibility: "Community",
   capacity: 4,
