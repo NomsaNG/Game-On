@@ -1,43 +1,77 @@
-<div class="game-show-text-white">
-  <%= link_to "Go back", root_path, class: "game-show-back-link" %>
-
-  <div class="game-show-container">
-    <div class="game-show-page-container">
-      <div class="game-show-details">
-        <% game = Game.find(params[:id]) %>
-        <div>
-          <h1 class="game-show-header mb-2"><%= game.sport %> - <%= game.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('<%= cl_image_path(@game.venue.photo.key) %>'); display: flex; justify-content: center; align-items: center; position: relative;">
+  <div style="width: 90%; text-align: center;">
+    <% if current_user.participations.exists?(game_id: @game.id, is_creator: true) %>
+      <p style="position: absolute; top: 10px; left: 10px;"> <%= @game.sport %><p>
+      <p style="position: absolute; top: 10px; right: 140px"> <%= link_to "Edit", edit_game_path(@game), class: "btn-edit" %> <p>
+      <p style="position: absolute; top: 10px; right: 10px;"> <%= link_to "Delete", game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete"  %> <p>
+    <% end %>
+    <h2 style="color: white"><%= @game.name %></h2>
+    <div style="position: absolute; bottom: 10px; right: 10px;">
+      <h2 style="text-align: left; color: white; font-size: 17px"> Players </h2>
+      <% @game.participations.each do |participation| %>
+      <div class="user-info d-flex align-items-center" style="margin-bottom: 10px;">
+        <div class="game-avatar">
+          <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
         </div>
-        <div class="btn-container">
-          <% if current_user.participations.exists?(game_id: game.id, is_creator: true) %>
-            <%= link_to "Edit", edit_game_path(@game), class: "btn-edit" %>
-            <%= link_to "Delete",
-              game_path(@game),
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" %>
-          <% end %>
-        </div>
-        <div class="game-show-body">
-          <%= cl_image_tag(game.venue.photo.key, alt: "#{game.sport} court", class: "game-show-image") %>
+        <h3 style="font-size: 15px;color: white; margin-left: 10px;"><%= participation.user.username %></h3>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
 
-          <div class="game-show-info">
-            <h2>Description:</h2>
-            <p><%= game.description %></p>
+<div class="mx-auto" style="width: 60%; margin-top: 15px">
+  <div>
+    <div class="game-show-text-white">
+      <div class="game-show-info" style="margin-right: 20px">
+        <p><%= @game.description %></p>
 
-            <h2>Date and Time:</h2>
+        <h2 style="font-size: 18px">Date and Time:</h2>
+        <p><%=@game.game_date %> - <%= @game.start_time %>:00</p>
 
-            <p><%=game.game_date %> - <%= game.start_time %> : 00</p>
+        <h2 style="font-size: 18px">Location:</h2>
+        <p style="margin-bottom: 30px"><%= @game.venue.name %><br><%= @game.venue.address %></p>
 
-            <h2>Location:</h2>
-            <p><%= game.venue.name %><br><%= game.venue.address %></p>
-
-            <h2>Spots left:</h2>
-            <p><%= game.capacity %> spots remaining</p>
-
-            <% if game.capacity > 0 %>
-              <%= button_to "Join Game", join_game_path(game), method: :post, class: "game-show-join-button" %>
-            <% else %>
-              <button class="game-show-join-button" disabled>Game filled</button>
+        <div class="d-flex justify-content-center">
+          <div>
+            <% unless current_user.participations.exists?(game_id: @game.id, is_creator: true)%>
+              <div class="game-show-join" style="text-align: center;">
+                <% if @game.capacity > 0 %>
+                  <%= button_to "Join Game", join_game_path(@game), method: :post, class: "home-button-share mx-auto d-block", style: "font-size: 14px; padding: 5px; width: 200px" %>
+                <% else %>
+                  <button class="home-button-share mx-auto" disabled style="font-size: 14px; padding: 5px; border: none">Game filled</button>
+                <% end %>
+              </div>
             <% end %>
+          </div>
+
+          <div>
+            <div data-controller="share">
+              <button type="button" class="home-button-share" style="margin-left: 20px; width: 200px; font-size: 14px" data-action="click->share#toggle" data-share-target="button"> Share </button>
+              <div class="d-none share-card" data-share-target="card">
+                <%= simple_form_for(@message) do |f| %>
+                  <%= f.input :content,
+                      as: :hidden,
+                      label: false,
+                      input_html: { class: "create-form-input"} %>
+                  <%= f.input :chatroom_id,
+                        include_blank: true,
+                        label: false,
+                        collection: @chatrooms_from_communities,
+                        include_blank: "Select community",
+                        input_html: { class: "create-form-input-small"} %>
+                  <div class="d-none">
+                    <%= f.input :game_id,
+                      label: false,
+                      collection: @games_all,
+                      input_html: { class: "create-form-input"},
+                      selected: @game.id,
+                      include_blank: false %>
+                  </div>
+                  <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
