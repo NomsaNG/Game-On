@@ -63,6 +63,7 @@
                     <% else %>
                         <button class="home-button" disabled>Game filled</button>
                     <% end %>
+
                   </div>
                   <div class="col-4">
                     <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
@@ -95,6 +96,7 @@
             <% end %>
           </div>
         </div>
+
         <div id="tomorrows-games">
           <h1>Tomorrow's Games</h1>
           <div class="grid-container">
@@ -133,6 +135,7 @@
                     <div class="col-4">
                       <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
                     </div>
+
                   </div>
                   <div class="d-none share-card" data-share-target="card">
                     <%= simple_form_for(@message) do |f| %>
@@ -243,7 +246,6 @@
     </div>
   </div>
 </div>
-
 
 
 

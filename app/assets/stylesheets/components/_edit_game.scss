@@ -1,0 +1,82 @@
+/* app/assets/stylesheets/games.scss */
+
+.custom-game-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: transparent; /* Transparent background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .custom-form-label {
+    font-weight: bold;
+    color: white;
+  }
+
+  .form-label {
+    font-weight: bold;
+    color: white;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    .custom-form-input {
+      .custom-form-control {
+        width: 100%;
+      }
+    }
+  }
+
+  .btn-primary.custom-form-submit {
+    background-color: #007bff;
+    color: #fff;
+    width: 100%;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  /* Add additional styling with unique class names as needed */
+}
+
+.game-edit-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 81vh; /* Centers the form vertically */
+  background-size: cover;
+}
+
+.edit-game-container {
+  background-color: transparent; /* Set the background to transparent */
+  padding: 20px; /* Add padding for spacing */
+  border-radius: 8px; /* Add border radius */
+  margin: auto; /* Center the container horizontally */
+  max-width: 600px; /* Limit the container width */
+  text-align: center; /* Center the text */
+}
+
+.edit-game-header {
+  color: white; /* Make text color white */
+  font-size: 24px; /* Adjust font size as needed */
+  margin-bottom: 20px; /* Add spacing below the header */
+}
+
+.back-link-for-edit {
+  background-color: #007bff; /* Blue background color for the "Back" link */
+  color: white; /* White text color for the link */
+  padding: 5px 10px; /* Add smaller padding for a smaller button */
+  border-radius: 5px; /* Add rounded corners */
+  text-decoration: none; /* Remove underlines */
+  transition: background-color 0.3s ease; /* Add transition on hover */
+  width:60px;
+  height:30px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.back-link:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

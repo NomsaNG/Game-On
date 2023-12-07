@@ -1,0 +1,51 @@
+<div class="game-edit-form-container">
+  <%= simple_form_for(@game, html: { class: 'custom-game-form', role: 'form' }) do |f| %>
+    <div class="form-group">
+      <div class="custom-form-input">
+        <%= f.input :name, class: 'custom-form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-form-input">
+        <%= f.input :description, class: 'custom-form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-form-input">
+        <%= f.input :visibility, class: 'custom-form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-form-input">
+        <%= f.input :sport, class: 'custom-form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-form-input">
+        <%= f.input :capacity, class: 'custom-form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-form-input">
+        <%= f.input :game_date, class: 'custom-form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-form-input">
+        <%= f.input :start_time, class: 'custom-form-control' %>
+      </div>
+    </div>
+
+    <!-- Add other fields as needed -->
+
+    <div class="form-group text-center">
+      <%= f.submit 'Update Game', class: 'btn btn-primary custom-form-submit' %>
+    </div>
+  <% end %>
+</div>
