@@ -6,10 +6,10 @@
     <%= cl_image_tag(game.venue.photo.key, class: "profile-venue-img") %>
     <div class="user-games-card">
       <h1><%= game.name %></h1>
-      <h3><%= game.sport %></h3>
-      <h4><i class="fa-solid fa-building"></i><%= game.venue.name %></h4>
-      <h4><i class="fa-solid fa-calendar-days"> </i><%= game.venue.address %></h4>
-      <h4><i class="fa-solid fa-location-dot"></i><%= game.game_date.strftime("%e %b") %>, <i class="fa-solid fa-clock"></i><%= game.start_time %>h00</h4>
+      <p><%= game.sport %></p>
+      <p><i class="fa-solid fa-building"></i>  <%= game.venue.name %></p>
+      <p><i class="fa-solid fa-calendar-days"> </i>  <%= game.venue.address %></p>
+      <p><i class="fa-solid fa-location-dot"> </i>  <%= game.game_date.strftime("%e %b") %> • <i class="fa-solid fa-clock"></i>  <%= game.start_time %>h00</p>
       <%= link_to "Show details", game_path(game), class: "profile-details-button" %>
     </div>
   </div>

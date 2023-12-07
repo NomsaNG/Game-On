@@ -64,16 +64,30 @@
 
 .game-show-info {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
+.game-show-info h1 {
+  color: #fff;
+  margin-bottom: 1em;
+  font-size: x-large;
+}
 .game-show-info h2 {
-  color: #c7c7d1;
-  margin-bottom: 10px;
+  color: #fff;
+  margin-bottom: 1em;
+  font-size: large;
 }
-
-.game-show-info p {
-  font-size: 1rem;
+.game-show-info h3 {
+  color: #fff;
+  margin-bottom: 1em;
+  font-size: medium;
+}
+.game-show-info h4 {
+  font-size: medium;
   line-height: 1.4;
+  margin-bottom: 1em;
 }
 
 .game-show-join-button, .game-show-edit-button, .game-show-delete-button {
@@ -148,4 +162,34 @@
 
 .btn-edit:hover {
   background-color: #0056b3; /* Darker blue on hover */
+}
+.join-game-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.show-game-title{
+  font-size: 6em;
+  font-weight: bolder;
+}
+.create-submit-button{  padding: 0.5em;
+  border-radius: 2em;
+  background: transparent;
+  box-shadow: whitesmoke 0px 0px 2px 0px;
+  color: #fff;
+  font-size: medium;
+  border: 1px solid #3aa5ec;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-decoration: none;
+  margin-left: 1em;
+}
+.create-submit-button:hover{
+  background: transparent;
+  border: 3px solid #3aa5ec;
+  color: #fff;
+  text-align: center;
+  font-weight: bolder;
 }
