@@ -31,21 +31,62 @@
         <h3><i class="fa-solid fa-calendar-days"> </i> <%= @game.venue.address %></h3>
 
                   <h4><%= @game.description %></h4>
-            <% unless current_user.participations.exists?(game_id: @game.id, is_creator: true)%> %>
-              <%= simple_form_for(@participation, url: join_game_path(@game), method: :post) do |f| %>
-                <div class="d-none">
-                  <%= f.input :game_id, as: :hidden, input_html: { value: @game.id } %>
-                  <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-                </div>
-                <div class="join-game-btn">
-                  <%= f.submit "Join game", class: "create-submit-button mb-4" %>
-                </div>
-              <% end %>
-            <% end %>
-            <% if @game.capacity == 0 %>
-              <button class="game-show-join-button" disabled>Game filled</button>
-            <% end %>
+            <div class="d-flex justify-content-between">
+              <div>
+                <% unless current_user.participations.exists?(game_id: @game.id, is_creator: true)%>
+                  <%= simple_form_for(@participation, url: join_game_path(@game), method: :post) do |f| %>
+                    <div class="d-none">
+                      <%= f.input :game_id, as: :hidden, input_html: { value: @game.id } %>
+                      <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+                    </div>
+                    <div class="join-game-btn">
+                      <%= f.submit "Join game", class: "create-submit-button mb-4" %>
+                    </div>
+                  <% end %>
+                <% end %>
+                <% if @game.capacity == 0 %>
+                  <button class="create-submit-button mb-4" disabled>Game filled</button>
+                <% end %>
+              </div>
+              <div>
+                <button type="button" class="create-submit-button mb-4" data-action="click->share#toggle" data-share-target="button"> Share </button>
+              <div>
+            </div>
         <div class="d-flex justify-content-center">
+          <div>
+            <div class="share-card" data-share-target="card">
+              <%= simple_form_for(@message) do |f| %>
+                <%= f.input :content,
+                    as: :hidden,
+                    label: false,
+                    input_html: { class: "create-form-input"} %>
+                <%= f.input :chatroom_id,
+                      include_blank: true,
+                      label: false,
+                      collection: @chatrooms_from_communities,
+                      include_blank: "Select Team",
+                      input_html: { class: "create-form-input-small"} %>
+                <div class="d-none">
+                  <%= f.input :game_id,
+                    label: false,
+                    collection: @games_all,
+                    input_html: { class: "create-form-input"},
+                    selected: @game.id,
+                    include_blank: false %>
+                </div>
+                <%= f.submit "Confirm", class: "home-button-confirm-bigger mb-2" %>
+              <% end %>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
 
         </div>
       </div>
@@ -53,7 +94,33 @@
   </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p id="hidden-id" class="d-none"><%= @chatroom_id.to_s %></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="container" style="width:650px">
