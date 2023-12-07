@@ -14,11 +14,10 @@
             <div class="image-community-container">
               <%= cl_image_tag(game.venue.photo.key, class: "community-venue-img") %>
               <div class="community-game-card">
-                <%= link_to game.name, game, class:"community-list-games" %>
-                <p><strong>Sport: </strong><%= game.sport %></p>
-                <p><strong>Venue: </strong><%= game.venue.name %></p>
-                <p><strong>Address: </strong><%= game.venue.address %></p>
-                <p><strong>Start time: </strong><%= game.start_time %>:00</p>
+                <p style="text-align: center; font-size: 25px"><%= link_to game.name, game, class:"community-list-games"%></p>
+                <p><i class="fa-solid fa-table-tennis-paddle-ball p-2"></i><%= game.sport %></p>
+                <p><i class="fa-solid fa-location-dot p-2"></i> <%= game.venue.name %> </p>
+                <p> <i class="fa-solid fa-calendar-days p-2"> </i>     <%= game.game_date.strftime("%e %b") %>  - <i class="fa-solid fa-clock p-2"> </i>    <%= game.start_time %>:00</p>
               </div>
             </div>
           <% end %>
