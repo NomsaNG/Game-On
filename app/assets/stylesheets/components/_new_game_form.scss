@@ -18,20 +18,20 @@
 
 .create-form-input::placeholder,
 .create-form-input-small::placeholder,
-.create-community-input::placeholder,
+.create-team-input::placeholder,
 .form-inputs::placeholder,
 .visibility-selector::placeholder {
   background: transparent;
   color: rgba(180, 180, 180, 0.838);
 }
 
-.create-form-input:focus, .create-community-input:focus, .form-inputs:focus {
+.create-form-input:focus, .create-team-input:focus, .form-inputs:focus {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff
 }
 
-.create-form-input:hover, .create-community-input:hover, .form-inputs:hover {
+.create-form-input:hover, .create-team-input:hover, .form-inputs:hover {
   background: transparent;
   border: 4px solid #3aa5ec;
   color: #fff;

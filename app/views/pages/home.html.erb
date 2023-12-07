@@ -29,7 +29,7 @@
       <div class="all-games-container">
         <div id="todays-games">
 
-          <p style = "font-size: 26px; margin-bottom: 10px" >Today's Games</p>
+          <h1 style = "font-size: 26px; margin-bottom: 10px" >Today's Games</h1>
 
           <div class="grid-container">
             <% today_games = @games.select { |game| game.game_date == Date.today } %>
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="card-game-text m-2" >
-                  <p><%= game.name %></p>
+                  <h2 style="font-weight: 900"><%= game.name %></h2>
                   <div class="card-game-details" style="padding: 14px; padding-bottom: 0px">
                     <p style="text-align: center; margin-bottom: 0px; font-size: 15px"> <i class="fa-solid fa-calendar-days"> </i>     <%= game.game_date.strftime("%e %b") %>      -       <i class="fa-solid fa-clock"> </i>  <%= game.start_time %>-<%= game.start_time + 2%>h </p>
                     <p style="text-align: center; margin-top: 0px; font-size: 15px"><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></p>
@@ -98,7 +98,7 @@
                           include_blank: true,
                           label: false,
                           collection: @chatrooms_from_communities,
-                          include_blank: "Select community",
+                          include_blank: "Select Team",
                           input_html: { class: "create-form-input-small"} %>
                     <div class="d-none">
                       <%= f.input :game_id,
@@ -170,7 +170,7 @@
                             include_blank: true,
                             label: false,
                             collection: @chatrooms_from_communities,
-                            include_blank: "Select community",
+                            include_blank: "Select team",
                             input_html: { class: "create-form-input-small"} %>
                       <div class="d-none">
                         <%= f.input :game_id,

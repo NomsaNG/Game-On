@@ -31,30 +31,22 @@
         <h3><i class="fa-solid fa-calendar-days"> </i> <%= @game.venue.address %></h3>
 
                   <h4><%= @game.description %></h4>
-            <% if @game.capacity > 0 %>
-              <%= simple_form_for(@participation) do |f| %>
+            <% unless current_user.participations.exists?(game_id: @game.id, is_creator: true)%> %>
+              <%= simple_form_for(@participation, url: join_game_path(@game), method: :post) do |f| %>
                 <div class="d-none">
-                  <%= f.input :game_id, label: false, selected: @game.id%>
-                  <%= f.input :user_id, label: false, selected: current_user.id%>
+                  <%= f.input :game_id, as: :hidden, input_html: { value: @game.id } %>
+                  <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
                 </div>
                 <div class="join-game-btn">
-                <%= f.submit "Join game", class: "create-submit-button mb-4" %></div>
+                  <%= f.submit "Join game", class: "create-submit-button mb-4" %>
+                </div>
               <% end %>
-            <% else %>
+            <% end %>
+            <% if @game.capacity == 0 %>
               <button class="game-show-join-button" disabled>Game filled</button>
             <% end %>
         <div class="d-flex justify-content-center">
-          <div>
-            <% unless current_user.participations.exists?(game_id: @game.id, is_creator: true)%>
-              <div class="game-show-join" style="text-align: center;">
-                <% if @game.capacity > 0 %>
-                  <%= button_to "Join Game", join_game_path(@game), method: :post, class: "home-button-share mx-auto d-block", style: "font-size: 14px; padding: 5px; width: 200px" %>
-                <% else %>
-                  <button class="home-button-share mx-auto" disabled style="font-size: 14px; padding: 5px; border: none">Game filled</button>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+
         </div>
       </div>
     </div>
@@ -95,37 +87,4 @@
     });
   });
 </script>
-
-
-
-
-
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.querySelector('form'); // Adjust the selector if needed
-      console.log("hello")
-      const id = document.getElementById('hidden-id').innerText;
-        console.log(id)
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        Swal.fire({
-          title: 'Success!',
-          text: 'Game has been joined successfully!',
-          icon: 'success',
-          confirmButtonText: 'Go to game chat'
-        }).then((result) => {
-          if (result.isConfirmed) {
-
-            window.location.href = `/chatrooms/${id}`
-          }
-        });
-      });
-    });
-  </script>
-
-
-
 </div>

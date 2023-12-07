@@ -4,6 +4,7 @@ class ParticipationsController < ApplicationController
     @user = current_user
     @participation = Participation.new(game: @game, user: @user)
     @participation.save
+    redirect_to chatroom_path(@game.chatroom)
   end
 
   def destroy

@@ -4,7 +4,7 @@ class Game < ApplicationRecord
                   associated_against: { venue: [:name, :address] },
                   using: { tsearch: { prefix: true } }
 
-  VALID_VISIBILITIES = ["Public", "Community", "Private"]
+  VALID_VISIBILITIES = ["Public", "Team", "Private"]
   VALID_SPORTS = ["Tennis", "Squash", "Padel"]
 
   validates :capacity, :name, presence: true
