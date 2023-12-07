@@ -4,7 +4,7 @@
   margin: 0 auto;
   background: transparent;
   margin-top: 14px;
-  height: calc(100vh - 75px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,10 +57,53 @@
 }
 
 .right-messages{
+  width: 100%;
+  color: white;
+}
+
+.message-input-field{
+  border: #0074cc 2px solid;
+  border-radius: 8px;
   margin-left: 90px;
   margin-top: 20px;
-  width: 40%;
-  color: white;
-  background: grey;
+  width: 60%;
+  height: 616px;
   overflow-y: scroll;
+}
+
+.all-chats-container{
+  overflow-y: scroll;
+  height: 640px;
+  width: 40%;
+}
+
+.message-input{
+  position: absolute;
+  bottom: 124px;
+}
+
+.all-chats-container::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+.all-chats-container::-webkit-scrollbar-thumb {
+  background-color: #3aa5ec; /* Set the color of the scrollbar thumb */
+  border-radius: 6px; /* Set the border-radius of the scrollbar thumb */
+}
+
+.all-chats-container::-webkit-scrollbar-track {
+  background: transparent; /* Set the color of the scrollbar track */
+}
+
+.message-input-field::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+.message-input-field::-webkit-scrollbar-thumb {
+  background-color: #3aa5ec; /* Set the color of the scrollbar thumb */
+  border-radius: 6px; /* Set the border-radius of the scrollbar thumb */
+}
+
+.message-input-field::-webkit-scrollbar-track {
+  background: transparent; /* Set the color of the scrollbar track */
 }
