@@ -5,11 +5,12 @@
   <div class="image-info-glue">
     <%= cl_image_tag(game.venue.photo.key, class: "profile-venue-img") %>
     <div class="user-games-card">
-      <p><strong><%= game.name %></strong></p>
-      <p><strong>Sport: </strong><%= game.sport %></p>
-      <p><strong>Venue: </strong><%= game.venue.name %></p>
-      <p><strong>Address: </strong><%= game.venue.address %></p>
-      <p><strong>Date: </strong><%= game.game_date %>, <%= game.start_time %>:00</p>
+      <h1><%= game.name %></h1>
+      <h3><%= game.sport %></h3>
+      <h4><i class="fa-solid fa-building"></i><%= game.venue.name %></h4>
+      <h4><i class="fa-solid fa-calendar-days"> </i><%= game.venue.address %></h4>
+      <h4><i class="fa-solid fa-location-dot"></i><%= game.game_date.strftime("%e %b") %>, <i class="fa-solid fa-clock"></i><%= game.start_time %>h00</h4>
+      <%= link_to "Show details", game_path(game), class: "profile-details-button" %>
     </div>
   </div>
 <% end %>
