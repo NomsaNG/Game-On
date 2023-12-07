@@ -1,45 +1,66 @@
-<div class="game-show-text-white">
-  <%= link_to "Go back", root_path, class: "game-show-back-link" %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('<%= cl_image_path(@game.venue.photo.key) %>'); display: flex; justify-content: center; align-items: center; position: relative;">
+  <div style="width: 90%; text-align: center;">
+    <% if current_user.participations.exists?(game_id: @game.id, is_creator: true) %>
+      <p style="position: absolute; top: 10px; left: 10px;"> <%= @game.sport %><p>
+      <p style="position: absolute; top: 10px; right: 140px;"> <%= link_to "Edit", edit_game_path(@game), class: "btn-edit" %> <p>
+      <p style="position: absolute; top: 10px; right: 10px;"> <%= link_to "Delete", game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete"  %> <p>
+    <% end %>
+    <h2 style="color: white"><%= @game.name %></h2>
+    <div style="position: absolute; bottom: 100px; right: 100px;">
+      <% @game.participations.each do |participation| %>
+      <div class="user-info d-flex align-items-center" style="margin-bottom: 10px;">
+        <div class="game-avatar">
+          <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+        </div>
+        <h1 style="color: white; margin-left: 10px;"><%= participation.user.username %></h1>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
 
+
+<div class="game-show-text-white">
   <div class="game-show-container">
     <div class="game-show-page-container">
       <div class="game-show-details">
         <% game = Game.find(params[:id]) %>
-        <div>
-          <h1 class="game-show-header mb-2"><%= game.sport %> - <%= game.name %></h1>
-        </div>
-        <div class="btn-container">
-          <% if current_user.participations.exists?(game_id: game.id, is_creator: true) %>
-            <%= link_to "Edit", edit_game_path(@game), class: "btn-edit" %>
-            <%= link_to "Delete",
-              game_path(@game),
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" %>
-          <% end %>
-        </div>
-        <div class="game-show-body">
-          <%= cl_image_tag(game.venue.photo.key, alt: "#{game.sport} court", class: "game-show-image") %>
 
-          <div class="game-show-info">
-            <h2>Description:</h2>
+        <div class="game-show-body" style="display: flex; justify-content: flex-start; padding: 8px; width: 90%">
+
+          <div class="game-show-info" style="margin-right: 20px">
             <p><%= game.description %></p>
 
             <h2>Date and Time:</h2>
-
             <p><%=game.game_date %> - <%= game.start_time %> : 00</p>
 
             <h2>Location:</h2>
             <p><%= game.venue.name %><br><%= game.venue.address %></p>
-
-            <h2>Spots left:</h2>
-            <p><%= game.capacity %> spots remaining</p>
-
-            <% if game.capacity > 0 %>
-              <%= button_to "Join Game", join_game_path(game), method: :post, class: "game-show-join-button" %>
-            <% else %>
-              <button class="game-show-join-button" disabled>Game filled</button>
-            <% end %>
           </div>
+
+          <div class="game-show-info avatars d-flex flex-column" style="width:40%">
+            <h2>Players</h2>
+            <% game.participations.each do |participation| %>
+              <div class="user-info d-flex align-items-center" style="margin-bottom: 10px;">
+                <div class="game-avatar">
+                  <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+                </div>
+                <h1 style="color: white; margin-left: 10px;"><%= participation.user.username %></h1>
+              </div>
+            <% end %>
+            <p><%= game.capacity - game.participations.count %> spots remaining</p>
+          </div>
+
         </div>
+
+        <div class="game-show-join" style="text-align: center;">
+          <% if game.capacity > 0 %>
+            <%= button_to "Join Game", join_game_path(game), method: :post, class: "game-show-join-button", style: "font-size: 14px; padding: 10px;" %>
+          <% else %>
+            <button class="game-show-join-button" disabled style="font-size: 14px; padding: 10px;">Game filled</button>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>
