@@ -1,27 +1,90 @@
+/* General Footer Styles */
 .footer {
-  background: black;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 60px;
-  padding: 0px 50px;
-  color: white;
-  margin-top: auto;
+  align-items: center;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 20px 40px;
+  font-family: 'Arial', sans-serif;
 }
-.footer-links {
+
+/* Social Media Icons */
+.social-media {
   display: flex;
   align-items: center;
 }
-.footer-links a {
+
+.social-media a {
+  color: #fff;
+  margin-right: 15px;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #007bff; /* Blue hover effect */
+}
+
+/* Newsletter Subscription Styles */
+.newsletter {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.newsletter form {
+  display: flex;
+  align-items: center;
+}
+
+.newsletter input[type="email"] {
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #007bff; /* Blue border */
+  background-color: #333; /* Dark grey background */
   color: white;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
+  margin-right: 10px;
 }
-.footer-links a:hover {
-  opacity: 1;
+
+.newsletter button {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  background-color: #007bff; /* Blue button */
+  color: white;
+  cursor: pointer;
 }
-.footer .fa-heart {
-  color: #D23333;
+
+.newsletter button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.footer-bottom {
+  text-align: right;
+  font-size: 14px;
+  color: #fff; /* Adjust the color as needed */
+}
+
+.footer-bottom fa-solid-fa-heart {
+  margin-right: 5px; /* Add some space before the text */
+  color: #007bff; /* You can choose a color that fits your theme */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-media, .newsletter, .footer-bottom {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .social-media a {
+    margin-right: 10px;
+    margin-left: 10px; /* Adjust spacing for smaller screens */
+  }
 }
