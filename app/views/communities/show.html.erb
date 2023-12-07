@@ -2,13 +2,12 @@
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path(@community.photo.key) %>');">
     <div class="banner-container">
       <h2 class="banner-text"><%= @community.name %></h2>
-      <a class="btn btn-flat" href="#">Apply now</a>
     </div>
   </div>
   <div class="community-show-container">
     <!-- Upcoming Games -->
     <div class="upcoming-games">
-      <h2 class="community-text">Upcoming Games</h2>
+      <h1 class="community-text">Upcoming Games</h1>
       <% if @upcoming_games.any? %>
         <ul>
           <% @upcoming_games.each do |game| %>
@@ -31,7 +30,7 @@
     <!-- Leaderboard -->
     <div class="leaderboard">
       <div class="community-chatroom">
-        <h2 class="community-text">Community Chatroom</h2>
+        <h1 class="community-text">Community Chatroom</h1>
         <div class="community-inner-chatroom"
           data-controller="chatroom-subscription"
           data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
@@ -47,44 +46,18 @@
           </div>
         </div>
         <%= simple_form_for [@chatroom, @message], url: community_messages_path(@community), remote: true,
-          html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex m-2" } do |f|
+          html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "community-chat-whole d-flex m-2" } do |f|
         %>
         <%= hidden_field_tag :redirect_path, community_path(@community) %>
         <%= f.input :content,
             label: false,
             placeholder: "Message ##{@chatroom.name}",
             class: "community-form-control",
-            wrapper_html: {class: "flex-grow-1"}
+            wrapper_html: {class: "community-chat-input flex-grow-1"}
           %>
         <%= f.submit "Send", class: "community-button btn-primary mb-3" %>
       <% end %>
     </div>
-    <h2 class="community-text">Leaderboard</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Ranking</th>
-          <th>Player</th>
-          <th>Number of Games Won</th>
-        </tr>
-      </thead>
-      <tbody>
-            <% @community.memberships.sort_by { |membership| membership.random_games_won }.reverse.each_with_index do |membership, index| %>
-          <tr>
-            <td><%= index + 1 %></td>
-            <td>
-              <div class="leaderboard-card">
-                <div class="leaderboard-avatar">
-                  <%= cl_image_tag(membership.user.photo.key, class: "leaderboard-avatar-image") %>
-                </div>
-                <p class="leaderboard-text"><%= membership.user.first_name %></p>
-              </div>
-            </td>
-            <td><%= membership.random_games_won %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
   </div>
 </div>
 </div>
