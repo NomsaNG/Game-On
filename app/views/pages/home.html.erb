@@ -3,12 +3,11 @@
     <div class="row justify-content-left">
       <div class="search-filters">
         <div class="filter-buttons">
-          <button class="filter-button" onclick="filterBy('all')">All</button>
-          <button class="filter-button" onclick="filterBy('nearMe')">Near Me</button>
-          <button class="filter-button" onclick="filterBy('playersYouKnow')">Players You Know</button>
-          <button class="filter-button" onclick="filterBy('tennis')">Tennis</button>
-          <button class="filter-button" onclick="filterBy('squash')">Squash</button>
-          <button class="filter-button" onclick="filterBy('padel')">Padel</button>
+          </h1><button class="filter-button" onclick="filterBy('all')"><h1>All</h1></button>
+          <button class="filter-button" onclick="filterBy('playersYouKnow')"> <h1>Players You Know</h1></button>
+          <button class="filter-button" onclick="filterBy('tennis')"><h1>Tennis</h1></button>
+          <button class="filter-button" onclick="filterBy('squash')"><h1>Squash</h1></button>
+          <button class="filter-button" onclick="filterBy('padel')"><h1>Padel</h1></button>
         </div>
         <div class="search-bar my-3">
           <%= form_with url: root_path, method: :get, class: "d-flex" do %>
@@ -29,7 +28,7 @@
     <div class="map-games-container">
       <div class="all-games-container">
         <div id="todays-games">
-          <h1>Today's Games</h1>
+          <p>Today's Games</p>
           <div class="grid-container">
             <% today_games = @games.select { |game| game.game_date == Date.today } %>
             <% today_games.first(4).each do |game| %>
@@ -38,12 +37,12 @@
                   <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
                 </div>
                 <div class="card-game-text m-2">
-                  <h2><%= game.name %></h2>
+                  <p><%= game.name %></p>
                   <div class="card-game-details">
-                    <h3><i class="fa-solid fa-clock"> </i><%= game.start_time %>h00  <i class="fa-solid fa-calendar-days"> </i><%= game.game_date.strftime("%e %b") %></h3>
-                    <h3><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></h3>
+                    <p><i class="fa-solid fa-clock"> </i><%= game.start_time %>h00  <i class="fa-solid fa-calendar-days"> </i><%= game.game_date.strftime("%e %b") %></p>
+                    <p><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></p>
                   </div>
-                    <h3><%= game.sport %></h3>
+                    <p><%= game.sport %></p>
                   <hr class="solid">
                   <div class="capacity-avatar-container">
                     <div class="game-capacity">
