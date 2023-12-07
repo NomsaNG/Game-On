@@ -13,6 +13,6 @@ export default class extends Controller {
   }
 
   showCommunities() {
-    this.communitiesListTarget.classList.remove("d-none");
+    // this.communitiesListTarget.classList.remove("d-none");
   }
 }

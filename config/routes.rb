@@ -35,6 +35,10 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:create]
 
+  resources :messages do
+    post 'share', on: :collection
+  end
+
   delete 'participations/:id', to: 'participations#destroy'
 
   resources :communities, only: [:new, :create, :index, :show] do

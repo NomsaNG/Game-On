@@ -971,7 +971,12 @@ Message.create(sender: user5, chatroom: chatroom_game21, content: "Let's make th
 Message.create(sender: user6, chatroom: chatroom_game22, content: "Ready to level up in this game!")
 Message.create(sender: user7, chatroom: chatroom_game23, content: "Who's bringing beers?")
 
-Message.create(sender: user1, chatroom: chatroom_community1, content: "Anyone up for a game?")
+Message.create(sender: user1, chatroom: chatroom_community1, content: "Should we go for a game next week?")
+Message.create(sender: user2, chatroom: chatroom_community1, content: "I'm down! Have 2 friends who would be keen to join I think")
+Message.create(sender: user3, chatroom: chatroom_community1, content: "If you're still looking for a player I'm in")
+Message.create(sender: user4, chatroom: chatroom_community1, content: "Who remembers the name of that one guy we played with last week? With the great smash")
+Message.create(sender: user5, chatroom: chatroom_community1, content: "John I think?")
+Message.create(sender: user6, chatroom: chatroom_community1, content: "Yeah that's the one")
 Message.create(sender: user2, chatroom: chatroom_community2, content: "We should try out that new tennis court in Claremont")
 Message.create(sender: user3, chatroom: chatroom_community3, content: "Guys what is the purpose of life")
 Message.create(sender: user4, chatroom: chatroom_community4, content: "Can't wait for the next game!")

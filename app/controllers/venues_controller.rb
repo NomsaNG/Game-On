@@ -1,6 +1,8 @@
 class VenuesController < ApplicationController
   def index
     @venues = Venue.all
+    @games = Game.all
+
     @markers = @venues.geocoded.map do |venue|
       {
         lat: venue.latitude,

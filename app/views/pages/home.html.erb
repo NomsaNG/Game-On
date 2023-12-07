@@ -89,7 +89,7 @@
                   </div>
                 </div>
                 <div class="d-none share-card" data-share-target="card">
-                  <%= simple_form_for(@message) do |f| %>
+                  <%= simple_form_for(@message, url: share_messages_path, method: :post) do |f| %>
                     <%= f.input :content,
                         as: :hidden,
                         label: false,

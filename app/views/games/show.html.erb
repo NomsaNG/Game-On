@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<div class="mx-auto" style="width: 60%; margin-top: 15px">
+<div class="mx-auto" style="width: 60%; margin-top: 15px" data-controller="share">
   <div>
     <div class="game-show-text-white">
       <div class="game-show-info" style="margin-right: 20px">
@@ -33,8 +33,34 @@
                   <h4><%= @game.description %></h4>
             <div class="d-flex justify-content-between">
               <div>
-                <% unless current_user.participations.exists?(game_id: @game.id, is_creator: true)%>
-                  <%= simple_form_for(@participation, url: join_game_path(@game), method: :post) do |f| %>
+                <button type="button" class="create-submit-button mb-4" data-action="click->share#toggle" data-share-target="button"> Share </button>
+                <div class="share-card d-none" data-share-target="card">
+                  <%= simple_form_for(@message, url: share_messages_path, method: :post) do |f| %>
+                    <%= f.input :content,
+                        as: :hidden,
+                        label: false,
+                        input_html: { class: "create-form-input"} %>
+                    <%= f.input :chatroom_id,
+                          include_blank: true,
+                          label: false,
+                          collection: @chatrooms_from_communities,
+                          include_blank: "Select Team",
+                          input_html: { class: "create-form-input-small"} %>
+                    <div class="d-none">
+                      <%= f.input :game_id,
+                        label: false,
+                        collection: @games_all,
+                        input_html: { class: "create-form-input"},
+                        selected: @game.id,
+                        include_blank: false %>
+                    </div>
+                    <%= f.submit "Confirm", class: "home-button-confirm-bigger mb-2" %>
+                  <% end %>
+                </div>
+              </div>
+              <div>
+                <% unless current_user.participations.exists?(game_id: @game.id)%>
+                  <%= simple_form_for(@participation, url: join_game_path(@game), method: :post, html: { id: 'join-game-form' }) do |f| %>
                     <div class="d-none">
                       <%= f.input :game_id, as: :hidden, input_html: { value: @game.id } %>
                       <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
@@ -48,35 +74,10 @@
                   <button class="create-submit-button mb-4" disabled>Game filled</button>
                 <% end %>
               </div>
-              <div>
-                <button type="button" class="create-submit-button mb-4" data-action="click->share#toggle" data-share-target="button"> Share </button>
-              <div>
             </div>
         <div class="d-flex justify-content-center">
           <div>
-            <div class="share-card" data-share-target="card">
-              <%= simple_form_for(@message) do |f| %>
-                <%= f.input :content,
-                    as: :hidden,
-                    label: false,
-                    input_html: { class: "create-form-input"} %>
-                <%= f.input :chatroom_id,
-                      include_blank: true,
-                      label: false,
-                      collection: @chatrooms_from_communities,
-                      include_blank: "Select Team",
-                      input_html: { class: "create-form-input-small"} %>
-                <div class="d-none">
-                  <%= f.input :game_id,
-                    label: false,
-                    collection: @games_all,
-                    input_html: { class: "create-form-input"},
-                    selected: @game.id,
-                    include_blank: false %>
-                </div>
-                <%= f.submit "Confirm", class: "home-button-confirm-bigger mb-2" %>
-              <% end %>
-            </div>
+
           </div>
 
 
@@ -135,7 +136,7 @@
   <!-- SweetAlert Trigger Script -->
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
+    const form = document.querySelector('#join-game-form');
     const id = document.getElementById('hidden-id').innerText;
 
     form.addEventListener('submit', function (e) {
