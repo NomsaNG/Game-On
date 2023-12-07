@@ -101,6 +101,7 @@ body {
   align-items: center;
   margin-top: 5px;
   margin-bottom: 5px;
+  margin-left: 15px;
 }
 
 .solid{
@@ -173,4 +174,12 @@ body {
 .image-container {
   position: relative;
   overflow: hidden;
+}
+
+.home-avatars{
+  display: flex;
+  justify-content: space-between;
+}
+.fa-share-nodes{
+  color: white;
 }

@@ -9,9 +9,9 @@
         <% end %>
       </div>
       <div class="community-info m-2">
-        <h6><%= community.name %></h6>
-        <h5><%= community.description %></h5>
-        <%= link_to 'View Team', community, class: "community-link" %>
+        <strong><h1><%= community.name %></h1></strong>
+        <p><%= community.description %></p>
+        <strong><%= link_to 'View Team', community, class: "community-link" %></strong>
       </div>
       <div class="community-avatars d-flex">
         <% community.memberships.each do |membership| %>

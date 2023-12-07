@@ -51,14 +51,14 @@
                 </div>
 
                 <div class="card-game-text m-2" >
-                  <h2 style="font-weight: 900"><%= game.name %></h2>
+                  <h1 style="text-align: center"><%= game.name %></h1>
                   <div class="card-game-details" style="padding: 14px; padding-bottom: 0px">
                     <p style="text-align: center; margin-bottom: 0px; font-size: 15px"> <i class="fa-solid fa-calendar-days"> </i>     <%= game.game_date.strftime("%e %b") %>      -       <i class="fa-solid fa-clock"> </i>  <%= game.start_time %>-<%= game.start_time + 2%>h </p>
                     <p style="text-align: center; margin-top: 0px; font-size: 15px"><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></p>
                   </div>
 
                   <hr class="solid">
-                  <div class="capacity-avatar-container justify-content-center" style="width:80%">
+                  <div class="capacity-avatar-container " style="width:80%">
                     <div class="game-capacity">
                       <% if game.capacity - game.participations.count == 1  %>
                         <p><%= "#{(game.capacity ) -(game.participations.count)} spot left" %></p>
@@ -66,7 +66,7 @@
                         <p><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></p>
                       <% end %>
                     </div>
-                    <div class="avatars d-flex">
+                    <div class="home-avatars">
                       <% game.participations.each do |participation| %>
                         <div class="game-avatar">
                           <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
@@ -124,22 +124,36 @@
               <div class="home-card-game" data-category="<%= game.sport.downcase %>">
                 <div class="image-container">
                   <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
+                  <div class="image-overlay"></div>
+                  <% if game.sport == "Tennis" %>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #fb8b24; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% elsif game.sport == "Padel"%>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #4d194d; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% elsif game.sport == "Squash"%>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #1982c4; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% end%>
                 </div>
-                <div class="card-game-text m-2">
-                  <h1><%= game.name %></h1>
-                  <h1><%= game.sport %></h1>
-                  <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
-                  <h1><%= game.venue.name %></h1>
+
+                <div class="card-game-text m-2" >
+                  <h1 style="text-align: center"><%= game.name %></h1>
+                  <div class="card-game-details" style="padding: 14px; padding-bottom: 0px">
+                    <p style="text-align: center; margin-bottom: 0px; font-size: 15px"> <i class="fa-solid fa-calendar-days"> </i>     <%= game.game_date.strftime("%e %b") %>      -       <i class="fa-solid fa-clock"> </i>  <%= game.start_time %>-<%= game.start_time + 2%>h </p>
+                    <p style="text-align: center; margin-top: 0px; font-size: 15px"><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></p>
+                  </div>
+
                   <hr class="solid">
-                  <div class="capacity-avatar-container">
+                  <div class="capacity-avatar-container " style="width:80%">
                     <div class="game-capacity">
                       <% if game.capacity - game.participations.count == 1  %>
-                        <h1><%= "#{(game.capacity ) -(game.participations.count)} spot left" %></h1>
+                        <p><%= "#{(game.capacity ) -(game.participations.count)} spot left" %></p>
                       <% else %>
-                        <h1><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></h1>
+                        <p><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></p>
                       <% end %>
                     </div>
-                    <div class="avatars d-flex">
+                    <div class="home-avatars">
                       <% game.participations.each do |participation| %>
                         <div class="game-avatar">
                           <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
@@ -147,42 +161,42 @@
                       <% end %>
                     </div>
                   </div>
-                  <div class="row game-card-buttons">
-                    <div class="col-7">
-                      <% if game.capacity > 0 %>
-                          <%= link_to "Show details", game_path(game), class: "home-button" %>
-                      <% else %>
-                          <button class="home-button" disabled>Game filled</button>
-                      <% end %>
-                    </div>
-                    <div class="col-4">
-                      <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
-                    </div>
+                </div>
+                <div class="row game-card-buttons">
+                  <div class="col-7">
+                    <% if game.capacity > 0 %>
+                        <%= link_to "Show details", game_path(game), class: "home-button" %>
+                    <% else %>
+                        <button class="home-button" disabled>Game filled</button>
+                    <% end %>
 
                   </div>
-                  <div class="d-none share-card" data-share-target="card">
-                    <%= simple_form_for(@message) do |f| %>
-                      <%= f.input :content,
-                          as: :hidden,
-                          label: false,
-                          input_html: { class: "create-form-input"} %>
-                      <%= f.input :chatroom_id,
-                            include_blank: true,
-                            label: false,
-                            collection: @chatrooms_from_communities,
-                            include_blank: "Select team",
-                            input_html: { class: "create-form-input-small"} %>
-                      <div class="d-none">
-                        <%= f.input :game_id,
-                          label: false,
-                          collection: @games_all,
-                          input_html: { class: "create-form-input"},
-                          selected: game.id,
-                          include_blank: false %>
-                      </div>
-                      <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
-                    <% end %>
+                  <div class="col-4">
+                    <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
                   </div>
+                </div>
+                <div class="d-none share-card" data-share-target="card">
+                  <%= simple_form_for(@message) do |f| %>
+                    <%= f.input :content,
+                        as: :hidden,
+                        label: false,
+                        input_html: { class: "create-form-input"} %>
+                    <%= f.input :chatroom_id,
+                          include_blank: true,
+                          label: false,
+                          collection: @chatrooms_from_communities,
+                          include_blank: "Select community",
+                          input_html: { class: "create-form-input-small"} %>
+                    <div class="d-none">
+                      <%= f.input :game_id,
+                        label: false,
+                        collection: @games_all,
+                        input_html: { class: "create-form-input"},
+                        selected: game.id,
+                        include_blank: false %>
+                    </div>
+                    <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
+                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -193,69 +207,84 @@
           <div class="all-the-games">
             <div class="list-grid-container">
               <% @games.each do |game| %>
-                <div class='home-card-game' data-category='<%= game.sport.downcase %>'>
-                  <div class='image-container'>
-                    <%= cl_image_tag(game.venue.photo.key, class: 'card-game-image') %>
+                <div class="home-card-game" data-category="<%= game.sport.downcase %>">
+                <div class="image-container">
+                  <%= cl_image_tag(game.venue.photo.key, class: "card-game-image") %>
+                  <div class="image-overlay"></div>
+                  <% if game.sport == "Tennis" %>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #fb8b24; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% elsif game.sport == "Padel"%>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #4d194d; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% elsif game.sport == "Squash"%>
+                    <p style="position: absolute; top: 6px; right: 6px;
+                    font-size: 13px; font-weight: 500; color: #fff; background-color: #1982c4; border: 1px solid rgb(200, 200, 200); padding: 6px; border-radius: 3px "> <%= game.sport %></p>
+                  <% end%>
+                </div>
+
+                <div class="card-game-text m-2" >
+                  <h1 style="text-align: center"><%= game.name %></h1>
+                  <div class="card-game-details" style="padding: 14px; padding-bottom: 0px">
+                    <p style="text-align: center; margin-bottom: 0px; font-size: 15px"> <i class="fa-solid fa-calendar-days"> </i>     <%= game.game_date.strftime("%e %b") %>      -       <i class="fa-solid fa-clock"> </i>  <%= game.start_time %>-<%= game.start_time + 2%>h </p>
+                    <p style="text-align: center; margin-top: 0px; font-size: 15px"><i class="fa-solid fa-location-dot"></i> <%= game.venue.name %></p>
                   </div>
-                  <div class='card-game-text m-2'>
-                    <h1><%= game.sport %></h1>
-                    <h1><%= game.name %></h1>
-                    <h1><%= game.game_date %> at <%= game.start_time %> : 00</h1>
-                    <h1><%= game.venue.name %></h1>
-                    <hr class='solid'>
-                    <div class='capacity-avatar-container'>
-                      <div class='game-capacity'>
-                        <% if game.capacity - game.participations.count == 1  %>
-                          <h1><%= "#{(game.capacity ) -(game.participations.count)} spot left" %></h1>
-                        <% else %>
-                          <h1><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></h1>
-                        <% end %>
-                      </div>
-                      <div class='avatars d-flex'>
-                        <% game.participations.each do |participation| %>
-                          <div class='game-avatar'>
-                            <%= cl_image_tag(participation.user.photo.key, class: 'avatar-image') %>
-                          </div>
-                        <% end %>
-                      </div>
-                    </div>
-                    <div class="row game-card-buttons">
-                    <div class="col-7">
-                      <% if game.capacity > 0 %>
-                          <%= link_to "Show details", game_path(game), class: "home-button" %>
+
+                  <hr class="solid">
+                  <div class="capacity-avatar-container " style="width:80%">
+                    <div class="game-capacity">
+                      <% if game.capacity - game.participations.count == 1  %>
+                        <p><%= "#{(game.capacity ) -(game.participations.count)} spot left" %></p>
                       <% else %>
-                          <button class="home-button" disabled>Game filled</button>
+                        <p><%= "#{(game.capacity ) -(game.participations.count)} spots left" %></p>
                       <% end %>
                     </div>
-                    <div class="col-4">
-                      <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
+                    <div class="home-avatars">
+                      <% game.participations.each do |participation| %>
+                        <div class="game-avatar">
+                          <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
-                  <div class="d-none share-card" data-share-target="card">
-                    <%= simple_form_for(@message) do |f| %>
-                      <%= f.input :content,
-                          as: :hidden,
-                          label: false,
-                          input_html: { class: "create-form-input"} %>
-                      <%= f.input :chatroom_id,
-                            include_blank: true,
-                            label: false,
-                            collection: @chatrooms_from_communities,
-                            include_blank: "Select community",
-                            input_html: { class: "create-form-input-small"} %>
-                      <div class="d-none">
-                        <%= f.input :game_id,
-                          label: false,
-                          collection: @games_all,
-                          input_html: { class: "create-form-input"},
-                          selected: game.id,
-                          include_blank: false %>
-                      </div>
-                      <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
+                </div>
+                <div class="row game-card-buttons">
+                  <div class="col-7">
+                    <% if game.capacity > 0 %>
+                        <%= link_to "Show details", game_path(game), class: "home-button" %>
+                    <% else %>
+                        <button class="home-button" disabled>Game filled</button>
                     <% end %>
+
                   </div>
+                  <div class="col-4">
+                    <button type="button" class="home-button-share" data-action="click->share#toggle" data-share-target="button"> Share </button>
                   </div>
                 </div>
+                <div class="d-none share-card" data-share-target="card">
+                  <%= simple_form_for(@message) do |f| %>
+                    <%= f.input :content,
+                        as: :hidden,
+                        label: false,
+                        input_html: { class: "create-form-input"} %>
+                    <%= f.input :chatroom_id,
+                          include_blank: true,
+                          label: false,
+                          collection: @chatrooms_from_communities,
+                          include_blank: "Select community",
+                          input_html: { class: "create-form-input-small"} %>
+                    <div class="d-none">
+                      <%= f.input :game_id,
+                        label: false,
+                        collection: @games_all,
+                        input_html: { class: "create-form-input"},
+                        selected: game.id,
+                        include_blank: false %>
+                    </div>
+                    <%= f.submit "Confirm", class: "home-button-confirm mb-2" %>
+                  <% end %>
+                </div>
+              </div>
               <% end %>
             </div>
           </div>

@@ -3,6 +3,7 @@
     <%= link_to(root_path, class: "navbar-brand") do %>
       <%= image_tag "pngtree-green-burning-tennis-ball-in-motion-png-image_2202897-removebg-preview.png", alt: "Logo", size: "300x" %>
     <% end %>
+    <h1>GAME ON</h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,7 +11,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <h1><%= link_to "My profile", user_path(current_user), class: "nav-link" %></h1>
+            <strong><h1><%= link_to "My profile", user_path(current_user), class: "nav-link" %></h1></strong>
           </li>
           <li class="nav-item">
             <h1><%= link_to "Messages", chatrooms_path, class: "nav-link" %></h1>
