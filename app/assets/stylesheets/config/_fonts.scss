@@ -1,9 +1,10 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Ephesis&family=Orbitron:wght@400;500;600;700;800;900&family=Teko:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Ephesis&family=Orbitron:wght@400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,100;0,300;0,600;0,700;1,100;1,300;1,400&family=Teko:wght@300;400;500;600&display=swap');
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "", "Roboto Condensed", "sans-serif";
+$headers-font: "Bungee Hairline", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

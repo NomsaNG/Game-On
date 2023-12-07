@@ -46,15 +46,17 @@ body {
   background: transparent;
   border: 2px solid #0074cc;
   box-shadow: #10508d 0px 0px 5px 0px;
+
 }
 
 .card-game-text {
   h2 {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 23px;
+    font-weight: 700;
     color: #fff;
     font-variant: small-caps;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
+    text-align: center;
   }
 
   h3 {
@@ -117,6 +119,7 @@ body {
   border: 2px solid #0074cc;
   border-radius: 8px;
   color: white;
+  font-family: 'Bungee Hairline';
 }
 
 .form-control{
@@ -125,7 +128,7 @@ body {
   border-radius: 8px;
   color: #fff;
   padding: 10px;
-
+  font-family: 'Bungee Hairline';
   &:hover{
     border: 3px solid #3aa5ec;
   }
@@ -155,4 +158,20 @@ body {
   color: #fff;
   font-size: 20px;
   margin-right: 10px;
+}
+
+.image-overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
 }
