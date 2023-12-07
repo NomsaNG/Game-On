@@ -23,8 +23,6 @@
 }
 
 .chatroom-item {
-  border: 1px solid lightblue;
-  border-radius: 6px;
   padding-left: 1rem;
   margin-bottom: 1rem;
   transition: background-color 0.3s;
@@ -52,4 +50,17 @@
   .form-group {
     margin-bottom: 0;
   }
+}
+
+.all-chats-messages{
+  display: flex;
+}
+
+.right-messages{
+  margin-left: 90px;
+  margin-top: 20px;
+  width: 40%;
+  color: white;
+  background: grey;
+  overflow-y: scroll;
 }

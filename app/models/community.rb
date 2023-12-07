@@ -10,5 +10,5 @@ class Community < ApplicationRecord
   has_many :users, through: :memberships
 
   has_many :games
-  belongs_to :chatroom, optional: true, dependent: :destroy
+  has_one :chatroom, dependent: :destroy
 end

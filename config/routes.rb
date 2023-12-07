@@ -46,5 +46,10 @@ Rails.application.routes.draw do
   resources :communities do
     resources :leaderboards, only: [:index]
     resources :games, only: [:new, :create]
+    resources :messages, only: [:create]
+  end
+
+  resources :chatrooms do
+    resources :messages, only: [:index]
   end
 end

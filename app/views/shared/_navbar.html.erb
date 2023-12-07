@@ -19,12 +19,12 @@
             <%= link_to "Create a Game", new_game_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Community", communities_path, class: "nav-link" %>
+            <%= link_to "Teams", communities_path, class: "nav-link" %>
           </li>
         <% end %>
         <!-- Games Rules Link -->
         <li class="nav-item">
-          <%= link_to "Games Rules", games_rules_path, class: "nav-link" %>
+          <%= link_to "Rules", games_rules_path, class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
