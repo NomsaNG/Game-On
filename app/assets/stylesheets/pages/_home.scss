@@ -17,22 +17,32 @@ body {
 }
 
 .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Show 4 cards per row by default */
+  gap: 40px;
   margin-top: 0;
   margin-bottom: 30px;
   overflow-y: auto;
-  display: flex;
-  justify-content: space-between;
+
+  @media (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr); /* Show 2 cards per row for screens less than 600px */
+
+  }
 }
 
 .list-grid-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 5em;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+    }
 }
 
 .home-card-game{
   height: auto;
-  width: 260px;
+  width: 16.25rem;
   border-radius: 0.3em;
   background: transparent;
   border: 2px solid #0074cc;
@@ -111,14 +121,22 @@ body {
   margin-bottom: 10px;
 }
 
-.all-the-games {
+#games-list {
   display: none;
 }
 
-.all-the-games.visible {
+#games-list.visible {
   display: block;
 }
 .form-control::placeholder {
   color: white;
   opacity: 1; /* Override any default opacity */
 }
+
+.fa-map{
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+

@@ -7,6 +7,14 @@ class GamesController < ApplicationController
   def index
   end
 
+  def past_games
+    @past_games = current_user.participated_games.past
+  end
+
+  def upcoming_games
+    @upcoming_games = current_user.participated_games.upcoming
+  end
+
   def show
     @game = Game.find(params[:id])
     @community = @game.community
@@ -31,6 +39,7 @@ class GamesController < ApplicationController
     @game.creator = current_user
     @communities = Community.all
     @venues = Venue.all.limit(5)
+
 
     if @game.save
       Chatroom.create(name: @game.name, game_id: @game.id)

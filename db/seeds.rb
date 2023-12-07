@@ -929,7 +929,6 @@ Message.create(sender: user5, chatroom: chatroom_game21, content: "Let's make th
 Message.create(sender: user6, chatroom: chatroom_game22, content: "Ready to level up in this game!")
 Message.create(sender: user7, chatroom: chatroom_game23, content: "Who's bringing beers?")
 
-
 Message.create(sender: user1, chatroom: chatroom_community1, content: "Anyone up for a game?")
 Message.create(sender: user2, chatroom: chatroom_community2, content: "We should try out that new tennis court in Claremont")
 Message.create(sender: user3, chatroom: chatroom_community3, content: "Guys what is the purpose of life")

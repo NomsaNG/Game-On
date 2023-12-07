@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.1].define(version: 2023_12_05_134341) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,7 +97,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_134341) do
     t.bigint "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "game_id"
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["game_id"], name: "index_messages_on_game_id"
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
@@ -149,6 +153,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_134341) do
   add_foreign_key "memberships", "communities"
   add_foreign_key "memberships", "users"
   add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "games"
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "participations", "games"

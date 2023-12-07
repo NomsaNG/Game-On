@@ -24,3 +24,35 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 9px;
 }
+
+
+.map-container {
+  display: none;
+  width: 50%;
+  position: sticky;
+  top: 70px
+}
+
+.all-games-container {
+  transition: margin-left 0.5s; /* Add a smooth transition effect */
+  width: 100%;
+}
+
+.map-shown {
+  width: 50%;
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.map-games-container{
+  display: flex;
+  justify-content: center;
+}
+
+.map-button-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  align-items: center;
+}

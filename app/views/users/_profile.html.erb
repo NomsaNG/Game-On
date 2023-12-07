@@ -1,0 +1,24 @@
+<div class="user-profile">
+          <div class="profile-img-div">
+              <%= cl_image_tag(user.photo.key, class: "profile-avatar") %>
+            </div>
+  <div class="user-main-holder">
+    <div class="user-name-div">
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+          <%= link_to 'Edit Profile', edit_user_path(@user), class: "edit-profile-btn" %>
+        <p>@<%= @user.username %> • Joined <%= @user.created_at.strftime('%b %d, %Y at %I:%M %p') %></p>
+    </div>
+    </div>
+  <div class="user-info-container">
+          <div class="user-info-card">
+            <p><strong>About</strong></p>
+            <P class="gender-p"><%= @user.gender %></P>
+            <p><%= @user.bio %></p>
+          </div>
+        </div>
+          <div class="user-games-links-container">
+            <%= link_to 'Past Games', past_games_games_path, :class => "past-button" %>
+            <%= link_to 'Upcoming Games', upcoming_games_games_path, :class => "upcoming-button"%>
+          </div>
+  </div>
+</div>

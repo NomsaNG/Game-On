@@ -19,6 +19,11 @@ Rails.application.routes.draw do
       post :join, to: 'participations#create'
       post :leave, to: 'participations#destroy'
     end
+
+    collection do
+      get :past_games
+      get :upcoming_games
+    end
   end
 
   resources :venues, only: [:index, :show]
@@ -26,6 +31,8 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:index, :show] do
     resources :messages, only: :create
   end
+
+  resources :messages, only: [:create]
 
   delete 'participations/:id', to: 'participations#destroy'
 
@@ -40,5 +47,10 @@ Rails.application.routes.draw do
   resources :communities do
     resources :leaderboards, only: [:index]
     resources :games, only: [:new, :create]
+    resources :messages, only: [:create]
+  end
+
+  resources :chatrooms do
+    resources :messages, only: [:index]
   end
 end

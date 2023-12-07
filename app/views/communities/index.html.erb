@@ -1,19 +1,25 @@
 <div class="community-div">
-  <h3>Communities</h3>
+  <h3>Teams</h3>
   <%= link_to 'Create a New Community', new_community_path, class: "create-community-button1" %>
   <% @communities.each do |community| %>
     <div class="community d-flex">
-    <div class="community-chat-icon">
-      <%= link_to community do %>
-        <i class="fas fa-comment-alt chat"></i>
-      <% end %>
-    </div>
-    <div class="community-info">
-      <h6><%= community.name %></h6>
-      <h5><%= community.description %></h5>
-      <%= link_to 'View Community', community, class: "community-link" %>
-    </div>
-
+      <div class="community-chat-icon">
+        <%= link_to community do %>
+          <%= cl_image_tag(community.photo.key, class: "community-index-image") %>
+        <% end %>
+      </div>
+      <div class="community-info m-2">
+        <h6><%= community.name %></h6>
+        <h5><%= community.description %></h5>
+        <%= link_to 'View Community', community, class: "community-link" %>
+      </div>
+      <div class="community-avatars d-flex">
+        <% community.memberships.each do |membership| %>
+          <div class="community-avatar">
+            <%= cl_image_tag(membership.user.photo.key, class: "community-avatar-image") %>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

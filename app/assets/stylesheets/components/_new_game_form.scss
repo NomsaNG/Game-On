@@ -6,6 +6,16 @@
   padding: 10px;
 }
 
+.create-form-input-small {
+  background: transparent;
+  border: 2px solid #0074cc;
+  border-radius: 8px;
+  width: 87%;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+}
+
 .create-form-input::placeholder, .create-community-input::placeholder,.form-inputs::placeholder {
   background: transparent;
   color: rgba(211, 211, 211, 0.838);
@@ -300,7 +310,7 @@
 }
 
 .venue-details {
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 

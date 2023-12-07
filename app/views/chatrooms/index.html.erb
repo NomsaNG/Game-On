@@ -1,57 +1,116 @@
-<div class="chatrooms-container row">
-
-  <div class="div-1a col-6">
-    <h1 style="margin-bottom: 1rem; font-size: 27px"> Community chats</h1>
-    <% @chatrooms_from_communities.each do |chatroom| %>
-      <div class="text-white chatroom-item d-flex justify-content-between" style="width: 100%">
-        <div>
-          <p style="font-size: 20px; text-decoration: none"><strong><%= link_to chatroom.name, chatroom_path(chatroom) %></strong></h2>
-          <% if chatroom.messages.last %>
-            <p><em><%= chatroom.messages.last.content %></em> - <%= chatroom.messages.last.sender.username %>
-              (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
-          <% else %>
-            <p>No messages yet</p>
-          <% end %>
-        </div>
-
-        <div class="chatroom-avatars">
-          <div class="avatars d-flex">
-            <% chatroom.community.memberships.each do |membership| %>
-              <div class="game-avatar">
-                <%= cl_image_tag(membership.user.photo.key, class: "avatar-image") %>
+<div class="chatrooms-container">
+  <div class="all-chats-messages">
+    <div class="all-chats-container">
+      <div class="div-1a chat-container" id="communityChatContainer">
+        <h1 style="margin-bottom: 1rem; font-size: 27px"> Community chats</h1>
+        <% @chatrooms_from_communities.each do |chatroom| %>
+          <div class="text-white chatroom-item" style="width: 100%" data-chatroom-id="<%= chatroom.id %>">
+            <div>
+              <div style="font-size: 20px; text-decoration: none; cursor: pointer;" onclick="handleChatroomClick('<%= chatroom.id %>')">
+                <strong><%= chatroom.name %></strong>
               </div>
-            <% end %>
+              <% if chatroom.messages.last %>
+                <% if chatroom.messages.last.game.present? %>
+                  <p><%= chatroom.messages.last.sender.username %> shared a game (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+                <% else %>
+                  <p><em><%= chatroom.messages.last.content %></em> - <%= chatroom.messages.last.sender.username %>
+                    (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+                <% end %>
+              <% else %>
+                <p>No messages yet</p>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
+
+
       </div>
-    <% end %>
-  </div>
-
-  <div class="div-1b col-6">
-    <h1 style="margin-bottom: 1rem; font-size: 27px"> Game chats</h1>
-    <% @chatrooms_from_games.each do |chatroom| %>
-      <div class="text-white chatroom-item d-flex justify-content-between" style="width: 100%">
-        <div>
-          <p style="font-size: 20px; text-decoration: none"><strong><%= link_to chatroom.name, chatroom_path(chatroom) %></strong></h2>
-          <% if chatroom.messages.last %>
-            <p><em><%= chatroom.messages.last.content %></em> - <%= chatroom.messages.last.sender.username %>
-              (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
-          <% else %>
-            <p>No messages yet</p>
-          <% end %>
-        </div>
-
-        <div class="chatroom-avatars">
-          <div class="avatars d-flex">
-            <% chatroom.game.participations.each do |participation| %>
-              <div class="game-avatar">
-                <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
-              </div>
-            <% end %>
+      <div class="div-1b chat-container" id="gameChatContainer">
+        <h1 style="margin-bottom: 1rem; font-size: 27px"> Game chats</h1>
+        <% @chatrooms_from_games.each do |chatroom| %>
+          <div class="text-white chatroom-item d-flex justify-content-between" style="width: 100%" data-chatroom-id="<%= chatroom.id %>">
+            <div>
+              <div style="font-size: 20px; text-decoration: none; cursor: pointer;" onclick="handleChatroomClick('<%= chatroom.id %>')">
+                <strong><%= chatroom.name %></strong>
+              </div>              <% if chatroom.messages.last %>
+                <% if chatroom.messages.last.game.present? %>
+                  <p><%= chatroom.messages.last.sender.username %> shared a game (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+                <% else %>
+                  <p><em><%= chatroom.messages.last.content %></em> - <%= chatroom.messages.last.sender.username %>
+                    (<%= time_ago_in_words(chatroom.messages.last.created_at) %>) ago</p>
+                <% end %>
+              <% else %>
+                <p>No messages yet</p>
+              <% end %>
+            </div>
+            
           </div>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+    <div class="right-messages">
+      <%= turbo_frame_tag "messages_area" do %>
+        <!-- Initially, this area can be empty or contain a placeholder message -->
+      <% end %>
+    </div>
   </div>
-
 </div>
+
+<script>
+  function handleChatroomClick(chatroomId) {
+    const chatroom = document.querySelector(`[data-chatroom-id="${chatroomId}"]`);
+    chatroom.click();
+  }
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const chatrooms = document.querySelectorAll('.chatroom-item');
+  const messagesContainer = document.querySelector('#messages_area');
+
+  chatrooms.forEach(chatroom => {
+    chatroom.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log("clicked");
+      const chatroomId = chatroom.dataset.chatroomId;
+      console.log(chatroomId);
+      // Reset the style for all chat containers and their messages
+      document.querySelectorAll('.chat-container').forEach(container => {
+        container.style.order = '';
+        container.querySelectorAll('.chatroom-item').forEach(item => {
+          item.classList.remove('chatroom-item-right');
+        });
+      });
+
+      // Set the order property of the clicked chat container to push it to the right
+      chatroom.closest('.chat-container').style.order = '-1';
+      console.log(chatroom.closest('.chat-container').style.order);
+      // Add a class to the clicked chat item to move messages to the right
+      chatroom.classList.add('chatroom-item-right');
+
+      // Update the messages in the show page
+
+      updateMessages(chatroomId);
+
+    });
+  });
+
+    function updateMessages(chatroomId) {
+      // Fetch messages for the selected chatroom using AJAX or any suitable method
+      fetch(`/chatrooms/${chatroomId}/messages`)
+        .then(response => response.json())
+        .then(messages => {
+          messagesContainer.innerHTML = '';
+          console.log(messages);
+          // Append the fetched messages to the messagesContainer
+          messages.forEach(message => {
+            const messageElement = document.createElement('div');
+            messageElement.innerHTML = message.content; // Assuming your message has a content attribute
+            messagesContainer.appendChild(messageElement);
+          });
+        })
+        .catch(error => console.error('Error fetching messages:', error));
+    }
+  });
+</script>
