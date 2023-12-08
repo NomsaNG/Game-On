@@ -3,7 +3,7 @@
   background-color: #0074cc;
   color: white;
   border-radius: 0.7em;
-  width: 100%;
+  width: 216px;
   text-decoration: none;
   padding: 0.3em;
   margin-bottom: 0.5em;
@@ -20,20 +20,16 @@
 .home-button-share{
   border: 0px;
   display: block;
-  background-color: #0074cc;
+  // background-color: #0074cc;
+  background: transparent;
   color: white;
   border-radius: 0.7em;
   width: 100%;
   text-decoration: none;
-  padding: 0.3em;
+  padding: 0;
   margin-bottom: 0.3em;
   text-align: center;
-  margin-right: 0.9em;
-
-  &:hover{
-    background-color: #00172d;
-    ;
-  }
+  margin-right: 0;
 }
 
 .game-card-buttons{

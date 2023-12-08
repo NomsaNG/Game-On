@@ -33,7 +33,7 @@ body {
 .list-grid-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 5em;
+  grid-gap: 40px;
 
   @media screen and (max-width: 600px) {
     grid-template-columns: 1fr 1fr;
@@ -42,6 +42,8 @@ body {
 
 .home-card-game{
   height: auto;
+  margin: 0;
+  width: 290px;
   border-radius: 0.3em;
   background: transparent;
   border: 2px solid #0074cc;
@@ -182,4 +184,9 @@ body {
 }
 .fa-share-nodes{
   color: white;
+  margin-left: 80px;
+}
+
+.fa-share-nodes:hover{
+  color: #3aa5ec;
 }
