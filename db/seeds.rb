@@ -39,7 +39,7 @@ user2 = User.create!(
   password_confirmation: 'password123',
   first_name: "Novak",
   last_name: "Djokovic",
-  username: "Djokobitch",
+  username: "Djokoooo",
   gender: "Male",
   bio: "Hey, I'm Novak Djokovic! 🎾 Passionate about smashing aces, lover of padel, and always up for a good match. Proud owner of a golden tennis racket! 🏅 #ServeAndVolley"
 )
