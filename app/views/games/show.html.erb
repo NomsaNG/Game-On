@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('<%= cl_image_path(@game.venue.photo.key) %>'); display: flex; justify-content: center; align-items: center; position: relative;">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)), url('<%= cl_image_path(@game.venue.photo.key) %>'); display: flex; justify-content: center; align-items: center; position: relative;">
   <div style="width: 90%; text-align: center;">
     <% if current_user.participations.exists?(game_id: @game.id, is_creator: true) %>
       <p style="position: absolute; top: 10px; left: 10px;"> <%= @game.sport %><p>
@@ -6,14 +6,14 @@
       <p style="position: absolute; top: 10px; right: 10px;"> <%= link_to "Delete", game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete"  %> <p>
     <% end %>
     <h2 style="color: white" class="show-game-title"><%= @game.name %></h2>
-    <div style="position: absolute; bottom: 10px; right: 10px;">
-      <h2 style="text-align: left; color: white; font-size: 17px"> Players </h2>
+    <div style="position: absolute; bottom: 10px; right: 35px;">
+      <h2 style="text-align: left; color: white; font-size: 40px; margin-right:0px; margin-left: 10px"> Players </h2>
       <% @game.participations.each do |participation| %>
       <div class="user-info d-flex align-items-center" style="margin-bottom: 10px;">
         <div class="game-avatar">
           <%= cl_image_tag(participation.user.photo.key, class: "avatar-image") %>
         </div>
-        <h3 style="font-size: 15px;color: white; margin-left: 10px;"><%= participation.user.username %></h3>
+        <p class="show-username-p" style="font-size:22px; margin-bottom: 0px"><%= participation.user.username %></p>
       </div>
     <% end %>
     </div>
@@ -25,15 +25,15 @@
     <div class="game-show-text-white">
       <div class="game-show-info" style="margin-right: 20px">
 
-        <h1 style="margin-bottom: 1em"><i class="fa-solid fa-building"></i> <%= @game.venue.name %></h1>
-        <h2><i class="fa-solid fa-location-dot"></i> <%=@game.game_date.strftime("%e %b") %>   <i class="fa-solid fa-clock"></i> <%= @game.start_time %>:00</h2>
+        <p style="margin-bottom: 1em"><i class="fa-solid fa-building"></i> <%= @game.venue.name %></p>
+        <p><i class="fa-solid fa-calendar-days"></i> <%=@game.game_date.strftime("%e %b") %> | <i class="fa-solid fa-clock"></i> <%= @game.start_time %>:00</p>
 
-        <h3><i class="fa-solid fa-calendar-days"> </i> <%= @game.venue.address %></h3>
+        <p><i class="fa-solid fa-location-dot"> </i> <%= @game.venue.address %></p>
 
-                  <h4><%= @game.description %></h4>
+                  <p><%= @game.description %></p>
             <div class="d-flex justify-content-between">
               <div>
-                <button type="button" class="create-submit-button mb-4" data-action="click->share#toggle" data-share-target="button"> Share </button>
+                <button type="button" class="share-show-page-btn" data-action="click->share#toggle" data-share-target="button"><i class="fa-solid fa-share-nodes"></i></button>
                 <div class="share-card d-none" data-share-target="card">
                   <%= simple_form_for(@message, url: share_messages_path, method: :post) do |f| %>
                     <%= f.input :content,
