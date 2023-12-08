@@ -21,12 +21,12 @@
 }
 
 /* Image Container Styles */
-.image-container {
+.image-container-rules {
   position: relative;
   text-align: center;
 }
 
-.image-container img {
+.image-container-rules img {
   width: 100%;
   height: 436px;
   object-fit: cover; /* Ensures proper scaling of the image */
