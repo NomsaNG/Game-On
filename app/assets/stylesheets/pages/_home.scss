@@ -170,7 +170,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%);
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 100%);
   pointer-events: none;
 }
 
@@ -185,9 +185,30 @@ body {
 }
 .fa-share-nodes{
   color: white;
-  margin-left: opx;
+
+  margin-left: 0px;
+}
+
+.fa-share-nodes-1{
+  color: white;
+  margin-left: 5px;
+
 }
 
 .fa-share-nodes:hover{
   color: #3aa5ec;
+}
+
+
+
+
+.community-list-games-home:hover {
+  color: #239cf9;
+  text-decoration: none; /* This removes the underline */
+}
+
+h1.community-list-games-home {
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff; /* Set the default text color to white */
 }
