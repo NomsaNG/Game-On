@@ -8,8 +8,8 @@
           <%= cl_image_tag(community.photo.key, class: "community-index-image") %>
         <% end %>
       </div>
-      <div class="community-info m-2">
-        <strong><h1><%= community.name %></h1></strong>
+      <div class="community-info m-2" style="margin-left: 8px">
+        <strong><h1 style="font-size: 29px"><%= community.name %></h1></strong>
         <p><%= community.description %></p>
         <strong><%= link_to 'View Team', community, class: "community-link" %></strong>
       </div>

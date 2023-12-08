@@ -350,8 +350,8 @@ puts "Generating communities..."
 
 community1 = Community.create!(
   name: "Racket Titans",
-  description: "A community for passionate tacket sport enthusiasts. Join us for epic matches and discussions!",
-  visibility: "Public",
+  description: "A community for passionate racket sport enthusiasts. Join us for epic matches and discussions!",
+  visibility: "Public"
 )
 
 community1_url = "https://scontent.fbru1-1.fna.fbcdn.net/v/t39.30808-6/300390241_593629509134826_4831983855745723648_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeEDLCVHxWA9x6_ssu3pUY-Yp_jmlMbr5Xun-OaUxuvle9dDvJdy-Z_a7ddunxkKvrmryUbjsXj5hPPwkNQKkjec&_nc_ohc=fRk-23s_r1YAX8R4GbS&_nc_ht=scontent.fbru1-1.fna&oh=00_AfDlvj8EPMvqE7p1hPw9TjWazFJMkFicvHpCFAb5iaz4ZQ&oe=65739E21"
@@ -448,7 +448,7 @@ game1 = Game.create!(
   start_time: 6
 )
 
-game1.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+game1.participations.create!([{ user: user1, is_creator: true }, { user: user2 }, { user: user5 }])
 
 game2 = Game.create!(
   name: "Bob's Center Open",
@@ -461,7 +461,7 @@ game2 = Game.create!(
   start_time: 8
 )
 
-game2.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
+game2.participations.create!([{ user: user3, is_creator: true }])
 
 game4 = Game.create!(
   name: "Squash Tournie",
@@ -487,7 +487,7 @@ game5 = Game.create!(
   start_time: 12
 )
 
-game5.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+game5.participations.create!([{ user: user7, is_creator: true }, { user: user8 }, { user: user2 }])
 
 game6 = Game.create!(
   name: "Tennis Thriller",
@@ -500,7 +500,7 @@ game6 = Game.create!(
   start_time: 14
 )
 
-game6.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+game6.participations.create!([{ user: user1, is_creator: true }, { user: user2 }, { user: user6 }])
 
 game7 = Game.create!(
   name: "Padel 4 Beginners",
@@ -513,7 +513,7 @@ game7 = Game.create!(
   start_time: 16
 )
 
-game7.participations.create!([{ user: user3, is_creator: true }, { user: user4 }])
+game7.participations.create!([{ user: user3, is_creator: true }])
 
 game8 = Game.create!(
   name: "Squash Rivalry",
@@ -552,7 +552,7 @@ game10 = Game.create!(
   start_time: 8
 )
 
-game10.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+game10.participations.create!([{ user: user1, is_creator: true }, { user: user2 }, { user: user4 }])
 
 game11 = Game.create!(
   name: "Squash Spwash",
@@ -578,7 +578,7 @@ game12 = Game.create!(
   start_time: 12
 )
 
-game12.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+game12.participations.create!([{ user: user5, is_creator: true }])
 
 game13 = Game.create!(
   name: "Padel Championship",
@@ -604,7 +604,7 @@ game14 = Game.create!(
   start_time: 16
 )
 
-game14.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+game14.participations.create!([{ user: user1, is_creator: true }, { user: user2 }, { user: user7 }])
 
 game15 = Game.create!(
   name: "Tennis Showtime",
@@ -630,7 +630,7 @@ game16 = Game.create!(
   start_time: 8
 )
 
-game16.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+game16.participations.create!([{ user: user5, is_creator: true }])
 
 game17 = Game.create!(
   name: "Squash Extravaganza",
@@ -656,7 +656,7 @@ game18 = Game.create!(
   start_time: 14
 )
 
-game18.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+game18.participations.create!([{ user: user1, is_creator: true }])
 
 game19 = Game.create!(
   name: "Bob's Center Open",
@@ -682,7 +682,7 @@ game20 = Game.create!(
   start_time: 10
 )
 
-game20.participations.create!([{ user: user5, is_creator: true }, { user: user6 }])
+game20.participations.create!([{ user: user5, is_creator: true }])
 
 game21 = Game.create!(
   name: "Ace Tennis",
@@ -695,7 +695,7 @@ game21 = Game.create!(
   start_time: 14
 )
 
-game21.participations.create!([{ user: user7, is_creator: true }, { user: user8 }])
+game21.participations.create!([{ user: user7, is_creator: true }, { user: user8 }, { user: user4 }])
 
 game22 = Game.create!(
   name: "Rapid Tennis",
@@ -721,7 +721,7 @@ game23 = Game.create!(
   start_time: 18
 )
 
-game23.participations.create!([{ user: user1, is_creator: true }, { user: user2 }])
+game23.participations.create!([{ user: user1, is_creator: true }, { user: user2 }, { user: user3 }])
 
 game3 = Game.create!(
   name: "Squash Showdown",
@@ -799,7 +799,7 @@ game28.participations.create!([{ user: user7, is_creator: true }, { user: user8 
 
 game29 = Game.create!(
   name: "Tennis Tussle",
-  description: "Join the tennis turf tussle for a challenging match on the courts! Show off your tennis prowess.",
+  description: "Join the tennis turf tussle for a challenging match on the courts!",
   visibility: "Team",
   capacity: 4,
   venue: venue5,

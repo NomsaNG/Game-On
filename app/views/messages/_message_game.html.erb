@@ -3,6 +3,5 @@
     <strong><%= message.sender.username %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
-  <p> <em><%= link_to "[View Game]", game_path(message.game) %> <%= message.game.name %> (<%= message.game.sport %>) on <%= message.game.game_date %> at <%= message.game.start_time %>:00</h1> at <%= message.game.venue.name %></em>
-  </p>
+  <p> <%= link_to "[#{message.game.name}]", game_path(message.game) %> Check out this game! Things will be going down on <%= message.game.game_date.strftime("%e %b") %> at <%= message.game.venue.name %>. Grab your racket and go for it!</p>
 </div>
