@@ -349,8 +349,8 @@ puts "Succesfully generated #{Venue.count} venues"
 puts "Generating communities..."
 
 community1 = Community.create!(
-  name: "Tennis Titans",
-  description: "A community for passionate tennis enthusiasts. Join us for epic matches and tennis discussions!",
+  name: "Racket Titans",
+  description: "A community for passionate tacket sport enthusiasts. Join us for epic matches and discussions!",
   visibility: "Public",
 )
 
@@ -507,7 +507,7 @@ game7 = Game.create!(
   description: "Welcome to a friendly padel tournament! Enjoy a fun-filled game of smashing the ball and strategic plays.",
   visibility: "Public",
   capacity: 4,
-  venue: venue4,
+  venue: venue12,
   sport: "Padel",
   game_date: Date.today,
   start_time: 16
@@ -626,7 +626,7 @@ game16 = Game.create!(
   capacity: 4,
   venue: venue6,
   sport: "Padel",
-  game_date: Date.today - 1,
+  game_date: Date.today,
   start_time: 8
 )
 
