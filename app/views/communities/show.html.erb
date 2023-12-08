@@ -9,19 +9,18 @@
     <div class="upcoming-games">
       <h1 class="community-text">Upcoming Games</h1>
       <% if @upcoming_games.any? %>
-        <ul>
           <% @upcoming_games.each do |game| %>
             <div class="image-community-container">
               <%= cl_image_tag(game.venue.photo.key, class: "community-venue-img") %>
               <div class="community-game-card">
-                <p style="text-align: center; font-size: 25px"><%= link_to game.name, game, class:"community-list-games"%></p>
+                <h1 style="text-align: center; font-size: 25px"><%= link_to game.name, game, class:"community-list-games"%></h1>
                 <p><i class="fa-solid fa-table-tennis-paddle-ball p-2"></i><%= game.sport %></p>
                 <p><i class="fa-solid fa-location-dot p-2"></i> <%= game.venue.name %> </p>
-                <p> <i class="fa-solid fa-calendar-days p-2"> </i>     <%= game.game_date.strftime("%e %b") %>  - <i class="fa-solid fa-clock p-2"> </i>    <%= game.start_time %>:00</p>
+                <p> <i class="fa-solid fa-calendar-days p-2"> </i>     <%= game.game_date.strftime("%e %b") %>  | <i class="fa-solid fa-clock p-2"> </i>    <%= game.start_time %>:00</p>
+                <p><%= game.description %></p>
               </div>
             </div>
           <% end %>
-        </ul>
       <% else %>
         <h4>No upcoming games.</h4>
       <% end %>
@@ -45,17 +44,19 @@
           </div>
         </div>
         <%= simple_form_for [@chatroom, @message], url: community_messages_path(@community), remote: true,
-          html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "community-chat-whole d-flex m-2" } do |f|
+              html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "community-chat-whole d-flex m-2" } do |f|
         %>
-        <%= hidden_field_tag :redirect_path, community_path(@community) %>
-        <%= f.input :content,
-            label: false,
-            placeholder: "Message ##{@chatroom.name}",
-            class: "community-form-control",
-            wrapper_html: {class: "community-chat-input flex-grow-1"}
+          <%= hidden_field_tag :redirect_path, community_path(@community) %>
+          <%= f.input :content,
+              label: false,
+              placeholder: "Message ##{@chatroom.name}",
+              class: "community-form-control",
+              wrapper_html: {class: "community-chat-input flex-grow-1"}
           %>
-        <%= f.submit "Send", class: "community-button btn-primary mb-3" %>
-      <% end %>
+          <%= button_tag(type: 'submit', class: "community-button-chat-send btn-primary mb-3") do %>
+            <i class="fa-solid fa-paper-plane"></i>
+          <% end %>
+        <% end %>
     </div>
   </div>
 </div>

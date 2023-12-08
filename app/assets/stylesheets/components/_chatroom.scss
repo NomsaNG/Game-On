@@ -44,7 +44,7 @@
 }
 
 #new_message {
-  padding-left: 1rem;
+
 
   .form-group {
     margin-bottom: 0;
@@ -131,4 +131,54 @@
   position: absolute;
   bottom: 5px; /* Adjust the bottom spacing as needed */
   right: 5px;
+}
+
+.container-showpage-chatroom{
+  background: transparent;
+  border: #0074cc 2px solid;
+  height: 500px;
+  border-radius: 8px;
+  width: 70%;
+  margin: 0 auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  h1{
+    padding: 1rem;
+    font-size: 2em;
+  }
+}
+
+.container-showpage-chatroom::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+.container-showpage-chatroom::-webkit-scrollbar-thumb {
+  background-color: #3aa5ec; /* Set the color of the scrollbar thumb */
+  border-radius: 6px; /* Set the border-radius of the scrollbar thumb */
+}
+
+.container-showpage-chatroom::-webkit-scrollbar-track {
+  background: transparent; /* Set the color of the scrollbar track */
+}
+
+.chatroom-container {
+  min-height: 100vh;
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-top: 2em;
+}
+
+.showpage-chatroom-input{
+  width: 70%;
+  margin: 0 auto;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.showpage-chatroom-send-button{
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: 'Bungee Hairline';
 }
