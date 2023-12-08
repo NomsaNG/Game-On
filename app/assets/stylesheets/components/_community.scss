@@ -19,14 +19,9 @@
   border-radius: 6px;
 }
 
-.community-show-container{
-  justify-content: space-between;
-  margin-left: 75px;
-  margin-right: 75px;
-}
 
 .upcoming-games, .leaderboard{
-  width: 500px;
+  width: 55%;
 }
 
 .chat{
@@ -106,6 +101,8 @@
 .community-show-container{
   display: flex;
   justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
 }
 
 
@@ -116,7 +113,7 @@
   border-radius: 0.8em;
   background: transparent;
   margin-bottom: 1em;
-  width: 720px;
+  width: 90%;
 }
 
 .community-game-card{
@@ -129,7 +126,7 @@
 }
 
 .community-venue-img{
-  height: 16em;
+  height: 100%;
   width: 18em;
   border-radius: 0.3em;
 }
@@ -224,4 +221,8 @@ table.table {
 
 .community-list-games:hover{
   color: #239cf9;
+}
+
+.community-chatroom{
+  width: 100%;
 }
