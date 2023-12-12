@@ -354,19 +354,19 @@ community1 = Community.create!(
   visibility: "Public"
 )
 
-community1_url = "https://scontent.fbru1-1.fna.fbcdn.net/v/t39.30808-6/300390241_593629509134826_4831983855745723648_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeEDLCVHxWA9x6_ssu3pUY-Yp_jmlMbr5Xun-OaUxuvle9dDvJdy-Z_a7ddunxkKvrmryUbjsXj5hPPwkNQKkjec&_nc_ohc=fRk-23s_r1YAX8R4GbS&_nc_ht=scontent.fbru1-1.fna&oh=00_AfDlvj8EPMvqE7p1hPw9TjWazFJMkFicvHpCFAb5iaz4ZQ&oe=65739E21"
-community1_file = URI.open(community1_url)
-community1.photo.attach(io: community1_file, filename: 'community1_img.jpeg', content_type: 'image/png')
-community1.save!
+# community1_url = "https://scontent.fbru1-1.fna.fbcdn.net/v/t39.30808-6/300390241_593629509134826_4831983855745723648_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeEDLCVHxWA9x6_ssu3pUY-Yp_jmlMbr5Xun-OaUxuvle9dDvJdy-Z_a7ddunxkKvrmryUbjsXj5hPPwkNQKkjec&_nc_ohc=fRk-23s_r1YAX8R4GbS&_nc_ht=scontent.fbru1-1.fna&oh=00_AfDlvj8EPMvqE7p1hPw9TjWazFJMkFicvHpCFAb5iaz4ZQ&oe=65739E21"
+# community1_file = URI.open(community1_url)
+# community1.photo.attach(io: community1_file, filename: 'community1_img.jpeg', content_type: 'image/png')
+# community1.save!
 
-Membership.create!(user: user1, community: community1)
-Membership.create!(user: user2, community: community1)
-Membership.create!(user: user3, community: community1)
-Membership.create!(user: user4, community: community1)
-Membership.create!(user: user5, community: community1)
-Membership.create!(user: user6, community: community1)
-Membership.create!(user: user7, community: community1)
-Membership.create!(user: user8, community: community1)
+# Membership.create!(user: user1, community: community1)
+# Membership.create!(user: user2, community: community1)
+# Membership.create!(user: user3, community: community1)
+# Membership.create!(user: user4, community: community1)
+# Membership.create!(user: user5, community: community1)
+# Membership.create!(user: user6, community: community1)
+# Membership.create!(user: user7, community: community1)
+# Membership.create!(user: user8, community: community1)
 
 
 community2 = Community.create!(
@@ -743,7 +743,7 @@ game24 = Game.create!(
   visibility: "Team",
   capacity: 4,
   venue: venue1,
-  community: community1,
+  community: community2,
   sport: "Tennis",
   game_date: Date.today,
   start_time: 16
